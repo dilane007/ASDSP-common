@@ -1,0 +1,16 @@
+04/02/2009  05:47 PM               435 bitshifta.m
+07/01/2009  05:04 PM               376 bitshifta_ub.m
+06/30/2009  10:57 AM               348 bitshifta_ub4.m
+07/01/2009  05:06 PM               403 bitshifta_ul.m
+07/01/2009  05:04 PM               398 bitshifta_us.m
+06/05/2009  12:43 PM               820 clo.m
+06/05/2009  12:44 PM               900 cls.m
+06/05/2009  12:44 PM               925 clz.m
+06/06/2006  02:57 PM               238 extend.m
+06/06/2006  02:57 PM               246 extlsb.m
+04/10/2009  09:17 AM               230 extmsb.m
+06/06/2006  05:05 PM               271 lsb2msb.m
+08/07/2009  09:58 AM                98 qshift.m
+07/02/2009  09:21 AM               402 sex.m
+07/21/2009  07:58 PM               472 zext.m
+

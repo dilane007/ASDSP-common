@@ -1,0 +1,25 @@
+%ISPRIME2 True for prime numbers.
+%
+%   ISPRIME2(X) is 1 for the elements of X which are prime, 0 otherwise.
+%
+%   See also FACTOR, PRIMES, ISPRIME.
+
+%   Author:      Peter J. Acklam
+%   Time-stamp:  2003-10-13 15:11:12 +0200
+%   E-mail:      pjacklam@online.no
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% dfm was here
+% nargchk suppressed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% dfm was here
+function isp = isprime2(X)
+   isp = logical(X);
+   n = max(X(:));
+   maxfact = floor( sqrt(n) );              % Maximum possible factor.
+   p = primes( maxfact );                   % All possible factors.
+   for k = 1:prod(size(isp))
+      if X(k) <= maxfact
+         isp(k) = any( X(k) == p );         % Is it among the primes?
+      else
+         isp(k) = all( rem( X(k), p ) );    % Is it divisible by any prime?
+      end;
+   end;
+end

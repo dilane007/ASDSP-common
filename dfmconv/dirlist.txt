@@ -1,0 +1,68 @@
+ Volume in drive C is OS
+ Volume Serial Number is 7C4E-86D4
+
+ Directory of C:\Users\dilane\workspace\freemat\Common\dfmconv
+
+07/12/2015  04:12 PM    <DIR>          .
+07/12/2015  04:12 PM    <DIR>          ..
+07/02/2009  11:33 AM               173 b2ub.m
+01/30/2009  01:13 PM               105 bb2fp.m
+03/12/2009  01:31 PM               143 bb2q10.m
+03/12/2009  01:20 PM               119 bb2us.m
+03/12/2009  01:19 PM               264 bbbb2ul.m
+06/21/2015  11:58 AM               507 byte2hex.m
+07/17/2009  07:11 PM               747 Copy of qformat.m
+06/24/2006  11:44 AM               273 dec2bhex.m
+04/13/2006  05:42 PM               358 dec2Hexx.m
+06/24/2006  11:43 AM               295 dec2lhex.m
+06/21/2015  11:20 AM               275 dec2shex.m
+07/12/2015  01:45 PM               309 dec2str.m
+07/12/2015  04:12 PM                 0 dirlist.txt
+03/18/2009  10:29 AM                74 dispfxp.m
+07/17/2009  07:55 PM               241 disphex.m
+10/20/2008  09:02 PM             3,438 hexsingle2num.m
+07/12/2015  01:45 PM               309 int2str.m
+03/19/2009  08:20 PM               970 l2ul.m
+06/21/2015  12:18 PM             1,513 long2hex.m
+07/27/2009  05:08 PM               373 matlab.mat
+06/30/2009  10:14 AM               184 n2un.m
+05/27/2009  10:49 AM                66 q13.m
+05/27/2009  10:50 AM                66 q13fp2s.m
+05/27/2009  10:51 AM                62 q13s2fp.m
+05/27/2009  10:49 AM                66 q14.m
+05/27/2009  10:50 AM                66 q14fp2s.m
+05/27/2009  10:51 AM                62 q14s2fp.m
+05/27/2009  10:49 AM                66 q15.m
+07/06/2009  09:53 AM                66 q15fp2l.m
+05/27/2009  09:27 AM                66 q15fp2s.m
+05/01/2009  11:00 AM                62 q15l2fp.m
+05/27/2009  09:28 AM                62 q15s2fp.m
+09/07/2009  03:41 PM                66 q24fp2l.m
+09/07/2009  03:41 PM                62 q24l2fp.m
+03/18/2009  11:41 AM                66 q26fp2l.m
+03/16/2009  10:54 PM               313 q26fxp2fp.m
+03/18/2009  11:42 AM                62 q26l2fp.m
+07/07/2009  09:58 AM                66 q30fp2l.m
+07/06/2009  10:20 AM                62 q30l2fp.m
+05/01/2009  11:02 AM                66 q31fp2l.m
+05/01/2009  11:33 AM                62 q31l2fp.m
+09/01/2009  06:29 PM               112 qbformat.m
+07/09/2009  01:29 PM               110 qeformat.m
+05/28/2015  05:08 PM               194 qelformat.m
+05/29/2015  12:07 PM             4,097 qformat.m
+04/17/2015  05:32 PM               118 qlformat.m
+05/29/2015  04:11 PM               385 qloformat.m
+06/25/2015  01:21 PM               490 qoformat.m
+06/11/2015  02:47 PM               117 qsformat.m
+07/18/2009  11:06 AM               222 qsformath.m
+08/06/2009  02:56 PM               214 s2ul.m
+07/02/2009  11:26 AM               245 s2us.m
+06/21/2015  11:56 AM             1,035 shrt2hex.m
+07/02/2009  11:27 AM               172 ub2b.m
+04/22/2009  09:10 PM             1,384 ul2l.m
+07/28/2009  03:57 PM               164 ul2uss.m
+06/23/2009  05:15 PM               144 us2bb.m
+07/02/2009  11:31 AM               179 us2s.m
+07/27/2009  05:12 PM               158 uss2ul.m
+              59 File(s)         21,745 bytes
+               2 Dir(s)  52,095,025,152 bytes free
