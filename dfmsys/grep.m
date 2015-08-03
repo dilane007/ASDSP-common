@@ -12,18 +12,6 @@ function grep(expression,expression2)
 % For example, the following command searches for the string: 'addpath'
 %  grep('addpath')
 
-% $URL: http://brace/svn/repos/projects/rfpal2/trunk/host/tools/grep.m $
-% $Author: khawkes $
-% $Date: 2008-11-21 16:44:08 -0800 (Fri, 21 Nov 2008) $
-% $Revision: 7617 $
-%
-% You need to download grep from http://gnuwin32.sourceforge.net/packages/grep.htm
-
-% Copyright 2008 by Scintera Networks Inc., Sunnyvale, CA, 94086
-% All rights reserved.  No part of this software may be reproduced in any 
-% form or by any means, or used in any computer program, without permission
-% in writing from Scintera Networks Inc.
-
 program = 'C:\Program Files\GnuWin32\bin\grep.exe';
 dirResults = dir(program);
 if isempty(dirResults)
