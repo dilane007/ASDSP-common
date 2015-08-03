@@ -7,7 +7,7 @@ fxp_init('hw','m','f',0,0,0,0,'prop_on');
  scale=-3;
 %init
  persistent bufx;
- CATALYTIC_init_persistent(bufx,zeros(1,NSTATE));
+ init_persistent(bufx,zeros(1,NSTATE));
  %body
  bufx = shift_register(xin,bufx,NSTATE);
  z =  bitshifta(bufx*k',scale); 
