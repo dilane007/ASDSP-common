@@ -15,8 +15,6 @@
 
 %   Author:      Peter J. Acklam
 %   Time-stamp:  2004-02-09 15:27:31 +0100
-%   E-mail:      pjacklam@online.no
-%   URL:         http://home.online.no/~pjacklam
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% dfm was here
 % nargchk suppressed
 % isfinite replaced by isreal
