@@ -1,0 +1,100 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='dmtoolbox' dirtype='normal'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MDirRef name='cells' type='normal' path='mdoc.dmtoolbox.cells.mdir.xml'>
+      <MFileRef name='celall' path='mdoc.dmtoolbox.cells.celall.mfile.xml'/>
+      <MFileRef name='celany' path='mdoc.dmtoolbox.cells.celany.mfile.xml'/>
+      <MFileRef name='celcount' path='mdoc.dmtoolbox.cells.celcount.mfile.xml'/>
+      <MFileRef name='celcount_if' path='mdoc.dmtoolbox.cells.celcount_if.mfile.xml'/>
+      <MFileRef name='celinclude' path='mdoc.dmtoolbox.cells.celinclude.mfile.xml'/>
+      <MFileRef name='celmerge' path='mdoc.dmtoolbox.cells.celmerge.mfile.xml'/>
+      <MFileRef name='celremove' path='mdoc.dmtoolbox.cells.celremove.mfile.xml'/>
+      <MFileRef name='celremove_if' path='mdoc.dmtoolbox.cells.celremove_if.mfile.xml'/>
+      <MFileRef name='celselect' path='mdoc.dmtoolbox.cells.celselect.mfile.xml'/>
+      <MFileRef name='celsplit' path='mdoc.dmtoolbox.cells.celsplit.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='maps' type='normal' path='mdoc.dmtoolbox.maps.mdir.xml'>
+      <MFileRef name='pairs2map' path='mdoc.dmtoolbox.maps.pairs2map.mfile.xml'/>
+      <MFileRef name='scalarmap' path='mdoc.dmtoolbox.maps.scalarmap.mfile.xml'/>
+      <MFileRef name='stringmap' path='mdoc.dmtoolbox.maps.stringmap.mfile.xml'/>
+      <MFileRef name='stringmap_a' path='mdoc.dmtoolbox.maps.stringmap_a.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='strings' type='normal' path='mdoc.dmtoolbox.strings.mdir.xml'>
+      <MFileRef name='strend' path='mdoc.dmtoolbox.strings.strend.mfile.xml'/>
+      <MFileRef name='strformat' path='mdoc.dmtoolbox.strings.strformat.mfile.xml'/>
+      <MFileRef name='strindex' path='mdoc.dmtoolbox.strings.strindex.mfile.xml'/>
+      <MFileRef name='strjoin' path='mdoc.dmtoolbox.strings.strjoin.mfile.xml'/>
+      <MFileRef name='strranges' path='mdoc.dmtoolbox.strings.strranges.mfile.xml'/>
+      <MFileRef name='strrangesubs' path='mdoc.dmtoolbox.strings.strrangesubs.mfile.xml'/>
+      <MFileRef name='strscan' path='mdoc.dmtoolbox.strings.strscan.mfile.xml'/>
+      <MFileRef name='strscant' path='mdoc.dmtoolbox.strings.strscant.mfile.xml'/>
+      <MFileRef name='strsplit' path='mdoc.dmtoolbox.strings.strsplit.mfile.xml'/>
+      <MFileRef name='strstart' path='mdoc.dmtoolbox.strings.strstart.mfile.xml'/>
+      <MFileRef name='strsubs' path='mdoc.dmtoolbox.strings.strsubs.mfile.xml'/>
+      <MFileRef name='strsubsfmt' path='mdoc.dmtoolbox.strings.strsubsfmt.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='structs' type='normal' path='mdoc.dmtoolbox.structs.mdir.xml'>
+      <MFileRef name='celosf' path='mdoc.dmtoolbox.structs.celosf.mfile.xml'/>
+      <MFileRef name='dealfields' path='mdoc.dmtoolbox.structs.dealfields.mfile.xml'/>
+      <MFileRef name='fields2cell' path='mdoc.dmtoolbox.structs.fields2cell.mfile.xml'/>
+      <MFileRef name='fields2mat' path='mdoc.dmtoolbox.structs.fields2mat.mfile.xml'/>
+      <MFileRef name='setopts' path='mdoc.dmtoolbox.structs.setopts.mfile.xml'/>
+      <MFileRef name='sortstructs' path='mdoc.dmtoolbox.structs.sortstructs.mfile.xml'/>
+      <MFileRef name='struct2tuples' path='mdoc.dmtoolbox.structs.struct2tuples.mfile.xml'/>
+      <MFileRef name='tuples2struct' path='mdoc.dmtoolbox.structs.tuples2struct.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='tests' type='normal' path='mdoc.dmtoolbox.tests.mdir.xml'>
+      <MDirRef name='@testcase' type='class' path='mdoc.dmtoolbox.tests.@testcase.mdir.xml'>
+        <MFileRef name='getname' path='mdoc.dmtoolbox.tests.@testcase.getname.mfile.xml'/>
+        <MFileRef name='nfuns' path='mdoc.dmtoolbox.tests.@testcase.nfuns.mfile.xml'/>
+        <MFileRef name='run' path='mdoc.dmtoolbox.tests.@testcase.run.mfile.xml'/>
+        <MFileRef name='testcase' path='mdoc.dmtoolbox.tests.@testcase.testcase.mfile.xml'/>
+      </MDirRef>
+      <MDirRef name='@testlog' type='class' path='mdoc.dmtoolbox.tests.@testlog.mdir.xml'>
+        <MFileRef name='indent' path='mdoc.dmtoolbox.tests.@testlog.indent.mfile.xml'/>
+        <MFileRef name='on_tevent' path='mdoc.dmtoolbox.tests.@testlog.on_tevent.mfile.xml'/>
+        <MFileRef name='print' path='mdoc.dmtoolbox.tests.@testlog.print.mfile.xml'/>
+        <MFileRef name='testlog' path='mdoc.dmtoolbox.tests.@testlog.testlog.mfile.xml'/>
+      </MDirRef>
+      <MDirRef name='@testmon' type='class' path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'>
+        <MFileRef name='addrec' path='mdoc.dmtoolbox.tests.@testmon.addrec.mfile.xml'/>
+        <MFileRef name='get_testinfo' path='mdoc.dmtoolbox.tests.@testmon.get_testinfo.mfile.xml'/>
+        <MFileRef name='nrecs' path='mdoc.dmtoolbox.tests.@testmon.nrecs.mfile.xml'/>
+        <MFileRef name='testmon' path='mdoc.dmtoolbox.tests.@testmon.testmon.mfile.xml'/>
+      </MDirRef>
+      <MDirRef name='@testsuite' type='class' path='mdoc.dmtoolbox.tests.@testsuite.mdir.xml'>
+        <MFileRef name='getname' path='mdoc.dmtoolbox.tests.@testsuite.getname.mfile.xml'/>
+        <MFileRef name='getunits' path='mdoc.dmtoolbox.tests.@testsuite.getunits.mfile.xml'/>
+        <MFileRef name='run' path='mdoc.dmtoolbox.tests.@testsuite.run.mfile.xml'/>
+        <MFileRef name='testsuite' path='mdoc.dmtoolbox.tests.@testsuite.testsuite.mfile.xml'/>
+      </MDirRef>
+      <MFileRef name='tassert' path='mdoc.dmtoolbox.tests.tassert.mfile.xml'/>
+      <MFileRef name='tassert_class' path='mdoc.dmtoolbox.tests.tassert_class.mfile.xml'/>
+      <MFileRef name='tassert_empty' path='mdoc.dmtoolbox.tests.tassert_empty.mfile.xml'/>
+      <MFileRef name='tassert_eq' path='mdoc.dmtoolbox.tests.tassert_eq.mfile.xml'/>
+      <MFileRef name='tassert_exc' path='mdoc.dmtoolbox.tests.tassert_exc.mfile.xml'/>
+      <MFileRef name='testunit_example' path='mdoc.dmtoolbox.tests.testunit_example.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='utils' type='normal' path='mdoc.dmtoolbox.utils.mdir.xml'>
+      <MFileRef name='alltrue' path='mdoc.dmtoolbox.utils.alltrue.mfile.xml'/>
+      <MFileRef name='anytrue' path='mdoc.dmtoolbox.utils.anytrue.mfile.xml'/>
+      <MFileRef name='arrselect' path='mdoc.dmtoolbox.utils.arrselect.mfile.xml'/>
+      <MFileRef name='cartproduct' path='mdoc.dmtoolbox.utils.cartproduct.mfile.xml'/>
+      <MFileRef name='cartproduct_s' path='mdoc.dmtoolbox.utils.cartproduct_s.mfile.xml'/>
+      <MFileRef name='combfun' path='mdoc.dmtoolbox.utils.combfun.mfile.xml'/>
+      <MFileRef name='count_if' path='mdoc.dmtoolbox.utils.count_if.mfile.xml'/>
+      <MFileRef name='countfalse' path='mdoc.dmtoolbox.utils.countfalse.mfile.xml'/>
+      <MFileRef name='counttrue' path='mdoc.dmtoolbox.utils.counttrue.mfile.xml'/>
+      <MFileRef name='typecheck' path='mdoc.dmtoolbox.utils.typecheck.mfile.xml'/>
+    </MDirRef>
+    <MFileRef name='dmdoc' path='mdoc.dmtoolbox.dmdoc.mfile.xml'/>
+    <MFileRef name='dmtoolbox_info' path='mdoc.dmtoolbox.dmtoolbox_info.mfile.xml'/>
+    <MFileRef name='dmtoolbox_install' path='mdoc.dmtoolbox.dmtoolbox_install.mfile.xml'/>
+    <MFileRef name='dmtoolbox_test' path='mdoc.dmtoolbox.dmtoolbox_test.mfile.xml'/>
+  </Subs>
+</MDirInfo>

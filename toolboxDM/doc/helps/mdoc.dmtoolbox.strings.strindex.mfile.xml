@@ -1,0 +1,77 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strindex' filename='strindex.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strindex.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strformat.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strjoin.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strindex'>
+      <Inputs>
+        <Var name='s'/>
+        <Var name='strs'/>
+        <Var name='h'/>
+      </Inputs>
+      <Outputs>
+        <Var name='r'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRINDEX'>Determines the index of a string in a set of strings</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>r = strindex(s, strs)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = strindex(s, strs, errmsg)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = strindex(s, strs, handler)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='s'>
+          <MParagraph>the string to be tested</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='strs'>
+          <MParagraph>the set of strings (in form of cell arrays)</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='errmsg'>
+          <MParagraph>the string of error message to be shown when s is not found in the strs</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='handler'>
+          <MParagraph>the function handler to handle the case when s is not found in strs</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='r'>
+          <MParagraph>the result. If s is found, it returns the one-based index. If s is not found, it returns an empty array or the objects returned by the handler if the handler is specified.</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>r = strindex(s, strs) finds the string s in strs and returns the index of s. If s is not found, it returns [].</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = strindex(s, strs, errmsg) finds the string s in strs and returns the index of s. If s is not found, it raises an error.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = strindex(s, strs, handler) finds the string s in strs and returns the index of s. If s is not found, it invokes the handler on s, and returns the value returned by the handler as</MParagraph>
+          <MFormulaLine>r = handler(s)</MFormulaLine>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

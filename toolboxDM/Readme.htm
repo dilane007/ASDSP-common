@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<title>Data Manipulation Readme</title>
+		<style type="text/css">
+			h2 {color:#800000}
+			.featurelist {padding-left:20px}
+			.featurelist dt{font-weight:bold; color:navy}
+			.cmd {font-weight:bold; color:blue; background-color:#ffffc0}
+		</style>
+	</head>
+	<body>
+		<h1>Data Manipulation Toolbox (ver 1.0) Readme</h1>
+		<p><a href="http://web.mit.edu/dhlin/www/">Dahua Lin</a>, on Jul. 1, 2007</p>
+		<hr></hr>
+		
+		<h2>Introduction</h2>
+		
+		<p>
+		Data Manipulation Toolbox (dmtoolbox) is a MATLAB toolbox to 
+		facilitate the general programming using various data structures 
+		such as string, arrays, cell arrays and struct arrays. 
+		Despite that MATLAB has offered a series of builtin functions to 
+		manipulate these elements, nontrivial efforts are still needed to 
+		accomplish some advanced operations. 
+		This toolbox aims at complementing some functions that MATLAB currently 
+		lacks instead of replacing the existing ones. 
+		</p>
+		
+		<p>
+		Here is a brief list of the functionality offered by the dmtoolbox 
+		<dl class="featurelist">
+		<dt>Common Utilities</dt>
+		<dd><p>The functions for logical judgment, conditional counting, array selection, 
+			and the computation of Cartesian product.</p></dd>
+			
+		<dt>String Manipulation and Formatting</dt>
+		<dd><p>The functions for generating strings in different types, formatting strings, 
+			extracting information from strings, and converting strings.</p></dd>
+			
+		<dt>Cell Array Manipulation</dt>
+		<dd><p>The functions for logical judgment, conditional counting, element selection, 
+			selective removal, and conversion of cell arrays.</p></dd>
+			
+		<dt>Struct Array Manipulation</dt>
+		<dd><p>The functions for sorting and converting struct arrays from/to different data structures.</p></dd>
+		
+		<dt>Mapping (Look-Up-Table)</dt>
+		<dd><p>The functions to construct maps(also known as dictionary, hash table, or loop-up-table), 
+			and map a scalar or a string to the corresponding value.</p></dd>
+			
+		<dt>Unit Testing Framework</dt>
+		<dd><p>It is a flexible and lightweight framework with classes and functions to assist unit testing 
+			in MATLAB. You can make use of the framework to write testing functions with assertions, group 
+			them into test cases and test suites. The framework monitors the running of all test cases and 
+			records all assertion checking results and exceptions, and reports to the user as well.</p></dd>
+		</dl>
+		</p>
+		
+		<p>
+		Elaborate help has been provided within each m-function, with sufficient examples to show their usage. 
+		In addition, well-formated HTML help of this toolbox is made available in the MATLAB Help Browser. 
+		You can readily refer to it by finding the Data Manipulation Toolbox in the list of MATLAB Help Contents 
+		or simply typing <i>dmdoc</i> in MATLAB command line. 
+		</p>
+		
+		<p>
+		To assure the quality, a comprehensive testsuite has been written to check whether all functions 
+		work properly. After installing the toolbox, you may type in <i>dmtoolbox_test</i> to run the tests to 
+		verify that the toolbox can work normally in your MATLAB environment. The whole testsuite is written 
+		based on the unit testing framework offered in the toolbox, which in itself is a good example to show 
+		how to use the testing framework. 
+		</p>
+		
+		<h2>Installation</h2>
+		
+		<p>
+		To install the dmtoolbox into your MATLAB environment, you may follow the instructions below:
+		<ol>
+			<li>Unzip the toolbox to any place that you like;</li>
+			<li>Enter MATLAB Environment;</li>
+			<li>Switch to the root directory of the toolbox;</li>
+			<li>Type in <q class="cmd">dmtoolbox_install</q>, then the program will automatically add all required paths;</li>
+			<li>Some functions are based on C-MEX files. In the downloaded package, they have been compiled in MATLAB R2007a.
+				If you are in lower version, you may need to re-compile them. You can type in
+				<q class="cmd">dmtoolbox_install -mex</q> to accomplish this. </li>
+			<li>To check whether the toolbox has been correctly deployed, type in <q class="cmd">dmtoolbox_test</q>. 
+				Thereby, the testsuites for the whole toolbox will be run, and a report will be printed on the command
+				window. This process takes no more than 1 minute in a typical machine.</li>
+		</ol>
+		If all steps go well, you can now start using the toolbox.
+		</p>
+		
+		<h2>Get Help</h2>
+		<p>
+		All functions in the toolbox are sufficiently documented. There are a variety of ways to get help.
+		<ul>
+			<li>Type in <q class="cmd">help <i>function_name</i></q> to get the help of a specified function. 
+			This displays the text help in the command window.</li>
+			<li>Type in <q class="cmd">dmdoc <i>function_name</i></q> to get the help of a specified function or module 
+			in form of HTML Web page. This opens the built-in help browser of MATLAB and shows the help page.</li>
+			<li>Open the help browser, in the left-hand-side contents catalog, you will find an item called 
+			<i>Data Manipulation Toolbox</i> if the toolbox has been installed correctly. You can find all documents 
+			in HTML form there.</li>
+		</ul>
+		</p>
+		
+		<p>
+		Here links to the <a href="doc/helps/mdoc.dmtoolbox.mdir.xml" target="_blank">HTML Documentation</a> of the toolbox.
+		</p>
+		
+		<p>
+		Please feel free to write to me via <a href="mailto:dhlin@mit.edu">dhlin@mit.edu</a> if you have any questions 
+		about the toolbox.
+		</p>
+		
+	</body>
+</html>

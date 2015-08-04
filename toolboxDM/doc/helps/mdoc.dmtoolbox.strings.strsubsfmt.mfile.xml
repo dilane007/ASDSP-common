@@ -1,0 +1,98 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strsubsfmt' filename='strsubsfmt.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strsubsfmt.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strsubs.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strsubsfmt'>
+      <Inputs>
+        <Var name='str'/>
+        <Var name='pattern'/>
+        <Var name='fmt'/>
+        <Var name='op'/>
+      </Inputs>
+      <Outputs>
+        <Var name='s'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRSUBSFMT'>Replaces specified patterns in a string with new format</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>s = strsubsfmt(str, pattern, fmt)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strsubsfmt(str, pattern, fmt, op)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='str'>
+          <MParagraph>the source string</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='pattern'>
+          <MParagraph>the regexp pattern to be searched and replaced</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fmt'>
+          <MParagraph>the formatter of the found patterns to new string</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='op'>
+          <MParagraph>the option string of pattern formatting</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='ord'>
+              <MParagraph>using token order</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='named'>
+              <MParagraph>using named token</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>s = strsubsfmt(str, pattern, fmt) finds all sub-strings that match the specified regular expression pattern and replace them with by a new string yielded by re-formatting the matched tokens using fmt.</MParagraph>
+          <MParagraph>The format specification fmt should be given follows the rule introduced in the function strformat. Actually strformat is used to finish the formatting. Please note that all tokens are strings.</MParagraph>
+          <MParagraph>By default, the function uses the order of the tokens to identify which token to be used to fill the holes in the formatter. This is equivalent to</MParagraph>
+          <MFormulaLine>strsubsfmt(str, pattern, fmt, &apos;ord&apos;)</MFormulaLine>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strsubsfmt(str, pattern, fmt, op) can specify the option of formatting. By setting op to &apos;ord&apos;, it means identifying the tokens by their order in the pattern, while setting op to &apos;named&apos; means the tokens are identified by names.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Replace formatting</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubsfmt(&apos;I use MATLAB 7.4 and Java 1.6&apos;, &apos;(\w+)\s+(\d+\.\d+)&apos;, ...</Line>
+            <Line>               &apos;#{1:%s} of version #{2:%s}&apos;)</Line>
+            <Line>    =&gt; &apos;I use MATLAB of version 7.4 and Java of version 1.6&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Replace formatting with named tokens</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubsfmt(&apos;I use MATLAB 7.4 and Java 1.6&apos;, &apos;(?&lt;name&gt;\w+)\s+(?&lt;ver&gt;\d+\.\d+)&apos;, ...</Line>
+            <Line>               &apos;#{name:%s} of version #{ver:%s}&apos;, &apos;named&apos;)</Line>
+            <Line>    =&gt; &apos;I use MATLAB of version 7.4 and Java of version 1.6&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

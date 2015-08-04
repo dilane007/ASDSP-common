@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - interp1n</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>interp1n<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>yi=interp1n(x,y,xi,dim)</P>
+x, y and xi must be of the same size (or singletons) except along dimension dim where only x and y have to be of the same size. yi will inherit the size from x,y and yi in all dimensions but dim where the size will be the same as of xi. Values outside x will be extrapolated from the two nearset values. Interp1n does only first order interpolation 'linear'</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>x</B></TD><TD>a matrix with real values. x must be monotonic along dimension dim but can be decreasing</TD></TR>
+<TR><TD VALIGN="TOP"><B>y</B></TD><TD>a matrix with possibly complex values</TD></TR>
+<TR><TD VALIGN="TOP"><B>xi</B></TD><TD>a matrix with real values.</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>the dimension of x and y along which interpolation is performed</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>yi</B></TD><TD>the interpolated result</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>interp1n([0;1],[1;2],0.4) % compare with interp1([1; 0],[2; 1],0.4)
+interp1n([1;0],[2;1],0.4) % x is decreasing
+interp1n([1;2],[1;2],0) % extrapolation
+interp1n([1 2 3],[4 5 7],1.5,2) % along second dimension
+interp1n(-cumsum(rand(3,2,1)),rand(3,1,2),rand(4,2,2)) % different sizes combined
+size(interp1n(-cumsum(rand(3,2,1)),rand(3,1,2),rand(4,2,2,3))) % check out sizes</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD>interp1</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function yi = interp1n(x,y,xi,dim)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 030724</FONT>
+
+<FONT COLOR="DARKGREEN">% Empty in, empty out</FONT>
+if isempty(xi) 
+ yi = xi; 
+ return
+end
+
+<FONT COLOR="DARKGREEN">% The dimension dim is default set 1 if not present</FONT>
+if ~exist('dim','var') 
+ dim = <A HREF="firstnonsing.html">firstnonsing</A>(x);
+end
+
+<FONT COLOR="DARKGREEN">% Check dimension of x and y</FONT>
+if size(x,dim)~=size(y,dim) | isempty(x) | isempty(y) | size(x,dim)<2
+ error('The size of x and y must be at least 2 and equal along dim and non empty');
+end
+
+<FONT COLOR="DARKGREEN">% When size along dimension dim is one, yi=y</FONT>
+if size(x,dim)==1
+ yi = <A HREF="adjsizabdim.html">adjsizabdim</A>(dim,y,x,xi); <FONT COLOR="DARKGREEN">% align sizes of arguments except for dimension dim</FONT>
+ return
+end
+
+<FONT COLOR="DARKGREEN">% Align sizes of input arguments </FONT>
+[x,y,xi] = <A HREF="adjsizabdim.html">adjsizabdim</A>(dim,x,y,xi); <FONT COLOR="DARKGREEN">% align sizes of arguments except for dimension dim</FONT>
+
+<FONT COLOR="DARKGREEN">% Make sure that x is not both increasing and decreasing along dimension</FONT>
+<FONT COLOR="DARKGREEN">% dim</FONT>
+maxd = max(sign(diff(x,[],dim)),[],dim);
+mind = min(sign(diff(x,[],dim)),[],dim);
+if any(maxd(:)-mind(:)==2)
+ error('First argument is both increasing and decreasing');
+end
+
+<FONT COLOR="DARKGREEN">% Flip direction along dimension dim if x is decreasing</FONT>
+flipdir = sign(maxd+mind+0.1); <FONT COLOR="DARKGREEN">% 1 <=> increasing, -1 <=> decreasing. A small offset added to avoid sign(0) </FONT>
+flind = <A HREF="mplus.html">mplus</A>(<A HREF="mprod.html">mprod</A>(flipdir,<A HREF="flatten.html">flatten</A>(1:size(x,dim),dim)), (size(x,dim)+1)*(flipdir==-1)); 
+flindm = <A HREF="index1.html">index1</A>(flind,dim,size(x));
+x = x(flindm);
+y = y(flindm);
+
+<FONT COLOR="DARKGREEN">% Calculate index for xi into xv</FONT>
+ind = min(<A HREF="vsortind.html">vsortind</A>(xi,x,dim),size(x,dim)-1); <FONT COLOR="DARKGREEN">% indices into x and along dimension dim</FONT>
+ 
+<FONT COLOR="DARKGREEN">% Calculate flat indices into a matrix of size(x)</FONT>
+ind1 = <A HREF="index1.html">index1</A>(ind  ,dim,size(x));
+ind2 = <A HREF="index1.html">index1</A>(ind+1,dim,size(x));
+siz = size(ind1);
+
+<FONT COLOR="DARKGREEN">% Calculate xi-x1 and xi-x2</FONT>
+<FONT COLOR="DARKGREEN">% reshape makes the size of the indexing operation to follow the size of</FONT>
+<FONT COLOR="DARKGREEN">% the argument</FONT>
+xix1 = xi - reshape(x(ind1),siz);
+xix2 = xi - reshape(x(ind2),siz);
+
+<FONT COLOR="DARKGREEN">% Calculate y values</FONT>
+y1 = reshape(y(ind1),siz);
+y2 = reshape(y(ind2),siz);
+
+<FONT COLOR="DARKGREEN">% Interpolate </FONT>
+<FONT COLOR="DARKGREEN">% mdiv does supress warnings when xix1-xix2 happens to be zero</FONT>
+yi = <A HREF="mdiv.html">mdiv</A>(xix1.*y2 - xix2.*y1, xix1-xix2); 
+
+<FONT COLOR="DARKGREEN">% $Id: interp1n.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

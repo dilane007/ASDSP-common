@@ -1,0 +1,84 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celremove' filename='celremove.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celremove.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celmerge.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celremove_if.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celremove'>
+      <Inputs>
+        <Var name='C'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='C'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELREMOVE'>Removes all the specified elements</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = celremove(C, e)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>C = celremove(C, e1, e2, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='C'>
+          <MParagraph>the cell array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='e'>
+          <MParagraph>the element to be removed</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = celremove(C, e) removes all the elements that equal e.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>C = celremove(C, e1, e2, ...) removes all the elements that equal either one of e1, e2, ...</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Removes the element &apos;a&apos; from a cell array</MParagraph>
+          <MCodeBlock>
+            <Line>    celremove({&apos;a&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;a&apos;}, &apos;a&apos;)</Line>
+            <Line>    =&gt; {&apos;b&apos;, &apos;c&apos;, &apos;d&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Removes the element &apos;a&apos; and &apos;b&apos;</MParagraph>
+          <MCodeBlock>
+            <Line>    celremove({&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;b&apos;, &apos;d&apos;}, &apos;a&apos;, &apos;b&apos;)</Line>
+            <Line>    =&gt; {&apos;c&apos;, &apos;d&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Removes the element contained in the cell array C0</MParagraph>
+          <MCodeBlock>
+            <Line>    celremove(C, C0{:})</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

@@ -1,0 +1,69 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celcount' filename='celcount.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celcount.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celany.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celcount_if.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celcount'>
+      <Inputs>
+        <Var name='C'/>
+        <Var name='x'/>
+      </Inputs>
+      <Outputs>
+        <Var name='n'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELCOUNT'>Counts the number of occurrences of the specified element</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = celcount(C, x)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='C'>
+          <MParagraph>the source cell array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='x'>
+          <MParagraph>the element to be tested</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='n'>
+          <MParagraph>the number of occurrences of x in C</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = celcount(C, x) gets the number of elements in C that is equal to x.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Counts the occurrences of some elements</MParagraph>
+          <MCodeBlock>
+            <Line>    celcount({1, 2, 2, 3, 5}, 2) =&gt; 2</Line>
+            <Line></Line>
+            <Line>    celcount({&apos;a&apos;, &apos;b&apos;, &apos;x&apos;, &apos;a&apos;, &apos;a&apos;}, &apos;a&apos;) =&gt; 3</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - mprod</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>mprod<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>s=mprod(varargin)</P>
+Multiplies (.*) variables of different sizes. Arguments are expanded to fit each other and then multiplied together element by element. Expansion is made on singleton dimensions to fit the size of other arguments.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>s</B></TD><TD>The product (.*) of the inputs</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>mprod(ones(2,1),ones(1,2)), size(mprod(ones(2,1),ones(2,3,4)))</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="mplus.html">mplus</A>, <A HREF="mdiv.html">mdiv</A>, <A HREF="mexp.html">mexp</A>, <A HREF="adjsiz.html">adjsiz</A>, <A HREF="adjsiza.html">adjsiza</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function s = mprod(varargin) <FONT COLOR="DARKGREEN">% multiplies a number of argument</FONT>
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 990317</FONT>
+
+v = <A HREF="adjsiz.html">adjsiz</A>(varargin{:});
+s = v{1};
+for i=2:length(v)
+ s = s.*v{i};
+end
+  
+<FONT COLOR="DARKGREEN">% $Id: mprod.m,v 1.1 2004/02/19 17:27:44 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

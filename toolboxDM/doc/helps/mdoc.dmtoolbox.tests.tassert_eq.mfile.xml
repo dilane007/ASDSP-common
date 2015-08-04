@@ -1,0 +1,78 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='tassert_eq' filename='tassert_eq.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.tassert_eq.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.tassert_empty.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.tassert_exc.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='tassert_eq'>
+      <Inputs>
+        <Var name='x'/>
+        <Var name='y'/>
+        <Var name='level'/>
+        <Var name='rstack'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TASSERT_EQ'>Testing an assertion of equality</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert_eq(x, y)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert_eq(x, y, level)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>b = tassert_eq(...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='x, y'>
+          <MParagraph>the two values/arrays to be compared</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='level'>
+          <MParagraph>the level of the assertion (&apos;normal&apos; or &apos;fatal&apos;)</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='b'>
+          <MParagraph>whether x and y are equal</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert_eq(x, y) tests the equality assertion in normal level, and records the the testing result in the current test monitor.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert_eq(x, y, level) tests the assertion in the specified level and records the testing result.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = tassert_eq(...) returns the whether the equality is true.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The MATLAB function isequal is used to test the equality.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

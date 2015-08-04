@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - norm1</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>norm1<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>n=norm1(v,p,dim)</P>
+The vector norm (see norm) in dimension dim for any matrix v v and p must match each other in terms of size. Singleton dimension will be expanded to match.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>v</B></TD><TD>The target for the norm. Any numeric matrix.</TD></TR>
+<TR><TD VALIGN="TOP"><B>p</B></TD><TD>The norm exponent. Any nonzero noninf real matrix. Default 2.</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>The dimesion along which the norm is taken. Any integer greater than 0. Default first nonsingleton dimension.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>n</B></TD><TD>the norm value. It takes the combined size of v and p</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>norm1([3 6; 4 8])     =&gt; [5, 10]
+norm1([3 6; 4 8],1,2) =&gt; [9; 12]  i.e. sum of each row</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD>norm, <A HREF="ncumsum.html">ncumsum</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function n = norm1(v, p, dim)  <FONT COLOR="DARKGREEN">% vector norm along any dimension</FONT>
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 031015</FONT>
+
+if ~exist('dim', 'var')
+  dim = <A HREF="firstnonsing.html">firstnonsing</A>(v);  <FONT COLOR="DARKGREEN">% default in first no singleton dimension</FONT>
+ end
+ if ~exist('p', 'var')
+  p = 2; <FONT COLOR="DARKGREEN">% default quadratic norm</FONT>
+ end
+ n = <A HREF="mexp.html">mexp</A>(sum(<A HREF="mexp.html">mexp</A>(v,p), dim),1./p);
+
+
+<FONT COLOR="DARKGREEN">% $Id: norm1.m,v 1.1 2004/02/19 17:27:44 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

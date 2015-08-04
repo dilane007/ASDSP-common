@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='maps' dirtype='normal'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.maps.mdir.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.mdir.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MFileRef name='pairs2map' path='mdoc.dmtoolbox.maps.pairs2map.mfile.xml'/>
+    <MFileRef name='scalarmap' path='mdoc.dmtoolbox.maps.scalarmap.mfile.xml'/>
+    <MFileRef name='stringmap' path='mdoc.dmtoolbox.maps.stringmap.mfile.xml'/>
+    <MFileRef name='stringmap_a' path='mdoc.dmtoolbox.maps.stringmap_a.mfile.xml'/>
+  </Subs>
+</MDirInfo>

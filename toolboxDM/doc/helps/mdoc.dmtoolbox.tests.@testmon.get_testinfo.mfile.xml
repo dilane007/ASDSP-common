@@ -1,0 +1,63 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='get_testinfo' filename='get_testinfo.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testmon.get_testinfo.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testmon.addrec.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testmon.nrecs.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='get_testinfo'>
+      <Inputs>
+        <Var name='tmon'/>
+      </Inputs>
+      <Outputs>
+        <Var name='tinfo'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='GET_TESTINFO'>Gets recorded the testing information from the monitor</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tinfo = get_testinfo(tmon)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tinfo = get_testinfo(tmon) returns all the recorded information of the monitor in form of a struct array of records. The struct has following fields:</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='type'>
+              <MParagraph>the record type. (see addrec.m)</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='file'>
+              <MParagraph>the source m-file in which the event occurs</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='fname'>
+              <MParagraph>the function name in which the event occurs</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='line'>
+              <MParagraph>the line number</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='errmsg'>
+              <MParagraph>the error message of the exception</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='errid'>
+              <MParagraph>the error identifier of the exception</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

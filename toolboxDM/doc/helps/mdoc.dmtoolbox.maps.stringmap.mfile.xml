@@ -1,0 +1,118 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='stringmap' filename='stringmap.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.maps.stringmap.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.maps.scalarmap.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.maps.stringmap_a.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.maps.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='stringmap'>
+      <Inputs>
+        <Var name='key'/>
+        <Var name='keys'/>
+        <Var name='values'/>
+        <Var name='defaultval'/>
+      </Inputs>
+      <Outputs>
+        <Var name='val'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRINGMAP'>Maps a string key to a value in a cell array</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>val = stringmap(key, keys, values)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>val = stringmap(key, keys, values, defaultval)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='key'>
+          <MParagraph>the key of which the corresponding value is queried</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='keys'>
+          <MParagraph>the set of all keys in the map the keys must be a cell array of strings</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='values'>
+          <MParagraph>the set of all corresponding values the values should be a cell array of any values.</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='defaultval'>
+          <MParagraph>the default value returned when key is not found</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='val'>
+          <MParagraph>the value corresponding to the key</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>val = stringmap(key, keys, values) looks up the key-value map and returns the value corresponding to the key. The map is characterized by a set of keys and the corresponding set of values. If the key is not found in keys, an empty array will be returned.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>val = stringmap(key, keys, values, defaultval) specifies the default value which is returned when the specified key is not found.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>If the keys contains multiple element that is equal to key, then only the first one take effects.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Look up the string map</MParagraph>
+          <MCodeBlock>
+            <Line>    stringmap(&apos;ch&apos;,</Line>
+            <Line>              {&apos;ch&apos;, &apos;en&apos;, &apos;jp&apos;}, {&apos;Chinese&apos;, &apos;English&apos;, &apos;Japanese&apos;})</Line>
+            <Line>    =&gt; &apos;Chinese&apos;</Line>
+            <Line></Line>
+            <Line>    stringmap(&apos;two&apos;, {&apos;one&apos;, &apos;two&apos;, &apos;three&apos;}, {1, 2, 3})</Line>
+            <Line>    =&gt; 2</Line>
+            <Line></Line>
+            <Line>    stringmap(&apos;u&apos;, {&apos;x&apos;, &apos;y&apos;, &apos;z&apos;}, {1.2, 2.3, 3.4})</Line>
+            <Line>    =&gt; []</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Look up with default value</MParagraph>
+          <MCodeBlock>
+            <Line>    stringmap(&apos;u&apos;, {&apos;x&apos;, &apos;y&apos;, &apos;z&apos;}, {1.2, 2.3, 3.4}, 0)</Line>
+            <Line>    =&gt; 0</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Making a query function</MParagraph>
+          <MCodeBlock>
+            <Line>    K = {&apos;ch&apos;, &apos;en&apos;, &apos;jp&apos;};</Line>
+            <Line>    V = {&apos;Chinese&apos;, &apos;English&apos;, &apos;Japanese&apos;};</Line>
+            <Line>    qf = @(x) stringmap(x, K, V);</Line>
+            <Line></Line>
+            <Line>    qf(&apos;ch&apos;) =&gt; &apos;Chinese&apos;</Line>
+            <Line>    qf(&apos;en&apos;) =&gt; &apos;English&apos;</Line>
+            <Line>    qf(&apos;xyz&apos;) =&gt; []</Line>
+            <Line></Line>
+            <Line>    cellfun(qf, {&apos;ch&apos;, &apos;ch&apos;, &apos;jp&apos;, &apos;en&apos;}, &apos;UniformOutput&apos;, false)</Line>
+            <Line>    =&gt; {&apos;Chinese&apos;, &apos;Chinese&apos;, &apos;Japanese&apos;, &apos;English&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

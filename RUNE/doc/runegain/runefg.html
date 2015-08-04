@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - runefg</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>runefg<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>[res,par,sta,sys]=runefg(par,sta,sys)</P>
+The basic rune dynamic function.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>par</B></TD><TD>BASIC SIMULATION PARAMETERS</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.frametime</B></TD><TD>time interval in the simulation loop</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.nframes</B></TD><TD>number of iterations in the main loop</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.slottime</B></TD><TD>time per slot in seconds</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.nslots</B></TD><TD>number of slots per frame</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.seed</B></TD><TD>seed to all random sequencies in the simulation</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.cellradius</B></TD><TD>cell radius [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.km</B></TD><TD>km^2+lm^2+km*lm =&gt; the number of sites</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.lm</B></TD><TD>related to km above</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.sps</B></TD><TD>number of sectors per site</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.gainconst</B></TD><TD>gain at 1 meter distance [dB]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.alpha</B></TD><TD>distance attenuation coefficient</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.noise</B></TD><TD>thermal noise floor [dBm]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.sigma</B></TD><TD>standard deviation for the lognormal fading [dB]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.raa</B></TD><TD>lognormal correlation down link (typical 0.5)</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.corrdist</B></TD><TD>lognormal fading correlation distance [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.offtraf</B></TD><TD>average number of offered calls to a cell [Erlang/cell]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.mht</B></TD><TD>mean holding time [seconds]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.amean</B></TD><TD>average acceleration [m/s/s]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.vmean</B></TD><TD>average speed [m/s]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta</B></TD><TD>STATE</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.seed</B></TD><TD>the seed before next iteration</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.time</B></TD><TD>sample time</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.m</B></TD><TD>mobile identity number</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.mtop</B></TD><TD>max mobile number used sofar</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.xym</B></TD><TD>position in complex form [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.xyv</B></TD><TD>speed imag &lt;=&gt; north real &lt;=&gt; east [m/s]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.gmb</B></TD><TD>the gain matrix (slow part)</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.rgumb</B></TD><TD>rayleigh fading gain for the uplink</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta.rgdmb</B></TD><TD>rayleigh fading gain for the downlink</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys</B></TD><TD>ALL INTERMEDIATE VALUES NEEDED TO SIMULATE</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys.xyb</B></TD><TD>base positions [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys.fib</B></TD><TD>cell center vector [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys.rhombvec</B></TD><TD>system vectors [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys.raylmap</B></TD><TD>rayleigh map [dB]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys.raylmapvec</B></TD><TD>rayleigh map vectors [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys.lognmap</B></TD><TD>lognormal map [dB]</TD></TR>
+<TR><TD VALIGN="TOP"><B>sys.lognmapvec</B></TD><TD>lognormal map vectors [m]</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>res</B></TD><TD>cellarray of sta collected for each iteration of the simulation</TD></TR>
+<TR><TD VALIGN="TOP"><B>par</B></TD><TD>same as input otherwise created within the function</TD></TR>
+<TR><TD VALIGN="TOP"><B>sta</B></TD><TD></TD></TR>
+<TR><TD VALIGN="TOP"><B>sys</B></TD><TD>same as input otherwise created within the function</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>[res, par, sta, sys] = runef</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function [res, par, sta, sys] = runefg(par, sta, sys) 
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 031114	</FONT>
+
+<FONT COLOR="DARKGREEN">% set simulation parameter par if not present as an input</FONT>
+if ~exist('par','var'), par = <A HREF="setparg.html">setparg</A>; end <FONT COLOR="DARKGREEN">% default parameter setting</FONT>
+oseed = <A HREF="../runetools/setseed.html">setseed</A>(par.seed); <FONT COLOR="DARKGREEN">% Set the seed in random generators</FONT>
+
+<FONT COLOR="DARKGREEN">% Create the sys variable if not present as an input.</FONT>
+if ~exist('sys','var') | isempty(sys)
+ <FONT COLOR="DARKGREEN">% generate base station position and directions </FONT>
+ clear sys
+ [sys.xyb, sys.fib, sys.rhombvec] = <A HREF="crecells.html">crecells</A>(par.cellradius,par.sps,par.km,par.lm);
+
+ <FONT COLOR="DARKGREEN">% Create a lognormal map. The lognormal map is dependent on the seed.</FONT>
+ oseed1 = <A HREF="../runetools/setseed.html">setseed</A>(par.seed);  <FONT COLOR="DARKGREEN">% Set seed of pseudo random generator for the map.</FONT>
+ [sys.lognmap, sys.lognmapvec] = <A HREF="crelognmap.html">crelognmap</A>(sys.xyb, sys.rhombvec, par.corrdist); 
+ 
+ <FONT COLOR="DARKGREEN">% Create a rayleigh fading map.</FONT>
+ [sys.raylmap, sys.raylmapvec] = <A HREF="creraylmap.html">creraylmap</A>(sys.rhombvec);
+ sys.xyboffsrayl = <A HREF="../runetools/irandn.html">irandn</A>(size(sys.xyb))*sys.rhombvec(1); <FONT COLOR="DARKGREEN">% offset for fast fading</FONT>
+
+ <A HREF="../runetools/setseed.html">setseed</A>(oseed1);  <FONT COLOR="DARKGREEN">% Restore seed to original value.</FONT>
+end
+
+<FONT COLOR="DARKGREEN">% Init of state variable</FONT>
+<FONT COLOR="DARKGREEN">% The variables below are altered in the for loop and saved after each iteration</FONT>
+if ~exist('sta','var') | isempty(sta)
+ clear sta
+ e = zeros(0,1);
+ e1 = zeros(0,size(sys.xyb,2));
+ sta.seed  = par.seed; sta.time = 0; sta.m = e; sta.mtop  = 0; sta.xym = e; sta.xyv = e; sta.gmb = e1;
+ <FONT COLOR="DARKGREEN">%****************INIT OF SPECIFICS</FONT>
+end
+<FONT COLOR="DARKGREEN">% The simulation loop. One iteration corresponds to one frame</FONT>
+for iframe = 1:par.nframes
+ dt = par.frametime-par.nslots*par.slottime;
+ sta.time = sta.time+dt; <FONT COLOR="DARKGREEN">% Timestamp</FONT>
+ 
+ <A HREF="../runetools/setseed.html">setseed</A>(sta.seed); <FONT COLOR="DARKGREEN">% Set seed in random generators.</FONT>
+
+ <FONT COLOR="DARKGREEN">% Terminate some calls due to hang up.</FONT>
+ keep = ones(size(sta.xym));
+ terones = (rand(size(sta.xym)) < 1-exp(-<A HREF="../runetools/mdiv.html">mdiv</A>(par.frametime,par.mht))); <FONT COLOR="DARKGREEN">% Toss one biased Coin per active user</FONT>
+ keep = keep &~terones;
+ 
+ <FONT COLOR="DARKGREEN">% Make a realisation of new users. </FONT>
+ <FONT COLOR="DARKGREEN">% At first iteration full traffic is generated</FONT>
+ incr = 1 - (sta.time~=dt).*exp(-<A HREF="../runetools/mdiv.html">mdiv</A>(par.frametime,par.mht));
+ <FONT COLOR="DARKGREEN">% Average number of users to create</FONT>
+ nmobavg = par.offtraf .* size(sys.xyb,2).* incr; 
+ veclength = round(max(100, 10*nmobavg)); <FONT COLOR="DARKGREEN">% At least a pool of 100 idle users to draw from </FONT>
+ nmob = sum(rand(veclength,1) < nmobavg/veclength); <FONT COLOR="DARKGREEN">% Tosse all the Coins</FONT>
+
+ <FONT COLOR="DARKGREEN">% Refresh vector structure by removing released calls and adding new ones.</FONT>
+ nt1 = <A HREF="../runetools/nans.html">nans</A>(nmob,1);  <FONT COLOR="DARKGREEN">% NaN vector used as concatenation of xym xyb etc.</FONT>
+ ntb = <A HREF="../runetools/nans.html">nans</A>(nmob,size(sys.xyb,2));  <FONT COLOR="DARKGREEN">% Nans vector used to concatenate gmb pumb etc.</FONT>
+ sta.mtop = sta.mtop+nmob; <FONT COLOR="DARKGREEN">% highest mobile id so far </FONT>
+  
+ <FONT COLOR="DARKGREEN">% Several of these updates are not necessary but is done in order to ease debugging</FONT>
+ sta.xym   =[sta.xym(keep);       nt1]; 
+ sta.xyv   =[sta.xyv(keep);       nt1]; 
+ sta.m     =[sta.m(keep); sta.mtop+(1:nmob)']; 
+ sta.gmb   =[sta.gmb(keep,:);     ntb]; 
+ <FONT COLOR="DARKGREEN">%************************INIT OF SPECIFICS </FONT>
+
+ <FONT COLOR="DARKGREEN">% Move old users and initiate a position to newcomers.</FONT>
+ [sta.xym,sta.xyv] = <A HREF="mobmove.html">mobmove</A>(sta.xym,sta.xyv,par.amean,par.vmean,dt,sys.rhombvec);
+
+ <FONT COLOR="DARKGREEN">% Calculate the gain matrix. Size is terminals  by bases</FONT>
+ sta.gmb = <A HREF="pathgain.html">pathgain</A>(sta.xym, sys.xyb, sys.fib, par.sps, sys.rhombvec, ...
+  par.gainconst, par.alpha, par.sigma, par.raa, ...
+  sys.lognmap, sys.lognmapvec);
+ <FONT COLOR="DARKGREEN">%****************INIT OF SPECIFIC init of variables for the inner loop </FONT>
+
+ for islot = 1:par.nslots
+  dt = par.slottime;
+  sta.time = sta.time + dt;
+  
+  <FONT COLOR="DARKGREEN">% Move users one slot forward</FONT>
+  [sta.xym,sta.xyv] = <A HREF="mobmove.html">mobmove</A>(sta.xym,sta.xyv,par.amean,par.vmean,dt,sys.rhombvec);
+  
+  <FONT COLOR="DARKGREEN">% compute flat fading gain as a matrix of the same size as sta.gmb</FONT>
+ if isempty(sta.xym)
+  sta.rgumb = sta.gmb;
+  sta.rgdmb = sta.gmb; 
+ else
+  sta.rgumb = <A HREF="../runetools/lin2db.html">lin2db</A>(abs(<A HREF="useraylmap.html">useraylmap</A>(<A HREF="../runetools/mplus.html">mplus</A>(+sys.xyboffsrayl,-sta.xym), sys.raylmap, sys.raylmapvec)).^2);
+  sta.rgdmb = <A HREF="../runetools/lin2db.html">lin2db</A>(abs(<A HREF="useraylmap.html">useraylmap</A>(<A HREF="../runetools/mplus.html">mplus</A>(-sys.xyboffsrayl,-sta.xym), sys.raylmap, sys.raylmapvec)).^2);
+ end 
+  <FONT COLOR="DARKGREEN">% **************TRANSMIT </FONT>
+  sta.seed = <A HREF="../runetools/setseed.html">setseed</A>; <FONT COLOR="DARKGREEN">% Save seed to faciliate simulation from this state</FONT>
+  
+  <FONT COLOR="DARKGREEN">% Save some results</FONT>
+  res(islot,iframe)= sta;
+ end
+end
+<A HREF="../runetools/setseed.html">setseed</A>(oseed); <FONT COLOR="DARKGREEN">% Restore seed to original value</FONT>
+<FONT COLOR="DARKGREEN">% $Id: runefg.m,v 1.3 2004/03/15 14:59:21 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

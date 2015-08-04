@@ -1,0 +1,74 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='tassert_exc' filename='tassert_exc.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.tassert_exc.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.tassert_eq.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.testunit_example.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='tassert_exc'>
+      <Inputs>
+        <Var name='errid'/>
+        <Var name='f'/>
+        <Var name='level'/>
+        <Var name='rstack'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TASSERT_EXC'>Tests the assertion on exception</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert_exc(errid, f)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert_exc(errid, f, level)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>b = tassert_exc(...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='errid'>
+          <MParagraph>the expected identifier of the exception. if errid is empty, then any type of exception is allowed.</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='f'>
+          <MParagraph>the function handle to be run</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='level'>
+          <MParagraph>the level of the assertion (&apos;normal&apos; or &apos;fatal&apos;)</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='b'>
+          <MParagraph>whether an expected exception is caught</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert_exc(x, classname) tests whether assertion that an expected exception will be raised, and records the the testing result in the current test monitor.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert_exc(x, classname, level) tests the assertion in the specified level and records the testing result.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>b = tassert_exc(...) returns the whether x is a value of the specified class.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

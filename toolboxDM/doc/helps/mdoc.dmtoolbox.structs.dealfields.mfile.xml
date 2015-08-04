@@ -1,0 +1,74 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='dealfields' filename='dealfields.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.dealfields.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.celosf.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.fields2cell.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='dealfields'>
+      <Inputs>
+        <Var name='S'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='varargout'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='DEALFIELDS'>Deals field values to cell arrays</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[C1, C2, ...] = dealfields(S, fieldname1, fieldname2, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='S'>
+          <MParagraph>the source struct array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fieldnamei'>
+          <MParagraph>the name of the i-th field to be dealed</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='Ci'>
+          <MParagraph>the cell array of the i-th field values</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[C1, C2, ...] = dealfields(S, fieldname1, fieldname2, ...) deals the specified fields to the cell arrays.</MParagraph>
+          <MParagraph>All output cell arrays have the same size as that of S.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Deal the fields to cell arrays</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;name&apos;, {&apos;x&apos;, &apos;y&apos;, &apos;z&apos;; &apos;a&apos;, &apos;b&apos;, &apos;c&apos;}, ...</Line>
+            <Line>               &apos;v1&apos;, {1, 2, 3; 4, 5, 6}, ...</Line>
+            <Line>               &apos;v2&apos;, {2.4, 1.8, 3.6; 5.2, 6.1, 7.3} );</Line>
+            <Line></Line>
+            <Line>    [Cn, Cv1] = dealfields(S, &apos;name&apos;, &apos;v1&apos;);</Line>
+            <Line>    Cn &lt;= {&apos;x&apos;, &apos;y&apos;, &apos;z&apos;; &apos;a&apos;, &apos;b&apos;, &apos;c&apos;};</Line>
+            <Line>    Cv1 &lt;= {1, 2, 3; 4, 5, 6};</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

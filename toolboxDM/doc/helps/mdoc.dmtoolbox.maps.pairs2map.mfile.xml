@@ -1,0 +1,101 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='pairs2map' filename='pairs2map.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.maps.pairs2map.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.maps.scalarmap.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.maps.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='pairs2map'>
+      <Inputs>
+        <Var name='pairs'/>
+        <Var name='op'/>
+      </Inputs>
+      <Outputs>
+        <Var name='keys'/>
+        <Var name='values'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='PAIRS2MAP'>Constructs a map from a cell array of key-value pairs</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[keys, values] = pairs2map(pairs)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='pairs'>
+          <MParagraph>the cell array of pairs</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='op'>
+          <MParagraph>the options of pairs</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='normal'>
+              <MParagraph>the pairs is in normal form each cell contains a cell array of two elements: key and value.</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='reverse'>
+              <MParagraph>each cell contains a cell array of two elements: value and key.</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MTermEntry>
+        <MTermEntry term='keys'>
+          <MParagraph>the cell array of keys</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='values'>
+          <MParagraph>the cell array of values</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[keys, values] = pairs2map(pairs) constructs a map from a cell array of pairs. Each cell in pairs is a cell array of two elements. The first one is key, while the latter is value.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>[keys, values] = pairs2map(pairs, op) specifies the form of the elements in the pairs.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Construct a map from the pairs in normal order</MParagraph>
+          <MCodeBlock>
+            <Line>    [K, V] = pairs2map({ ...</Line>
+            <Line>                  {&apos;ch&apos;, &apos;Chinese&apos;}, ...</Line>
+            <Line>                  {&apos;en&apos;, &apos;English&apos;}, ...</Line>
+            <Line>                  {&apos;jp&apos;, &apos;Japanese&apos;}});</Line>
+            <Line>    K &lt;= {&apos;ch&apos;, &apos;en&apos;, &apos;jp&apos;}</Line>
+            <Line>    V &lt;= {&apos;Chinese&apos;, &apos;English&apos;, &apos;Japanese&apos;}</Line>
+            <Line></Line>
+            <Line>    [K, V] = pairs2map({{&apos;x&apos;, 12}, {&apos;y&apos;, 24}, {&apos;z&apos;, 31}});</Line>
+            <Line>    K &lt;= {&apos;x&apos;, &apos;y&apos;, &apos;z&apos;}</Line>
+            <Line>    V &lt;= {12, 24, 31}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Construct a map from the pairs in reverse order</MParagraph>
+          <MCodeBlock>
+            <Line>    [K, V] = pairs2map({ ...</Line>
+            <Line>                  {&apos;Chinese&apos;, &apos;ch&apos;}, ...</Line>
+            <Line>                  {&apos;English&apos;, &apos;en&apos;}, ...</Line>
+            <Line>                  {&apos;Japanese&apos;, &apos;jp&apos;}}, &apos;reverse&apos;);</Line>
+            <Line>    K &lt;= {&apos;ch&apos;, &apos;en&apos;, &apos;jp&apos;}</Line>
+            <Line>    V &lt;= {&apos;Chinese&apos;, &apos;English&apos;, &apos;Japanese&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

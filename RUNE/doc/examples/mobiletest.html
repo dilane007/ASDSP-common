@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - mobiletest</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>mobiletest<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>xymm=mobiletest</P>
+DESCRIPTON xymm = mobiletest Generates a gain matrix for a number of mobiles in a small system</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>xymm</B></TD><TD>complex user positions. Size is number of users by 1.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>xymm = mobiletest</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="gaintest.html">gaintest</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function xymm = mobiletest
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 040209</FONT>
+
+<FONT COLOR="DARKGREEN">% Create vbase stations</FONT>
+par.cellradius = 1000; <FONT COLOR="DARKGREEN">% cell radius [m]</FONT>
+par.km = 2;            <FONT COLOR="DARKGREEN">% km^2+lm^2+km*lm => the number of sites</FONT>
+par.lm = 1;            <FONT COLOR="DARKGREEN">% related to km above</FONT>
+par.sps = 3;           <FONT COLOR="DARKGREEN">% Number of sectors per site</FONT>
+
+<FONT COLOR="DARKGREEN">% xyb --      base antenna positon</FONT>
+<FONT COLOR="DARKGREEN">% fib --      relative vector pointing from base to center of cell. 0 if</FONT>
+<FONT COLOR="DARKGREEN">%             omincell</FONT>
+<FONT COLOR="DARKGREEN">% rhombvec -- vectors that will span the system (used for wrap around)</FONT>
+[xyb,fib,rhombvec]=<A HREF="../runegain/crecells.html">crecells</A>(par.cellradius,par.sps,par.km,par.lm);
+
+<FONT COLOR="DARKGREEN">% Create new mobiles </FONT>
+<FONT COLOR="DARKGREEN">% dt, amean and vmean has no meaning in this example </FONT>
+par.amean = 1;         <FONT COLOR="DARKGREEN">% mean acceleration [m/s/s]</FONT>
+par.vmean = 10;        <FONT COLOR="DARKGREEN">% mean speed  [m/s]</FONT>
+par.dt = 1;            <FONT COLOR="DARKGREEN">% time interval in the simulation loop [s]</FONT>
+
+nmob = 300;             <FONT COLOR="DARKGREEN">% number of users</FONT>
+xym=<A HREF="../runetools/nans.html">nans</A>(nmob,1);      <FONT COLOR="DARKGREEN">% template for position (complex entity)</FONT>
+xyv=<A HREF="../runetools/nans.html">nans</A>(nmob,1);      <FONT COLOR="DARKGREEN">% template for speed </FONT>
+m = (1:nmob).';        <FONT COLOR="DARKGREEN">% userid </FONT>
+
+xymm = ones(nmob,0);      <FONT COLOR="DARKGREEN">% init variable as empty</FONT>
+par.maxiter = 30;      <FONT COLOR="DARKGREEN">% number of iteration</FONT>
+for iter = 1:par.maxiter
+ [xym,xyv]=<A HREF="../runegain/mobmove.html">mobmove</A>(xym,xyv,par.amean,par.vmean,par.dt,rhombvec);
+ xymm  = [xymm xym];
+end
+clf
+<A HREF="../runegain/plothex.html">plothex</A>(xyb,fib)
+<A HREF="../runetools/ploth.html">ploth</A>(xymm.','.-') <FONT COLOR="DARKGREEN">% show user position</FONT>
+axis equal
+
+<FONT COLOR="DARKGREEN">% $Id: mobiletest.m,v 1.2 2004/03/11 15:00:54 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

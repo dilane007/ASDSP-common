@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - assign</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>assign<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>[bass,kass,offern]=assign(b,k,g,offer,homargin)</P>
+Assigns base and channel to new calls. If possible first base is selected and then if possible a channel. The assignment order is random, thus the order within b and k has no impact in a blocking situation.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>b</B></TD><TD>Base index for each link. Size is #links by one. Elements of b that is equal to NaN are going to be assigned a base station index.</TD></TR>
+<TR><TD VALIGN="TOP"><B>k</B></TD><TD>Channel index for each link. Size is #links by one. The value NaN indicates no channel selected yet.</TD></TR>
+<TR><TD VALIGN="TOP"><B>g</B></TD><TD>Gain matrix with gain values in dB. Size is #links by #bases.</TD></TR>
+<TR><TD VALIGN="TOP"><B>offer</B></TD><TD>Binary matrix. Zero indicate occupied channel. Size is #bases by #channels.</TD></TR>
+<TR><TD VALIGN="TOP"><B>homargin</B></TD><TD>Standard deviation of the noise added to the gain matrix when base selction is made.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>bass</B></TD><TD>As b, but possibly with NaNs removed by an index to indicate the assigned base station.</TD></TR>
+<TR><TD VALIGN="TOP"><B>kass</B></TD><TD>As k, but possibly with NaNs removed by an index to indicate the assigned channel. If blockin occours, i.e. no channel available on the selected base, then the corresponding element will be kept as nan.</TD></TR>
+<TR><TD VALIGN="TOP"><B>offern</B></TD><TD>Same size as offer, but with assigned base station channel combination marked as occupied (zero).</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>[b,k,offer]=assign(nan,nan,-100,1,0)
+[b,k,offer]=assign(nans(3,1),nans(3,1),10*rand(3,2),ones(2,4),3)
+3 new users in a sytem with 2 bases and with the same 4 channels in
+both bases. The gain matrix is just log-normal in order to indicate some
+gain variation. Reduce the number of channels to one and see what happens.</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function [bass,kass,offern] = assign(b,k,g,offer,homargin)
+
+<FONT COLOR="DARKGREEN">%  by Magnus Almgren 000505</FONT>
+
+if isempty(b) <FONT COLOR="DARKGREEN">% the empty case</FONT>
+ bass = zeros(0,1);
+ kass = zeros(0,1);
+ offern = offer;
+ return
+end
+<FONT COLOR="DARKGREEN">% Assign base and channel to new calls.</FONT>
+<FONT COLOR="DARKGREEN">% Add some noise so the selection of base will be randomized.</FONT>
+mask = isnan(k)|isnan(b); <FONT COLOR="DARKGREEN">% Assign only links without a channel.</FONT>
+bass = <A HREF="../runetools/maxind.html">maxind</A>(g+homargin/2*rand(size(g)),[],2);
+bass(~mask) = nan; <FONT COLOR="DARKGREEN">% Make all ongoing calls to nan.</FONT>
+[kass, offern] = <A HREF="radchanalloc.html">radchanalloc</A>(bass, offer);
+reset = isnan(kass)&~mask; <FONT COLOR="DARKGREEN">% Do not alter values that already was assigned.</FONT>
+bass(reset)=b(reset);
+kass(reset)=k(reset);
+bass = bass(:); <FONT COLOR="DARKGREEN">% Make sure that input is only in first dimension.</FONT>
+kass = kass(:);
+
+<FONT COLOR="DARKGREEN">% $Id: assign.m,v 1.1 2004/02/19 17:27:32 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

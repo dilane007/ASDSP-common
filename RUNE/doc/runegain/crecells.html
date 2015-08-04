@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - crecells</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>crecells<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>[xyb,fib,rhombvec]=crecells(cellradius,sps,km,lm,kn,ln)</P>
+Create complex base station coordinates and cell center vectors</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>cellradius</B></TD><TD>Complex radius from the base to the center of the hexagonal cell.</TD></TR>
+<TR><TD VALIGN="TOP"><B>sps</B></TD><TD>Sectors per site 1 (omni cells) or 3 (120 degrees sector cells).</TD></TR>
+<TR><TD VALIGN="TOP"><B>km</B></TD><TD>See below.</TD></TR>
+<TR><TD VALIGN="TOP"><B>lm</B></TD><TD>Integer values giving the site-cluster-size according to km^2+lm^2+km*lm.</TD></TR>
+<TR><TD VALIGN="TOP"><B>kn</B></TD><TD>See below.</TD></TR>
+<TR><TD VALIGN="TOP"><B>ln</B></TD><TD>Integer values giving the number of clusters according to kn^2+ln^2+kn*ln. ln is optional and default value is 0.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>xyb</B></TD><TD>Base station positions in complex coordinates.</TD></TR>
+<TR><TD VALIGN="TOP"><B>fib</B></TD><TD>Complex vectors from the bases to the center of the cell. In the omni case fib vector elements are zero.</TD></TR>
+<TR><TD VALIGN="TOP"><B>rhombvec</B></TD><TD>Two complex vectors that span the area of the system.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>plot(crecells(1000,3,2,3,2),'*')
+3 cells/site, 19 sites/cluster, 4 clusters</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="crecluster.html">crecluster</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function [xyb, fib, rhombvec] = crecells(cellradius, sps, km, lm, kn, ln)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 000505 revised 030717</FONT>
+
+if nargin < 6
+ ln = 0;
+end
+if nargin < 5
+ ln = 1;
+ kn = 0;
+end
+if sps == 1
+ fibv = 0; <FONT COLOR="DARKGREEN">% Zero to indicate no specific direction</FONT>
+ sitev = sqrt(-3)*cellradius;
+else <FONT COLOR="DARKGREEN">% sps is assumed to be 3 but also 6,12,18 would make sense</FONT>
+ fibv = cellradius*exp(i*2*pi*<A HREF="../runetools/flatten.html">flatten</A>(0:sps-1,3)/sps); <FONT COLOR="DARKGREEN">% 3rd dimension</FONT>
+ sitev = -3*cellradius;
+end
+
+<FONT COLOR="DARKGREEN">% Complex Cell positions within a cluster</FONT>
+[xy rvc] = <A HREF="crecluster.html">crecluster</A>(km, lm, sitev);
+xyc = <A HREF="../runetools/flatten.html">flatten</A>(xy, 2); <FONT COLOR="DARKGREEN">% 2nd dimension</FONT>
+
+<FONT COLOR="DARKGREEN">% Complex cluster positions within the system</FONT>
+[xy rhombvec] = <A HREF="crecluster.html">crecluster</A>(kn, ln, rvc(1));
+xys = <A HREF="../runetools/flatten.html">flatten</A>(xy, 4); <FONT COLOR="DARKGREEN">% 4th dimension</FONT>
+
+<FONT COLOR="DARKGREEN">% Combine xys, xyc, fibv to its final size </FONT>
+[xyb, fib] = <A HREF="../runetools/adjsiza.html">adjsiza</A>(<A HREF="../runetools/mplus.html">mplus</A>(xys, xyc), fibv);
+
+<FONT COLOR="DARKGREEN">% xyb & fib in second dimension</FONT>
+xyb = <A HREF="../runetools/flatten.html">flatten</A>(xyb,2); <FONT COLOR="DARKGREEN">% Complex base station positions </FONT>
+fib = <A HREF="../runetools/flatten.html">flatten</A>(fib,2); <FONT COLOR="DARKGREEN">% Complex vector pointing to the center of the cell </FONT>
+
+xyb = xyb-mean(xyb); <FONT COLOR="DARKGREEN">% adjust cells around origo</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: crecells.m,v 1.2 2004/03/11 15:01:30 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

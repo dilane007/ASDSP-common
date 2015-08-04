@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - sizem</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>sizem<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>res=sizem(m,dims)</P>
+For a matrix m the size is given for each element of dims. Dims is the dimensions for which the size is determined. If dims is omitted then the size of all dimensions of m are delivered as by the function size.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>m</B></TD><TD>A matrix of any size.</TD></TR>
+<TR><TD VALIGN="TOP"><B>dims</B></TD><TD>A matrix with dimensions for which the size will be determined.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>res</B></TD><TD>a matrix of the same size as dims containing the corresponding sizes.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>sizem(ones(2,3,4)) =&gt; [2 3 4]
+sizem(ones(2,3,4), [2 3]) =&gt; [3 4]</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="sizes.html">sizes</A>, ndims</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function res = sizem(m, dims)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 030930 revised 031120</FONT>
+
+if nargin < 2 <FONT COLOR="DARKGREEN">% default the ordinary size function</FONT>
+ res = size(m);
+ return
+end
+res = dims; <FONT COLOR="DARKGREEN">% output has the same size as the input </FONT>
+for i = 1:length(dims(:))
+ res(i) = size(m,dims(i));
+end
+
+<FONT COLOR="DARKGREEN">% $Id: sizem.m,v 1.1 2004/02/19 17:27:45 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

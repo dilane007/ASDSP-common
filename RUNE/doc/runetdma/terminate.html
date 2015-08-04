@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - terminate</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>terminate<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>[bter,kter,obkn]=terminate(b,k,obk,term)</P>
+Terminates calls. Essentially the channels that the calls occupied are marked as free again.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>b</B></TD><TD>Base index for each link. Size is #links by one.</TD></TR>
+<TR><TD VALIGN="TOP"><B>k</B></TD><TD>Channel index for each link. Size is #links by one. The value NaN indicates not in use.</TD></TR>
+<TR><TD VALIGN="TOP"><B>obk</B></TD><TD>Binary matrix. Zero indicate occupied channel.</TD></TR>
+<TR><TD VALIGN="TOP"><B>term</B></TD><TD>A binary vector of the same size as b and k indicating which links that are going to be released.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>bter</B></TD><TD>Has the same size as respectively b.</TD></TR>
+<TR><TD VALIGN="TOP"><B>kter</B></TD><TD>Nan in all places where calls where terminated. Has the same size as k.</TD></TR>
+<TR><TD VALIGN="TOP"><B>obkn</B></TD><TD>Reflects the new allocation in the system. Has the same size as obk.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE> function [bter, kter, obkn] = terminate(b, k, obk, term)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 000505</FONT>
+
+if isempty(b)
+ bter = zeros(0,1);
+ kter = zeros(0,1);
+ obkn = obk;
+ return 
+end
+<FONT COLOR="DARKGREEN">% NaN indicates not used any more</FONT>
+bter = b;
+bter(term) = nan;
+kter = k;
+kter(term) = nan;
+<FONT COLOR="DARKGREEN">% release channels </FONT>
+ind = <A HREF="../runetools/index.html">index</A>(b(term),k(term),size(obk));
+obkn = obk;
+obkn(ind) = obkn(ind) + 1; <FONT COLOR="DARKGREEN">% Mark as available.</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: terminate.m,v 1.2 2004/03/11 15:01:42 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

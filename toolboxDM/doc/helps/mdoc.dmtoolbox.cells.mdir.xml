@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='cells' dirtype='normal'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.mdir.xml'/>
+    <Next path='mdoc.dmtoolbox.maps.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MFileRef name='celall' path='mdoc.dmtoolbox.cells.celall.mfile.xml'/>
+    <MFileRef name='celany' path='mdoc.dmtoolbox.cells.celany.mfile.xml'/>
+    <MFileRef name='celcount' path='mdoc.dmtoolbox.cells.celcount.mfile.xml'/>
+    <MFileRef name='celcount_if' path='mdoc.dmtoolbox.cells.celcount_if.mfile.xml'/>
+    <MFileRef name='celinclude' path='mdoc.dmtoolbox.cells.celinclude.mfile.xml'/>
+    <MFileRef name='celmerge' path='mdoc.dmtoolbox.cells.celmerge.mfile.xml'/>
+    <MFileRef name='celremove' path='mdoc.dmtoolbox.cells.celremove.mfile.xml'/>
+    <MFileRef name='celremove_if' path='mdoc.dmtoolbox.cells.celremove_if.mfile.xml'/>
+    <MFileRef name='celselect' path='mdoc.dmtoolbox.cells.celselect.mfile.xml'/>
+    <MFileRef name='celsplit' path='mdoc.dmtoolbox.cells.celsplit.mfile.xml'/>
+  </Subs>
+</MDirInfo>

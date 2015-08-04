@@ -1,0 +1,53 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='testsuite' filename='testsuite.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testsuite.testsuite.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testsuite.run.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testsuite.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='testsuite'>
+      <Inputs>
+        <Var name='name'/>
+        <Var name='units'/>
+      </Inputs>
+      <Outputs>
+        <Var name='tsuite'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TESTSUITE'>Constructs a test suite</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tsuite = testsuite(name, units)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='name'>
+          <MParagraph>the name of the test suite</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='units'>
+          <MParagraph>the cell array of units</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tsuite = testsuite(name, units) constructs a test suite, which is a set of test units (test cases or test suites). By this way, we can can build a hierarchy of test units.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

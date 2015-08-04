@@ -1,0 +1,86 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='run' filename='run.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testsuite.run.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testsuite.getunits.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testsuite.testsuite.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testsuite.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='run'>
+      <Inputs>
+        <Var name='tsuite'/>
+        <Var name='logger'/>
+      </Inputs>
+      <Outputs>
+        <Var name='info'/>
+        <Var name='logger'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='RUN'>Runs the test suite</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>info = run(tsuite)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>info = run(tsuite, logger)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='tcase'>
+          <MParagraph>the test case to run</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='logger'>
+          <MParagraph>the logger to handle testing events (if not specified, it uses the testlog() as default)</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='info'>
+          <MParagraph>the struct of testing information It has three fields:</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='tag'>
+              <MParagraph>&apos;suite_info&apos;</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='suite_name'>
+              <MParagraph>the name of the test suite</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='sub_info'>
+              <MParagraph>the cell array of the info of the units</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='tstats'>
+              <MParagraph>a struct of some statistics</MParagraph>
+              <MTermList listtype='unordered'>
+                <MTermEntry term='records'>
+                  <MParagraph>a 1 x 4 vector of the numbers of different types of records</MParagraph>
+                </MTermEntry>
+                <MTermEntry term='cases'>
+                  <MParagraph>a 1 x 2 vector of the number of passed cases and that of the failed cases</MParagraph>
+                </MTermEntry>
+              </MTermList>
+            </MTermEntry>
+          </MTermList>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>info = run(tsuite) runs all test units of the test suite, and returns the recorded information. It uses the default logger to handle the testing events.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>info = run(tsuite, logger) runs all test units in the test suite, and returns the recorded information, with a specified logger to handle the testing events.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

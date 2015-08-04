@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - linmean</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>linmean<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>y=linmean(varargin)</P>
+The same as mean but the input argument and the outpout are in dB. y = lin2db(mean(db2lin(arg),dim)). dim is optional.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>m</B></TD><TD>A matrix with real values representing entities in dB.</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>The dimension in which the mean value is computed</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>y</B></TD><TD>The corresponding matrix cumsummed in the linear domain.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>linmean([0; 0]),linmean([0, -inf])</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD>cumsum, <A HREF="linsum.html">linsum</A>, <A HREF="lincumsum.html">lincumsum</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function y = linmean(varargin)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 011022</FONT>
+
+<FONT COLOR="DARKGREEN">% mean value in the linear domain and back to dB</FONT>
+y = <A HREF="lin2db.html">lin2db</A>(mean(<A HREF="db2lin.html">db2lin</A>(varargin{1}),varargin{2:end}));
+
+<FONT COLOR="DARKGREEN">% $Id: linmean.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

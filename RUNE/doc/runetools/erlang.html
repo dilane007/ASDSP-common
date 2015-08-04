@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - erlang</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>erlang<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>b=erlang(a,n)</P>
+Erlang b formula for any matrix sizes. Input arguments will extend singleton dimensions of each input argument to match the other arguments. erlang(0,0) will result in 0.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>a</B></TD><TD>The offered traffic.</TD></TR>
+<TR><TD VALIGN="TOP"><B>n</B></TD><TD>The available number of servers.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>b</B></TD><TD>The resulting blocking probability.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>erlang((0:0.1:1)',1:2), erlang(inf,1), erllang(1,inf)</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function b = erlang(a, n) <FONT COLOR="DARKGREEN">% erlang b formula for any matrix sizes</FONT>
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 980930 revised 040202 by MA</FONT>
+
+<FONT COLOR="DARKGREEN">% due to a bug in matlab when more than 2 dimensions of x</FONT>
+loggam = inline('reshape(gammaln(x),size(x))');
+
+newdim = <A HREF="firstsing.html">firstsing</A>(a,n); <FONT COLOR="DARKGREEN">%Find first not used dimension.</FONT>
+maxn = max(n,[],newdim); <FONT COLOR="DARKGREEN">% maximum number of servers</FONT>
+maxn(isinf(maxn))=0; <FONT COLOR="DARKGREEN">% set low value</FONT>
+nv = <A HREF="flatten.html">flatten</A>(0:max(maxn(:)),newdim); <FONT COLOR="DARKGREEN">% Make a ramp in that dimension.</FONT>
+<FONT COLOR="DARKGREEN">%gamln = gammaln(nv+1); % Calc nat log of all factorials that is used.</FONT>
+[am, nm, nv] = <A HREF="adjsiza.html">adjsiza</A>(a,n,nv); <FONT COLOR="DARKGREEN">% Make all args to the same size.</FONT>
+warning off
+loga = log(am);
+warning on
+t = loga.*nm - loggam(nm+1); <FONT COLOR="DARKGREEN">% The nominator</FONT>
+b = 1./sum(exp(loga.*nv - loggam(nv+1) - t).*(nm>=nv),newdim);
+
+<FONT COLOR="DARKGREEN">% Clean up all odd cases</FONT>
+b(isinf(<A HREF="adjsiza.html">adjsiza</A>(n,a))) = 0; <FONT COLOR="DARKGREEN">% infinite # of servers </FONT>
+b(<A HREF="adjsiza.html">adjsiza</A>(a,n)==0) = 0; <FONT COLOR="DARKGREEN">% no offered traffic</FONT>
+b(isinf(<A HREF="adjsiza.html">adjsiza</A>(a,n))) = 1; <FONT COLOR="DARKGREEN">% infinite traffic </FONT>
+b(isinf(<A HREF="adjsiza.html">adjsiza</A>(a,n))) = 1; <FONT COLOR="DARKGREEN">% infinite traffic </FONT>
+b(isnan(<A HREF="adjsiza.html">adjsiza</A>(a,n))) = nan; <FONT COLOR="DARKGREEN">% nans => nan </FONT>
+b(isnan(<A HREF="adjsiza.html">adjsiza</A>(n,a))) = nan; <FONT COLOR="DARKGREEN">% nans => nan</FONT>
+
+<FONT COLOR="DARKGREEN">% The function is calculated in logarithms to avoid overflow</FONT>
+<FONT COLOR="DARKGREEN">% when n is in the order of 170 or more</FONT>
+
+
+<FONT COLOR="DARKGREEN">% $Id: erlang.m,v 1.1 2004/02/19 17:27:42 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

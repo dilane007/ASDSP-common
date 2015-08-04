@@ -1,0 +1,81 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='tuples2struct' filename='tuples2struct.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.tuples2struct.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.struct2tuples.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='tuples2struct'>
+      <Inputs>
+        <Var name='tuples'/>
+        <Var name='inds'/>
+        <Var name='fieldnames'/>
+      </Inputs>
+      <Outputs>
+        <Var name='S'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TUPLES2STRUCT'>Constructs a struct array using the values in tuples</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>S = tuples2struct(tuples, fieldnames)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='tuples'>
+          <MParagraph>the cell array of tuples</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='inds'>
+          <MParagraph>the indices of tuple components to be extracted</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fieldnames'>
+          <MParagraph>the fieldnames of the struct</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='S'>
+          <MParagraph>the created struct array</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>S = tuples2struct(tuples, inds, fieldnames) creates a struct array with the fields given by the specified tuples components.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The size of S will be equal to the size of tuples.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Create struct array from a cell array of tuples</MParagraph>
+          <MCodeBlock>
+            <Line>    s = tuples2struct({{1, 10}, {2, &apos;x&apos;}, {3, [30, 1]}}, [1, 2], {&apos;a&apos;, &apos;b&apos;})</Line>
+            <Line>    =&gt; s is a 1x3 struct array with fields: a and b</Line>
+            <Line>       s(1) &lt;= a: 1, b: 10</Line>
+            <Line>       s(2) &lt;= a: 2, b: &apos;x&apos;</Line>
+            <Line>       s(3) &lt;= a: 3, b: [30 1]</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

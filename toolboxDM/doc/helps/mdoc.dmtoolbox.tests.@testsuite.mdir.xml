@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='@testsuite' dirtype='class'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testsuite.mdir.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MFileRef name='getname' path='mdoc.dmtoolbox.tests.@testsuite.getname.mfile.xml'/>
+    <MFileRef name='getunits' path='mdoc.dmtoolbox.tests.@testsuite.getunits.mfile.xml'/>
+    <MFileRef name='run' path='mdoc.dmtoolbox.tests.@testsuite.run.mfile.xml'/>
+    <MFileRef name='testsuite' path='mdoc.dmtoolbox.tests.@testsuite.testsuite.mfile.xml'/>
+  </Subs>
+</MDirInfo>

@@ -1,0 +1,111 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='combfun' filename='combfun.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.combfun.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.utils.cartproduct_s.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.utils.count_if.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.utils.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='combfun'>
+      <Inputs>
+        <Var name='f'/>
+        <Var name='uout'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='varargout'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='COMBFUN'>Applies a function to all combinations of parameters</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[R1, R2, ...] = combfun(f, uout, C1, C2, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='f'>
+          <MParagraph>the function handle to apply</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='uout'>
+          <MParagraph>whether the output is uniform and can be grouped without cell array. This is equivalent to the UniformOutput parameter in arrayfun.</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='Ci'>
+          <MParagraph>the i-th set of parameters (in cell array)</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='Ri'>
+          <MParagraph>the results</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[R1, R2, ...] = combfun(f, uout, C1, C2, ...) extracts all combinations of parameters from C1, C2, ... respectively and applies f to them.</MParagraph>
+          <MParagraph>Suppose C1, C2, ... respectively have n1, n2, ... elements. Then, If uout is true, Rp will be an array of size n1 x n2 x ... such that Rp(i1, i2, ...) = the p-th output of f(C1{i1}, C2{i2}, ...) If uout is false, Rp will be a cell array of size n1 x n2 x ... such that Rp{i1, i2, ...} = the p-th output of f(C1{i1}, C2{i2}, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The number of outputs R1, R2, ... should be equal to the number of outputs produced by each invoking of f. The number of parameter sets C1, C2, ... should be equal to the number of input arguments to f.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>This function offers a convenient way to run experiments in multiple settings without explicitly writing out all combinations.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Apply functions to combination of parameters</MParagraph>
+          <MCodeBlock>
+            <Line>    combfun(@(x, y) [x, &apos; + &apos;, num2str(y)], false,</Line>
+            <Line>            {&apos;a&apos;, &apos;b&apos;}, {1, 2, 3})</Line>
+            <Line>    =&gt; { &apos;a + 1&apos;, &apos;a + 2&apos;, &apos;a + 3&apos;;</Line>
+            <Line>         &apos;b + 1&apos;, &apos;b + 2&apos;, &apos;b + 3&apos; }</Line>
+            <Line></Line>
+            <Line>    combfun(@(x, y) x + y, true, {10, 20, 30}, {2, 5})</Line>
+            <Line>    =&gt; [ 12  15</Line>
+            <Line>         22  25</Line>
+            <Line>         32  35 ]</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Apply multi-output function to compute addition table and multiplication table:</MParagraph>
+          <MCodeBlock>
+            <Line>    [A, M] = combfun(@(x, y) deal(x+y, x*y), true,</Line>
+            <Line>                     {1, 2, 3}, {1, 2, 3, 4, 5})</Line>
+            <Line></Line>
+            <Line>    A &lt;= [ 2 3 4 5 6</Line>
+            <Line>           3 4 5 6 7</Line>
+            <Line>           4 5 6 7 8 ]</Line>
+            <Line></Line>
+            <Line>    M &lt;= [ 1  2  3  4  5</Line>
+            <Line>           2  4  6  8 10</Line>
+            <Line>           3  6  9 12 15 ]</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Run a function in all combinations of parameter settings and collect the results</MParagraph>
+          <MCodeBlock>
+            <Line>    results = combfun(f, false, params1, params2, ...);</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

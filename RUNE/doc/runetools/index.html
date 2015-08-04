@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - index</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>index<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>res=index(varargin)</P>
+A flat index into a matrix. The argument list contains index into each dimension of the matrix (r,c,...) followed by the size of the matrix (dims). Each dimension of the arguments must either have the same size or be a singleton. The last argument (dims) must at least have the length of the agument list minus two. If any of the arguments is empty the result is an empty matrix.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>r</B></TD><TD>index in first dimesion</TD></TR>
+<TR><TD VALIGN="TOP"><B>c</B></TD><TD>index in second dimesion</TD></TR>
+<TR><TD VALIGN="TOP"><B>.</B></TD><TD>index into thi...</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>res</B></TD><TD>the liear index into a matrix of size dims</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>index(1,2,[2 2]) =&gt; 3
+index(1,2,3,[2 2 4]) =&gt; 11
+index(1,2,2) will give the result 3.
+index((1:2)',1:2,[2 2])</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="">index</A>, sub2ind, ind2sub</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function res = index(varargin)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 970401</FONT>
+
+<FONT COLOR="DARKGREEN">% Make all but the last input variable into the same size.</FONT>
+
+<FONT COLOR="DARKGREEN">% return [] if any input is empty</FONT>
+for i = 1:nargin-1
+ if isempty(varargin{i})
+  res = [];
+  return
+ end
+end
+v = <A HREF="adjsiz.html">adjsiz</A>(varargin{1:end-1}); <FONT COLOR="DARKGREEN">% expand matrices to the same size</FONT>
+
+<FONT COLOR="DARKGREEN">% cumprod(dims) </FONT>
+cisiz = cumprod(varargin{end}(1:nargin-2));
+
+<FONT COLOR="DARKGREEN">% compute the flat index</FONT>
+res = v{1};
+for i = 2:nargin-1
+ res = res + cisiz(i-1).*(v{i}-1); 
+end
+
+<FONT COLOR="DARKGREEN">% $Id: index.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

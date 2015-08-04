@@ -1,0 +1,68 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='count_if' filename='count_if.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.count_if.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.utils.combfun.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.utils.countfalse.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.utils.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='count_if'>
+      <Inputs>
+        <Var name='A'/>
+        <Var name='f'/>
+      </Inputs>
+      <Outputs>
+        <Var name='n'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='COUNT_IF'>Counts the number of elements satisfying some conditions</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = count_if(A, f)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='A'>
+          <MParagraph>the source array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='f'>
+          <MParagraph>the predicate function handle</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='n'>
+          <MParagraph>the number of the elements satisfying the condition</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = count_if(C, f) gets the number of elements in C for which the predicate f returns true.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Counts the number of struct elements with field name equaling 1</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;a&apos;, {1, 2, 1}, &apos;b&apos;, {3, 4, 5});</Line>
+            <Line>    count_if(S, @(s) s.a == 1)  =&gt; 2</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

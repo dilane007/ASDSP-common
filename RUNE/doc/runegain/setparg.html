@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - setparg</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>setparg<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>par=setparg</P>
+Sets the structured parameter par that is the input to runefg. This file is intended to use as a template.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>par</B></TD><TD>input parameter to rune</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>setparg</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="runefg.html">runefg</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function par = setparg
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 040213</FONT>
+
+<FONT COLOR="DARKGREEN">% Simulation specific paramters</FONT>
+par.frametime = 1;     <FONT COLOR="DARKGREEN">% time interval between simulated frames. Could be nslots*sltottime </FONT>
+par.nframes = 5;       <FONT COLOR="DARKGREEN">% number of iterations in the main loop </FONT>
+par.slottime = 1/8;    <FONT COLOR="DARKGREEN">% time per slot </FONT>
+par.nslots  = 8;       <FONT COLOR="DARKGREEN">% nomber of slots per frame</FONT>
+par.seed = 1;          <FONT COLOR="DARKGREEN">% seed to all random sequencies in the simulation</FONT>
+
+<FONT COLOR="DARKGREEN">% Site specific paramters</FONT>
+par.cellradius = 3000; <FONT COLOR="DARKGREEN">% cell radius [m]</FONT>
+par.km = 1;            <FONT COLOR="DARKGREEN">% km^2+lm^2+km*lm => the number of sites per cluster</FONT>
+par.lm = 2;            <FONT COLOR="DARKGREEN">% related to km above</FONT>
+par.kn = 0;            <FONT COLOR="DARKGREEN">% kn^2+ln^2+kn*ln => the number of cluster per system</FONT>
+par.ln = 1;            <FONT COLOR="DARKGREEN">% related to kn above</FONT>
+par.sps = 1;           <FONT COLOR="DARKGREEN">% Number of sectors per site</FONT>
+
+<FONT COLOR="DARKGREEN">% Propagation specific paramters</FONT>
+par.gainconst = -28;   <FONT COLOR="DARKGREEN">% gain at 1 meter distance </FONT>
+par.noise = -103;      <FONT COLOR="DARKGREEN">% thermal noise floor -118 dBm</FONT>
+par.alpha = 3.5;       <FONT COLOR="DARKGREEN">% distance attenuation coefficient</FONT>
+par.sigma = 6;         <FONT COLOR="DARKGREEN">% standard deviation for the log-normal fading in dB</FONT>
+par.raa = 0.5;         <FONT COLOR="DARKGREEN">% lognormal correlation down link (typical 0.5)</FONT>
+par.corrdist = 110;    <FONT COLOR="DARKGREEN">% lognormal fading correlation distance [m]</FONT>
+
+<FONT COLOR="DARKGREEN">% Traffic generation specific parameters</FONT>
+par.offtraf = 10;      <FONT COLOR="DARKGREEN">% average number of offered calls to a cell     </FONT>
+par.mht = inf;         <FONT COLOR="DARKGREEN">% mean holding time [seconds]  </FONT>
+
+<FONT COLOR="DARKGREEN">% Mobility specific parameters</FONT>
+par.amean = 0.2;       <FONT COLOR="DARKGREEN">% mean acceleration [m/s/s]</FONT>
+par.vmean = 1;         <FONT COLOR="DARKGREEN">% mean speed  [m/s]</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: setpar.m,v 1.2 2004/03/11 15:01:31 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

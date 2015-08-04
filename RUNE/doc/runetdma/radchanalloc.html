@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - radchanalloc</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>radchanalloc<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>[k,obkn]=radchanalloc(b,obk)</P>
+Radio Channel Allocation.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>b</B></TD><TD>Bases where channels are requested.</TD></TR>
+<TR><TD VALIGN="TOP"><B>obk</B></TD><TD>Binary matrix, base by channel.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>k</B></TD><TD>Channel allocation vector, related to b and with same size. NaNs where allocation failed.</TD></TR>
+<TR><TD VALIGN="TOP"><B>obkn</B></TD><TD>The new obk matrix when allocation is made.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>[k, obkn] = radchanalloc([1], [1 1; 1 1])
+[k, obkn] = radchanalloc([2], [1 1; 1 1])
+[k, obkn] = radchanalloc([2 2 2], [1 1; 1 1])
+[k, obkn] = radchanalloc(nan, [1 1; 1 1])
+radchanalloc(1,   1    ) =&gt; [1,   0     ]
+radchanalloc(1,   0    ) =&gt; [nan, 0     ]
+radchanalloc(nan, 1    ) =&gt; [nan, 1     ]
+radchanalloc(nan, 0    ) =&gt; [nan, 0     ]</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function [k, obkn] = radchanalloc(b, obk)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 990401</FONT>
+
+obkn = obk; 
+bv = b(~isnan(b));
+k  = <A HREF="../runetools/nans.html">nans</A>(size(b));
+kv = <A HREF="../runetools/nans.html">nans</A>(size(bv));
+if length(bv(:))>0&length(obk(:))>0
+ req = full(sparse((1:size(bv(:),1))',bv,1));
+ 
+ [aa, bb] = <A HREF="../runetools/padsiz.html">padsiz</A>(0, req, obk'); <FONT COLOR="DARKGREEN">% Make to same size. Pad with 0.</FONT>
+ ra = sqrt(eps)*rand(size(aa));
+ rb = sqrt(eps)*rand(size(aa));
+ [sa,ia] = sort(ra-aa,1); <FONT COLOR="DARKGREEN">% Sort along first dim.</FONT>
+ [sb,ib] = sort(rb-bb,1);
+ s = (-sa>0.5)&(-sb>0.5); <FONT COLOR="DARKGREEN">% Look for common space.</FONT>
+ 
+ bind = <A HREF="../runetools/index.html">index</A>(ib,1:size(bb,2),size(bb));
+ bb(bind(s)) = 0;
+ obkn = bb';
+ obkn = obkn(1:size(obk,1),1:size(obk,2)) > 0.5;
+ 
+ kv(ia(s)) = ib(s);
+end
+k(~isnan(b)) = kv;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<FONT COLOR="DARKGREEN">% $Id: radchanalloc.m,v 1.1 2004/02/19 17:27:33 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

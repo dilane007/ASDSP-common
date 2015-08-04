@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - padsiz</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>padsiz<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>varargout=padsiz(pad,varargin)</P>
+Will extend dimensions of each input argument to maximum size of the other arguments.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>pad</B></TD><TD>Nonfilled areas are padded with this value.</TD></TR>
+<TR><TD VALIGN="TOP"><B>varargin</B></TD><TD>Matrices of any size</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>[a, b] = padsiz(NaN, ones(1,2), ones(2,1))</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="adjsiza.html">adjsiza</A>, <A HREF="adjsiz.html">adjsiz</A>, <A HREF="repelem.html">repelem</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function varargout = padsiz(pad, varargin)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 990317</FONT>
+
+dim = <A HREF="maxsize.html">maxsize</A>(varargin{:});
+for i = 1:length(varargin)  <FONT COLOR="DARKGREEN">% Go through all arguments.</FONT>
+ varargout{i} = zeros([dim 1])+pad;
+ siz = size(varargin{i});
+ if ~any(siz==0)
+  ind = indpart(dim, siz);
+  varargout{i}(ind) = varargin{i}(:);
+ end
+end
+
+function ind = indpart(dimb, dims)
+<FONT COLOR="DARKGREEN">% DESCRIPTION ind = indpart(dims, dimb)</FONT>
+<FONT COLOR="DARKGREEN">%  Calculates index from a smaller matrix into a bigger.</FONT>
+<FONT COLOR="DARKGREEN">% INPUT</FONT>
+<FONT COLOR="DARKGREEN">%  dims --  The size of the smaller matrix.</FONT>
+<FONT COLOR="DARKGREEN">%  dimb --  The size of the bigger matrix.</FONT>
+<FONT COLOR="DARKGREEN">% OUTPUT</FONT>
+<FONT COLOR="DARKGREEN">%  ind --   An index in the first dimension.</FONT>
+<FONT COLOR="DARKGREEN">% TRY</FONT>
+<FONT COLOR="DARKGREEN">%  indpart(size(ones(3,2)),size(ones(1,2)))</FONT>
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 981001</FONT>
+
+for j = 1:length(dims)
+ v{j}=<A HREF="flatten.html">flatten</A>(1:dims(j),j);
+end
+v{length(dims)+1} = dimb;
+ind = <A HREF="flatten.html">flatten</A>(<A HREF="index.html">index</A>(v{:}));
+<FONT COLOR="DARKGREEN">% $Id: padsiz.m,v 1.1 2004/02/19 17:27:44 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

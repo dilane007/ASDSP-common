@@ -1,0 +1,113 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='scalarmap' filename='scalarmap.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.maps.scalarmap.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.maps.pairs2map.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.maps.stringmap.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.maps.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='scalarmap'>
+      <Inputs>
+        <Var name='key'/>
+        <Var name='keys'/>
+        <Var name='values'/>
+        <Var name='defaultval'/>
+      </Inputs>
+      <Outputs>
+        <Var name='val'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='SCALARMAP'>Maps a scalar to a value in a cell array</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>val = scalarmap(key, keys, values)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>val = scalarmap(key, keys, values, defaultval)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='key'>
+          <MParagraph>the key of which the corresponding value is queried</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='keys'>
+          <MParagraph>the set of all keys in the map the keys be an array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='values'>
+          <MParagraph>the set of all corresponding values the values should be a cell array of any values.</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='defaultval'>
+          <MParagraph>the default value returned when key is not found</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='val'>
+          <MParagraph>the value corresponding to the key</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>val = scalarmap(key, keys, values) looks up the key-value map and returns the value corresponding to the key. The map is characterized by a set of keys and the corresponding set of values. If the key is not found in keys, an empty array will be returned.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>val = scalarmap(key, keys, values, defaultval) specifies the default value which is returned when the specified key is not found.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>If the keys contains multiple element that is equal to key, then only the first one take effects.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Retrieve an object from its id</MParagraph>
+          <MCodeBlock>
+            <Line>    scalarmap(1681, [1124, 1382, 1681], {&apos;C++&apos;, &apos;Java&apos;, &apos;MATLAB&apos;})</Line>
+            <Line>    =&gt; &apos;MATLAB&apos;</Line>
+            <Line></Line>
+            <Line>    scalarmap(1382, [1124, 1382, 1681], {&apos;C++&apos;, &apos;Java&apos;, &apos;MATLAB&apos;})</Line>
+            <Line>    =&gt; &apos;Java&apos;</Line>
+            <Line></Line>
+            <Line>    scalarmap(1793, [1124, 1382, 1681], {&apos;C++&apos;, &apos;Java&apos;, &apos;MATLAB&apos;})</Line>
+            <Line>    =&gt; []</Line>
+            <Line></Line>
+            <Line>    scalarmap(1793, [1124, 1382, 1681], {&apos;C++&apos;, &apos;Java&apos;, &apos;MATLAB&apos;}, &apos;none&apos;)</Line>
+            <Line>    =&gt; &apos;none&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Retrieve multiple objects from ids by making a query function</MParagraph>
+          <MCodeBlock>
+            <Line>    K = [1124, 1382, 1681];</Line>
+            <Line>    V = {&apos;C++&apos;, &apos;Java&apos;, &apos;MATLAB&apos;};</Line>
+            <Line>    qf = @(x) scalarmap(x, K, V);</Line>
+            <Line></Line>
+            <Line>    qf(1681) =&gt; &apos;MATLAB&apos;</Line>
+            <Line>    qf(1124) =&gt; &apos;C++&apos;</Line>
+            <Line></Line>
+            <Line>    ids = [1124 1382 1382 1681 1124];</Line>
+            <Line>    arrayfun(qf, ids, &apos;UniformOutput&apos;, false);</Line>
+            <Line>    =&gt; {&apos;C++&apos;, &apos;Java&apos;, &apos;Java&apos;, &apos;MATLAB&apos;, &apos;C++&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

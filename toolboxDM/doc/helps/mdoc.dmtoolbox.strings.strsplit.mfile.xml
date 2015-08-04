@@ -1,0 +1,99 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strsplit' filename='strsplit.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strsplit.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strscant.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strstart.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strsplit'>
+      <Inputs>
+        <Var name='str'/>
+        <Var name='delimiter'/>
+      </Inputs>
+      <Outputs>
+        <Var name='C'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRSPLIT'>Splits a string into sub strings with specified delimiter</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = strsplit(str)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>C = strsplit(str, delimiter)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='str'>
+          <MParagraph>the source string to be splited</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='delimiter'>
+          <MParagraph>the regular expression of the delimiting string</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='C'>
+          <MParagraph>the cell array of delimited sub strings</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = strsplit(str) splits the source string str with white spaces. It is equivalent to calling C = strsplit(str, &apos;\s+&apos;)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>C = strsplit(str, delimiter) splits the source string with the specified delimiter. The delimiter is given by a string using regular expression.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Split a string with the terms splitted by white spaces</MParagraph>
+          <MCodeBlock>
+            <Line>    strsplit(&apos;tiger fish cat&apos;)</Line>
+            <Line>    =&gt; {&apos;tiger&apos;, &apos;fish&apos;, &apos;cat&apos;}</Line>
+          </MCodeBlock>
+          <MParagraph>It can also be accomplished by strsplit(&apos;tiger fish cat&apos;, &apos;\s+&apos;)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Split a string with the terms splitted by commas</MParagraph>
+          <MCodeBlock>
+            <Line>    strsplit(&apos;tiger,fish,cat&apos;, &apos;,&apos;)</Line>
+            <Line>    =&gt; {&apos;tiger&apos;, &apos;fish&apos;, &apos;cat&apos;}</Line>
+          </MCodeBlock>
+          <MParagraph>In this case, when there are white spaces around the commas as</MParagraph>
+          <MCodeBlock>
+            <Line>    strsplit(&apos;tiger, fish , cat&apos;, &apos;,&apos;)</Line>
+            <Line>    =&gt; {&apos;tiger&apos;, &apos; fish &apos;, &apos; cat&apos;}</Line>
+          </MCodeBlock>
+          <MParagraph>If you would like to consider the spaces around commas as part of the delimiter instead of being part of the splitted strings, you can write as</MParagraph>
+          <MCodeBlock>
+            <Line>    strsplit(&apos;tiger, fish , cat&apos;, &apos;\s*,\s*&apos;)</Line>
+            <Line>    =&gt; {&apos;tiger&apos;, &apos;fish&apos;, &apos;cat&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>If str is empty, it returns an empty cell array.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 26, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

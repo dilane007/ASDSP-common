@@ -1,0 +1,89 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strjoin' filename='strjoin.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strjoin.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strindex.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strranges.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strjoin'>
+      <Inputs>
+        <Var name='strs'/>
+        <Var name='delimiter'/>
+      </Inputs>
+      <Outputs>
+        <Var name='s'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRJOIN'>Joins multiple strings with delimiters</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>s = strjoin(strs)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strjoin(strs, delimiter)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='strs'>
+          <MParagraph>the cell array of strings to be joined</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='delimiter'>
+          <MParagraph>the delimiter string to connect the strings</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='s'>
+          <MParagraph>the resulting joined string</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>s = strjoin(strs) joins multiple strings together with them delimited by a single space.</MParagraph>
+          <MParagraph>It is equivalent to calling s = strjoin(strs, &apos; &apos;).</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strjoin(strs, delimiter) joins multiple strings together with the specified delimiter.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Join multiple strings with spaces</MParagraph>
+          <MCodeBlock>
+            <Line>    strjoin({&apos;fish&apos;, &apos;tiger&apos;, &apos;cat&apos;}) =&gt; &apos;fish tiger cat&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Join multiple strings with specified delimiter</MParagraph>
+          <MCodeBlock>
+            <Line>    strjoin({&apos;x&apos;, &apos;y&apos;, &apos;z&apos;}, &apos;+&apos;) =&gt; &apos;x+y+z&apos;</Line>
+            <Line>    strjoin({&apos;x&apos;, &apos;y&apos;, &apos;z&apos;}, &apos; + &apos;) =&gt; &apos;x + y + z&apos;</Line>
+            <Line>    strjoin({&apos;you&apos;, &apos;he&apos;, &apos;I&apos;}, &apos; and &apos;) =&gt; &apos;you and he and I&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>If strs is empty, then an empty string will be returned</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 24, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

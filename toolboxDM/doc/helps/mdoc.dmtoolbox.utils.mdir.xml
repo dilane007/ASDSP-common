@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='utils' dirtype='normal'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.mdir.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MFileRef name='alltrue' path='mdoc.dmtoolbox.utils.alltrue.mfile.xml'/>
+    <MFileRef name='anytrue' path='mdoc.dmtoolbox.utils.anytrue.mfile.xml'/>
+    <MFileRef name='arrselect' path='mdoc.dmtoolbox.utils.arrselect.mfile.xml'/>
+    <MFileRef name='cartproduct' path='mdoc.dmtoolbox.utils.cartproduct.mfile.xml'/>
+    <MFileRef name='cartproduct_s' path='mdoc.dmtoolbox.utils.cartproduct_s.mfile.xml'/>
+    <MFileRef name='combfun' path='mdoc.dmtoolbox.utils.combfun.mfile.xml'/>
+    <MFileRef name='count_if' path='mdoc.dmtoolbox.utils.count_if.mfile.xml'/>
+    <MFileRef name='countfalse' path='mdoc.dmtoolbox.utils.countfalse.mfile.xml'/>
+    <MFileRef name='counttrue' path='mdoc.dmtoolbox.utils.counttrue.mfile.xml'/>
+    <MFileRef name='typecheck' path='mdoc.dmtoolbox.utils.typecheck.mfile.xml'/>
+  </Subs>
+</MDirInfo>

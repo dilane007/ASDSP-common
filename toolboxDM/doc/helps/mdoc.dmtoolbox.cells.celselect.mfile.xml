@@ -1,0 +1,77 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celselect' filename='celselect.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celselect.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celremove_if.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celsplit.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celselect'>
+      <Inputs>
+        <Var name='C'/>
+        <Var name='f'/>
+      </Inputs>
+      <Outputs>
+        <Var name='Cs'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELSELECT'>Selects the elements in a cell array satisfying some conditions</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Cs = celselect(C, f)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='C'>
+          <MParagraph>the source cell array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='f'>
+          <MParagraph>the predicate function handle</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='Cs'>
+          <MParagraph>the cell array of selected elements</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Cs = celselect(C, f) selects a subset of elements in C which satisfy the condition specified by the predicate function handle f. f returns true for the elements that meet the condition and false otherwise.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Select the strings with length larger than 3</MParagraph>
+          <MCodeBlock>
+            <Line>    C = {&apos;a&apos;, &apos;matlab&apos;, &apos;is&apos;, &apos;abcd&apos;, &apos;sample&apos;};</Line>
+            <Line>    celselect(C, @(x) length(x) &gt; 3)</Line>
+            <Line>    =&gt; {&apos;matlab&apos;, &apos;abcd&apos;, &apos;sample&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Select the numeric values, in a collection</MParagraph>
+          <MCodeBlock>
+            <Line>    C = {&apos;a&apos;, 1, 2, {3, 5}, [4 7], &apos;xy&apos;}</Line>
+            <Line>    celselect(C, @isnumeric)</Line>
+            <Line>    =&gt; {1, 2, [4 7]}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

@@ -1,0 +1,50 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='testcase' filename='testcase.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testcase.testcase.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testcase.run.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testcase.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='testcase'>
+      <Inputs>
+        <Var name='name'/>
+        <Var name='F'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='tcase'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TESTCASE'>Constructs a test case</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tcase = testcase(name, f, ...)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>testcase(name, {f1, f2, ...}, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tcase = testcase(name, f, ...) constructs a test case using a single testing function f.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>testcase(name, {f1, f2, ...}, ...) constructs a test case with multiple testing functions.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

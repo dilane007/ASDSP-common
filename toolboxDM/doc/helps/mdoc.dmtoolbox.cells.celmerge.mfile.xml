@@ -1,0 +1,65 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celmerge' filename='celmerge.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celmerge.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celinclude.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celremove.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celmerge'>
+      <Inputs>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='tuples'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELMERGE'>Merges multiple cell arrays into a cell array of tuples</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tuples = celmerge(C1, C2, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tuples = celmerge(C1, C2, ...) merges the cell arrays C1, C2, ... to construct a cell array of tuples. Each tuple is a cell array in which each element is from the corresponding element of the input cell arrays.</MParagraph>
+          <MParagraph>Suppose C1, C2, ... are respectively in the form as C1 = {e11, e12, ...}, C2 = {e21, e22, ...}, then the output tuples will be tuples = {{e11, e21, ...}, {e12, e22, ...}}.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C1, C2, ... should be cell arrays of equal size.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Construct tuple array</MParagraph>
+          <MCodeBlock>
+            <Line>    C1 = {&apos;xyz&apos;, &apos;abc&apos;, &apos;uv&apos;};</Line>
+            <Line>    C2 = {3, 6, 8};</Line>
+            <Line>    C3 = {[1 2], [3 4], [8 7]};</Line>
+            <Line>    celmerge(C1, C2, C3)</Line>
+            <Line>    =&gt; {{&apos;xyz&apos;, [3], [1 2]}, {&apos;abc&apos;, [6], [3 4]}, {&apos;uv&apos;, [8], [8 7]}}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

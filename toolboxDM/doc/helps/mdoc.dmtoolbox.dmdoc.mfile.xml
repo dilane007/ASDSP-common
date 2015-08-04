@@ -1,0 +1,46 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='dmdoc' filename='dmdoc.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.dmdoc.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.dmtoolbox_info.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='dmdoc'>
+      <Inputs>
+        <Var name='name'/>
+      </Inputs>
+    </MFuncDecl>
+    <MHeadLine leadword='DMDOC'>Opens the HTML document in the MATLAB web browser</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>dmdoc</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>dmdoc name</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>dmdoc  opens the home page of the toolbox&apos;s documents.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>dmdoc name   opens the HTML document for a function or module in the MATLAB web browser.</MParagraph>
+          <MParagraph>Here, the name can be function name, a module name, or a class name. For class methods, the name can be written in the form like classname.method_name.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 30, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

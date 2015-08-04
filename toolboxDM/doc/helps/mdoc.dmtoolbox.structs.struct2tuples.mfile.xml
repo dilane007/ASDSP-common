@@ -1,0 +1,94 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='struct2tuples' filename='struct2tuples.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.struct2tuples.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.sortstructs.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.tuples2struct.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='struct2tuples'>
+      <Inputs>
+        <Var name='S'/>
+        <Var name='fieldnames'/>
+      </Inputs>
+      <Outputs>
+        <Var name='tuples'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRUCT2TUPLES'>Converts a struct array into a cell array of tuples</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tuples = struct2tuples(S, fieldnames)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='S'>
+          <MParagraph>the source struct array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fieldnames'>
+          <MParagraph>the names of the fields to be extracted</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='tuples'>
+          <MParagraph>the created cell array of tuples</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tuples = struct2tuples(S) creates a cell array of tuples by extracting all fields in S.</MParagraph>
+          <MParagraph>It is equivalent to struct2tuples(S, fieldnames(S))</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tuples = struct2tuples(S, fieldnames) creates a cell array of tuples by extracting the specified fields in a struct to form the tuples.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The size of the cell array of tuples will be equal to that of S. While the size of each tuple will be equal to that of fieldnames.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Construct the tuple array by extracting all fields</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;a&apos;, {1, 2, 3}, &apos;b&apos;, {&apos;x&apos;, &apos;y&apos;, &apos;z&apos;})</Line>
+            <Line></Line>
+            <Line>    struct2tuples(S)</Line>
+            <Line>    =&gt; {{[1]; &apos;x&apos;}, {[2]; &apos;y&apos;}, {[3]; &apos;z&apos;}}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Construct the tuple array by extracting specified fields</MParagraph>
+          <MCodeBlock>
+            <Line>    struct2tuples(S, {&apos;a&apos;})</Line>
+            <Line>    =&gt; {{[1]}, {[2]}, {[3]}}</Line>
+            <Line></Line>
+            <Line>    struct2tuples(S, {&apos;b&apos;, &apos;a&apos;})</Line>
+            <Line>    =&gt; {{&apos;x&apos;, [1]}, {&apos;y&apos;, [2]}, {&apos;z&apos;, [3]}}</Line>
+            <Line></Line>
+            <Line>    struct2tuples(S, {&apos;a&apos;, &apos;b&apos;; &apos;b&apos;, &apos;a&apos;})</Line>
+            <Line>    =&gt; {{[1], &apos;x&apos;; &apos;x&apos;, [1]}, {[2], &apos;y&apos;; &apos;y&apos;, [2]}, {[3], &apos;z&apos;; &apos;z&apos;, [3]}}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

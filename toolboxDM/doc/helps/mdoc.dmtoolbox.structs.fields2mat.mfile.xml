@@ -1,0 +1,94 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='fields2mat' filename='fields2mat.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.fields2mat.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.fields2cell.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.setopts.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='fields2mat'>
+      <Inputs>
+        <Var name='S'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='varargout'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='FIELDS2MAT'>merges the field values in a struct array into arrays</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[M1, M2, ...] = fields2mat(S, fieldname1, fieldname2, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='S'>
+          <MParagraph>the source struct array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fieldnamei'>
+          <MParagraph>the name of the i-th field to be processed</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='Mi'>
+          <MParagraph>the merged array corresponding to the i-th field</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>[M1, M2, ...] = fields2mat(S, fieldname1, fieldname2, ...) merges the specified field values into arrays.</MParagraph>
+          <MParagraph>The fields to be merged should be with scalar values. In the output, all merged arrays have the same size as S.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>According to MATLAB&apos;s data structure, merging fields of struct array into integral arrays can save considerable overhead for large struct arrays. And it can also lead to considerable performance improvement in runtime computation.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Merge fields into arrays</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;name&apos;, {&apos;x&apos;, &apos;y&apos;, &apos;z&apos;; &apos;a&apos;, &apos;b&apos;, &apos;c&apos;}, ...</Line>
+            <Line>               &apos;v1&apos;, {1, 2, 3; 4, 5, 6}, ...</Line>
+            <Line>               &apos;v2&apos;, {2.4, 1.8, 3.6; 5.2, 6.1, 7.3} );</Line>
+            <Line></Line>
+            <Line>    fields2mat(S, &apos;v1&apos;)</Line>
+            <Line>    =&gt; [ 1 2 3;</Line>
+            <Line>         4 5 6 ];</Line>
+            <Line></Line>
+            <Line>    [V2, V1] = fields2mat(S, &apos;v2&apos;, &apos;v1&apos;)</Line>
+            <Line>    V2 &lt;= [2.4 1.8 3.6;</Line>
+            <Line>           5.2 6.1 7.3 ];</Line>
+            <Line>    V1 &lt;= [1 2 3;</Line>
+            <Line>           4 5 6 ];</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Convert from array of structs to struct of arrays</MParagraph>
+          <MCodeBlock>
+            <Line>    Sa.name = dealfields(S, &apos;name&apos;);</Line>
+            <Line>    [Sa.v1, Sa.v2] = fields2mat(S, &apos;v1&apos;, &apos;v2&apos;);</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

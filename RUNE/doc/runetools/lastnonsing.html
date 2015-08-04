@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - lastnonsing</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>lastnonsing<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>dim=lastnonsing(varargin)</P>
+Finds last non singleton dimension in any of the input arguments if all arguments are scalars or empty then dim = 1;</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>a,b,c</B></TD><TD>any number of matrices of any kind</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>dim</B></TD><TD>The last non singleton dimension in any of the matrices</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>lastnonsing(rand(1,1,2), rand(1,2,2)) =&gt; 3</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="firstsing.html">firstsing</A>, <A HREF="firstnonsing.html">firstnonsing</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function dim = lastnonsing(varargin) <FONT COLOR="DARKGREEN">% find first non singleton dimension</FONT>
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 031015</FONT>
+
+dims = find(<A HREF="maxsize.html">maxsize</A>(varargin{:})>1);
+if isempty(dims)
+ dim = 1;
+else
+ dim = dims(end);
+end
+<FONT COLOR="DARKGREEN">% $Id: lastnonsing.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

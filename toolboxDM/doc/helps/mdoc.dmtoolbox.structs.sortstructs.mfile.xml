@@ -1,0 +1,135 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='sortstructs' filename='sortstructs.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.sortstructs.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.setopts.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.struct2tuples.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='sortstructs'>
+      <Inputs>
+        <Var name='S'/>
+        <Var name='f'/>
+        <Var name='vtype'/>
+        <Var name='mode'/>
+      </Inputs>
+      <Outputs>
+        <Var name='Ss'/>
+        <Var name='V'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='SORTSTRUCTS'>Sorts the elements in a struct array</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Ss = sortstructs(S, fieldname, vtype)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Ss = sortstructs(S, fcomp, vtype)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Ss = sortstructs(S, f, vtype, mode)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>[Ss, V] = sortstructs( ... )</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='S'>
+          <MParagraph>the struct array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fieldname'>
+          <MParagraph>the field based on which the elements are sorted</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fcomp'>
+          <MParagraph>the function handle to compute the value for sorting f receives a struct scalar as input and returns the value for sorting.</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='vtype'>
+          <MParagraph>the type of the value as sorting base</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='numeric'>
+              <MParagraph>numeric value</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='string'>
+              <MParagraph>the string value</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MTermEntry>
+        <MTermEntry term='mode'>
+          <MParagraph>The mode of sorting, &apos;ascend&apos; or &apos;descend&apos;. If the mode is not specified, it uses &apos;ascend&apos; by default.</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='Ss'>
+          <MParagraph>The sorted struct array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='V'>
+          <MParagraph>The values used for sorting. In the output, V is in sorted order.</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Ss = sortstructs(S, fieldname, vtype) sorts the elements in a struct array based on one of its fields specified by fieldname. vtype is used to specify the type of the field values, which can be either numeric or string.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Ss = sortstructs(S, fcomp, vtype) sorts the elements in a struct array by using a function handle fcomp to compute a value for each element and performs the sorting based on that value. vtype is used to specify the type of the values returned by fcomp, which can be either numeric or string.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Ss = sortstructs(S, f, vtype, mode) specifies whether to sort the elements in ascending order or descending order of the value used, corresponding to the mode &apos;ascend&apos; or &apos;descend&apos;.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>[Ss, V] = sortstructs( ... ) also returns the values for sorting. V is also in sorted order.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Sort a struct array by a field</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;a&apos;, {3, 5, 1}, &apos;b&apos;, {&apos;z3&apos;, &apos;z1&apos;, &apos;a&apos;});</Line>
+            <Line></Line>
+            <Line>    T = sortstructs(S, &apos;a&apos;, &apos;numeric&apos;)</Line>
+            <Line>    =&gt; T(1): a = 1, b = &apos;a&apos;</Line>
+            <Line>       T(2): a = 3, b = &apos;z3&apos;</Line>
+            <Line>       T(3): a = 5, b = &apos;z1&apos;</Line>
+            <Line></Line>
+            <Line>    T = sortstructs(S, &apos;a&apos;, &apos;numeric&apos;, &apos;descend&apos;)</Line>
+            <Line>    =&gt; T(1): a = 5, b = &apos;z1&apos;</Line>
+            <Line>       T(2): a = 3, b = &apos;z3&apos;</Line>
+            <Line>       T(3): a = 1, b = &apos;a&apos;</Line>
+            <Line></Line>
+            <Line>    T = sortstructs(S, &apos;b&apos;, &apos;string&apos;)</Line>
+            <Line>    =&gt; T(1): a = 1, b = &apos;a&apos;</Line>
+            <Line>       T(2): a = 5, b = &apos;z1&apos;</Line>
+            <Line>       T(3): a = 3, b = &apos;z3&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Sort a struct array by a computation value</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;a&apos;, {2, 3, 5}, &apos;b&apos;, {4, 1, 2})</Line>
+            <Line></Line>
+            <Line>    [T, V] = sortstructs(S, @(s) s.a + s.b, &apos;numeric&apos;)</Line>
+            <Line>    =&gt; T(1): a = 3, b = 1</Line>
+            <Line>       T(2): a = 2, b = 4</Line>
+            <Line>       T(3): a = 5, b = 2</Line>
+            <Line>    =&gt; V = [4 6 7]</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

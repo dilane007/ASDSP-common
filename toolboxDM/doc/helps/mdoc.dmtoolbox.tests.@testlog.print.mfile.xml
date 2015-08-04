@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='print' filename='print.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testlog.print.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testlog.on_tevent.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testlog.testlog.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testlog.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='print'>
+      <Inputs>
+        <Var name='logger'/>
+        <Var name='fmt'/>
+        <Var name='varargin'/>
+      </Inputs>
+    </MFuncDecl>
+    <MHeadLine leadword='PRINT'>Prints information with the logger</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>print(logger, fmt, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

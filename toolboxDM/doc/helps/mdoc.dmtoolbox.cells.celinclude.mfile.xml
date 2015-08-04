@@ -1,0 +1,86 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celinclude' filename='celinclude.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celinclude.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celcount_if.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celmerge.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celinclude'>
+      <Inputs>
+        <Var name='C'/>
+        <Var name='x'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELINCLUDE'>Tests whether a cell array includes a specified element</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = celinclude(C, x)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='C'>
+          <MParagraph>the cell array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='x'>
+          <MParagraph>the element to be tested</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='b'>
+          <MParagraph>whether the testing element is in the cell array</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = celinclude(C, x) gets whether there is an element in C that is equal to x.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>It can be applied to any type of values/arrays that support isequal comparison. Thus it works in a broader area than ismember.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Test the existence of an element</MParagraph>
+          <MCodeBlock>
+            <Line>    celinclude({1, 2, 3}, 1) =&gt; true</Line>
+            <Line></Line>
+            <Line>    celinclude({1, 2, 3}, 4) =&gt; false</Line>
+            <Line></Line>
+            <Line>    celinclude({1, 2, 3; 4, 5, 6}, 5) =&gt; true</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Test the existence of an array</MParagraph>
+          <MCodeBlock>
+            <Line>    celinclude({[1 2], [3 4], [5 6]}, [3 4]) =&gt; true</Line>
+            <Line></Line>
+            <Line>    celinclude({[1 2], [3 4], [5 6]}, [1 3]) =&gt; false</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

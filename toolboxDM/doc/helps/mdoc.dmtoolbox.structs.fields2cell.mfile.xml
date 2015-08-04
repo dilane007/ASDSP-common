@@ -1,0 +1,102 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='fields2cell' filename='fields2cell.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.fields2cell.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.dealfields.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.fields2mat.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='fields2cell'>
+      <Inputs>
+        <Var name='s'/>
+        <Var name='fieldnames'/>
+      </Inputs>
+      <Outputs>
+        <Var name='C'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='FIELDS2CELL'>Gets multiple fields of a struct and form a cell array</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = field2cell(s)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>C = fields2cell(s, fieldnames)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='s'>
+          <MParagraph>the source struct</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fieldnames'>
+          <MParagraph>the cell array of fieldnames to be retrieved</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='C'>
+          <MParagraph>the cell array of extracted fields</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = fields2cell(s) extracts all fields of s and groups them into a cell array.</MParagraph>
+          <MParagraph>It is functionally equivalent to fields2cell(s, fieldnames(s))</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>C = fields2cell(s, fieldnames) extracts the fields specified by the fieldnames from a struct and group them into a cell array.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>s should be s scalar struct (have only one element). The names in fieldnames can be repeated.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>The size of C will be equal to the size of fieldnames.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Extract all fields to form a cell array</MParagraph>
+          <MCodeBlock>
+            <Line>    s = struct(&apos;name&apos;, &apos;abc&apos;, &apos;id&apos;, 1, &apos;value&apos;, &apos;xyz&apos;);</Line>
+            <Line></Line>
+            <Line>    fields2cell(s)</Line>
+            <Line>    =&gt; {&apos;abc&apos;; [1]; &apos;xyz&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Extract multiple fields to form a cell array</MParagraph>
+          <MCodeBlock>
+            <Line>    s = struct(&apos;name&apos;, &apos;abc&apos;, &apos;id&apos;, 1, &apos;value&apos;, &apos;xyz&apos;);</Line>
+            <Line></Line>
+            <Line>    fields2cell(s, {&apos;id&apos;, &apos;name&apos;})</Line>
+            <Line>    =&gt; {[1], &apos;abc&apos;}</Line>
+            <Line></Line>
+            <Line>    fields2cell(s, {&apos;name&apos;, &apos;value&apos;, &apos;value&apos;});</Line>
+            <Line>    =&gt; {&apos;abc&apos;, &apos;xyz&apos;, &apos;xyz&apos;}</Line>
+            <Line></Line>
+            <Line>    fields2cell(s, {});</Line>
+            <Line>    =&gt; {}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 26, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

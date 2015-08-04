@@ -1,0 +1,69 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='testlog' filename='testlog.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testlog.testlog.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testlog.print.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testlog.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='testlog'>
+      <Outputs>
+        <Var name='tlog'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TESTLOG'>Constructs a logger of testing</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tlog = testlog()</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tlog = testlog() constructs a logger which prints testing info during testing.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>testlog is a class offering a simple implementation of test logger. The user can implement its own logger class to finish customized logging activities.</MParagraph>
+          <MParagraph>In essence, a logger is an event handler that handles testing events. A logger that can be used in testing should support the following syntax:</MParagraph>
+          <MFormulaLine>logger = on_tevent(logger, eventtype, ...)</MFormulaLine>
+          <MParagraph>In detail, the following events will be reported</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='enter_suite'>
+              <MParagraph>enter a test suite</MParagraph>
+              <MFormulaLine>logger = on_tevent(logger, &apos;enter_suite&apos;, tsuite)</MFormulaLine>
+            </MTermEntry>
+            <MTermEntry term='exit_suite'>
+              <MParagraph>exit a test suite</MParagraph>
+              <MFormulaLine>logger = on_tevent(logger, &apos;exit_suite&apos;, info)</MFormulaLine>
+              <MParagraph>Here, the info is that returned by testsuite/run</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='enter_case'>
+              <MParagraph>enter a test case</MParagraph>
+              <MFormulaLine>logger = on_tevent(logger, &apos;enter_case&apos;, tcase)</MFormulaLine>
+            </MTermEntry>
+            <MTermEntry term='exit_case'>
+              <MParagraph>exit a test case</MParagraph>
+              <MFormulaLine>logger = on_tevent(logger, &apos;exit_case&apos;, info)</MFormulaLine>
+              <MParagraph>Here, the info is that returned by testcase/run</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

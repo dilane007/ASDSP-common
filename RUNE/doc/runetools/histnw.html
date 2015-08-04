@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - histnw</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>histnw<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>varargout=histnw(varargin)</P>
+[h, bincenter1, bincenter2,...] = histn(d1,d2,...,w,b1,b2,...) An n dimensional histogram function. The output is a matrix with corresponding binpositions. Much like hist.m</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>d1</B></TD><TD>observations to be put in first dimension</TD></TR>
+<TR><TD VALIGN="TOP"><B>d2</B></TD><TD>observations to be put in second dimension</TD></TR>
+<TR><TD VALIGN="TOP"><B>d3</B></TD><TD>... d1,d2,d3,... must all contain the same number of observations</TD></TR>
+<TR><TD VALIGN="TOP"><B>w</B></TD><TD>weight value for each sample</TD></TR>
+<TR><TD VALIGN="TOP"><B>b1</B></TD><TD>If scalar then b1 indicate the size of each bin. If a vector then b1 indicate the centerposition of the bin in the first dimension</TD></TR>
+<TR><TD VALIGN="TOP"><B>b2</B></TD><TD>the same as b1 but for the second dimension</TD></TR>
+<TR><TD VALIGN="TOP"><B>b3</B></TD><TD>...</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>h</B></TD><TD>An multi dimensional matrix with positive integers indicating the number of samples in corresponding bin. The number of dimensions are the number of input arguments divided by 2</TD></TR>
+<TR><TD VALIGN="TOP"><B>bincenter1</B></TD><TD>a vector indicating binpositions in first dimension</TD></TR>
+<TR><TD VALIGN="TOP"><B>bincenter2</B></TD><TD>a vector indicating binpositions in second dimension</TD></TR>
+<TR><TD VALIGN="TOP"><B>bincenter3</B></TD><TD>...</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>histnw(0.3, 0.75, 0.45, 0:0.2:1, 0:0.25:1)
+image(histnw(rand(10000,1), rand(10000,1), rand(10000,1)*2, 0.5, 0:0.2:1, 0:0.2:1)/10)</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="histn.html">histn</A>, hist</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function varargout = histnw(varargin)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 020423</FONT>
+
+nmax = (nargin-1)/2; <FONT COLOR="DARKGREEN">% number of dimensions</FONT>
+for n = 1:nmax <FONT COLOR="DARKGREEN">% for dimension n</FONT>
+ d{n} = varargin{n}(:); <FONT COLOR="DARKGREEN">%flatten into first dimension</FONT>
+ w    = varargin{nmax+1}(:); <FONT COLOR="DARKGREEN">% weight of each observation</FONT>
+ b{n} = varargin{n+nmax+1}(:); <FONT COLOR="DARKGREEN">% bincenter for n:th dim</FONT>
+ [bincentern, binbordn] = sbin(b{n},d{n}); <FONT COLOR="DARKGREEN">% get the actual bins and borders</FONT>
+ bincenter{n} = bincentern;
+ bind{n} = <A HREF="vsortind.html">vsortind</A>(d{n},binbordn(1:end-1)); <FONT COLOR="DARKGREEN">% sort samples to corresp bin</FONT>
+ siz(n) = size(bincentern,1); 
+end
+<FONT COLOR="DARKGREEN">% calculate the two dimensional histogram matrix</FONT>
+bind{n+1} = siz; <FONT COLOR="DARKGREEN">% in order to  prepare a call to index </FONT>
+totind = <A HREF="index.html">index</A>(bind{:});  
+varargout{1} = reshape(full(sparse(totind,1,w,prod(siz),1)),[siz 1]);
+[varargout{2:nmax+1}] = deal(bincenter{1:nmax});
+
+function [bincenter, binborder] = sbin(b,d)
+<FONT COLOR="DARKGREEN">% It is asumed that b and d only make use of first dimension</FONT>
+if exist('d','var') & prod(size(b)) == 1
+ bincenter = (round(min(d)/b)*b:b:round(max(d)/b)*b).';
+else
+ bincenter = b(:); <FONT COLOR="DARKGREEN">% the centrpoint in each bin already given</FONT>
+end
+<FONT COLOR="DARKGREEN">% Calculate bin borders</FONT>
+b = bincenter;
+b(2:end+1,2) = b;
+b(1,2) = b(1,1)    -diff(b(1:2,1));
+b(end,1) = b(end,2)+diff(b(end-1:end,2));
+binborder = mean(b,2); <FONT COLOR="DARKGREEN">% edges of bin</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: histnw.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

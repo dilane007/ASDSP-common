@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - expfilt</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>expfilt<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>y=expfilt(x,alfa,xinit,dim)</P>
+preserves amplitude level of input. E[x] = E[y] (E[y.^2]=E[x.^2]*alfa^2 + E[y.^2].*(1-alfa).^2 if independent samples The filtering is performed along dimension dim. of x. x,alfa and xinit are are expanded in all dimension but dim in order to match each others size. If the size of alfa is greater than one along dimension dim then the filter is non stationary. xinit can be regarded as an earlier last output from the filter.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>x</B></TD><TD>target for the filteroperation any complex matrix</TD></TR>
+<TR><TD VALIGN="TOP"><B>alfa</B></TD><TD>filter constant. Defaults to 0.1</TD></TR>
+<TR><TD VALIGN="TOP"><B>xinit</B></TD><TD>target for the filteroperation. Defaults to 0</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>dimension in which the filteroperation is performed.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>y</B></TD><TD>filtered version of x with the combined size of x,alfa and xinit</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>plot(expfilt(randn(1000,2)))
+plot(expfilt(ones(30,1),0.2),'.-')</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD>filter</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function  y = expfilt(x,alfa,xinit,dim)
+
+<FONT COLOR="DARKGREEN">%  by Magnus Almgren 031105</FONT>
+
+<FONT COLOR="DARKGREEN">% Empty in empty out </FONT>
+if isempty(x)
+ y = x;
+ return
+end
+
+<FONT COLOR="DARKGREEN">% Set defaults</FONT>
+<A HREF="setifnotexist.html">setifnotexist</A>('alfa',0.1);
+<A HREF="setifnotexist.html">setifnotexist</A>('xinit',0);
+fns = <A HREF="firstnonsing.html">firstnonsing</A>(x,alfa); 
+<A HREF="setifnotexist.html">setifnotexist</A>('dim',fns);
+
+<FONT COLOR="DARKGREEN">% switch filter dimension into first</FONT>
+x     = <A HREF="swdims.html">swdims</A>(x,    [1,dim]);
+alfa  = <A HREF="swdims.html">swdims</A>(alfa, [1,dim]);
+xinit = <A HREF="swdims.html">swdims</A>(xinit,[1,dim]);
+[x,alfa] = <A HREF="adjsiza.html">adjsiza</A>(x,alfa);
+[x,alfa,xinit] = <A HREF="adjsizabdim.html">adjsizabdim</A>(1,x,alfa,xinit);
+
+<FONT COLOR="DARKGREEN">% do the filtering</FONT>
+y = ef(x,alfa,1-alfa,xinit); <FONT COLOR="DARKGREEN">% do it </FONT>
+
+<FONT COLOR="DARKGREEN">% switch back again</FONT>
+y     = <A HREF="swdims.html">swdims</A>(y    ,[1,dim]);
+ 
+function y = ef(x,alfa,beta,xinit)
+<FONT COLOR="DARKGREEN">% filtering in first dimension</FONT>
+<FONT COLOR="DARKGREEN">% the first sample.</FONT>
+<FONT COLOR="DARKGREEN">% Yes this is a for loop!</FONT>
+y(1,:) = alfa(1,:).*x(1,:) + beta(1,:).*xinit(1,:);
+for i = 2:size(x,1)
+ y(i,:) = alfa(i,:).*x(i,:) + beta(i,:).*y(i-1,:);
+end
+
+<FONT COLOR="DARKGREEN">% shape to original size</FONT>
+y = reshape(y,size(x));
+<FONT COLOR="DARKGREEN">% $Id: expfilt.m,v 1.1 2004/02/19 17:27:42 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

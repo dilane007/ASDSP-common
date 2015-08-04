@@ -1,0 +1,184 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strsubs' filename='strsubs.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strsubs.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strstart.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strsubsfmt.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strsubs'>
+      <Inputs>
+        <Var name='str'/>
+        <Var name='pattern'/>
+        <Var name='rule'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='strnew'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRTOKENSUBS'>Substitute the tokens in a string by converted strings</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>strnew = strsubs(str, pattern, rule, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='str'>
+          <MParagraph>the source string</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='pattern'>
+          <MParagraph>the regular expression</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='rule'>
+          <MParagraph>the substitution rule</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='fixstr'>
+              <MParagraph>replace each matched sub string with a fixed string</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='conv'>
+              <MParagraph>replace each matched sub string by applying a conversion function on the matched</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='t-str'>
+              <MParagraph>replace each token with given strings</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='t-conv'>
+              <MParagraph>replace each token by applying a conversion functions on it</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MTermEntry>
+        <MTermEntry term='strnew'>
+          <MParagraph>the resulting string</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>strnew = strsubs(str, pattern, &apos;fixstr&apos;, rstr) replaces all the matched sub strings with a fixed string rstr.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>strnew = strsubs(str, pattern, &apos;conv&apos;, f, inputform) replaces each matched sub string by applying a conversion function f. Here, f can should be a function handle.</MParagraph>
+          <MParagraph>The inputform specifies what inputs are given to f. It can be</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='str'>
+              <MParagraph>input the whole matched sub string</MParagraph>
+              <MFormulaLine>rstr = f(str)</MFormulaLine>
+            </MTermEntry>
+            <MTermEntry term='tokens'>
+              <MParagraph>input the extracted tokens specified by the pattern</MParagraph>
+              <MFormulaLine>rstr = f(token1, token2, ...)</MFormulaLine>
+            </MTermEntry>
+            <MTermEntry term='tkcell'>
+              <MParagraph>input the cell array of extracted tokens</MParagraph>
+              <MFormulaLine>rstr = f({token1, token2, ...})</MFormulaLine>
+            </MTermEntry>
+            <MTermEntry term='tkstruct'>
+              <MParagraph>input the struct of named tokens</MParagraph>
+              <MFormulaLine>rstr = f(s)</MFormulaLine>
+              <MParagraph>s is a struct with field names being the token name and field values being the tokens.</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MListItem>
+        <MListItem>
+          <MParagraph>strnew = strsubs(str, pattern, &apos;t-str&apos;, rstr) replaces all tokens in each matched sub string with a fixed string rstr.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>strnew = strsubs(str, pattern, &apos;t-str&apos;, rstrs) replaces each token in every matched sub string with the corresponding string in rstrs. If there are nt tokens specified by pattern ,then rstrs should be a cell array with nt strings.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>strnew = strsubs(str, pattern, &apos;t-conv&apos;, f) replaces each token in every matched sub string by applying the conversion function f as</MParagraph>
+          <MFormulaLine>rstr = f(token)</MFormulaLine>
+        </MListItem>
+        <MListItem>
+          <MParagraph>strnew = strsubs(str, pattern, &apos;t-conv&apos;, fs) replaces each token in every matched sub string by applying the corresponding function. fs is a cell array of nt functions (in function name of function handle).</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Convert every word &apos;good&apos; to &apos;great&apos;</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;It is a good thing. He is a good man&apos;, &apos;good&apos;, &apos;fixstr&apos;, &apos;great&apos;)</Line>
+            <Line>    =&gt; &apos;It is a great thing. He is a great man&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Capitalize every word in a title</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;MATLAB plays an important role&apos;, &apos;\w+&apos;,  ...</Line>
+            <Line>            &apos;conv&apos;, @(x) [upper(x(1)), x(2:end)], &apos;str&apos;)</Line>
+            <Line>    =&gt; &apos;MATLAB Plays An Important Role&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Replace each pair of numbers in braces to an addition formula</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;Look at (1, 2) and (3, 4)&apos;, &apos;\(\s*(\d+)\s*,\s*(\d+)\s*\)&apos;, ...</Line>
+            <Line>            &apos;conv&apos;, @(x, y) [x, &apos;+&apos;, y, &apos;=&apos;, num2str(str2double(x) + str2double(y))], ...</Line>
+            <Line>            &apos;tokens&apos;)</Line>
+            <Line>    =&gt; &apos;Look at 1+2=3 and 3+4=7&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Replace convert a simple for-loop in Matlab to C-syntax with named tokens</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;for i = 1 : n&apos;,</Line>
+            <Line>            &apos;for\s+(?&lt;var&gt;\w+)\s*=\s*(?&lt;init&gt;\w+)\s*\:\s*(?&lt;last&gt;\w+)&apos;, ...</Line>
+            <Line>            &apos;conv&apos;, @(x) sprintf(&apos;for(int %s = %s; %s &lt;= %s; ++%s)&apos;, ...</Line>
+            <Line>                                 x.var, x.init, x.var, x.last, x.var), ...</Line>
+            <Line>            &apos;tkstruct&apos;)</Line>
+            <Line>    =&gt; &apos;for(int i = 1; i &lt;= n; ++i)&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Replace every ip address in the string with xxx.xxx.xxx.xxx</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;My IP is 123.456.789.012&apos;, &apos;(\d+).(\d+).(\d+).(\d+)&apos;, ...</Line>
+            <Line>            &apos;t-str&apos;, &apos;xxx&apos;)</Line>
+            <Line>    =&gt; &apos;My IP is xxx.xxx.xxx.xxx&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Suppose in some text, it defines a section like &apos;start ... completed&apos;, and we like to convert it to &apos;begin ... end&apos;</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;start abc completed  start xyz completed&apos;, ...</Line>
+            <Line>            &apos;(start)\s*\w+\s*(completed)&apos;, ...</Line>
+            <Line>            &apos;t-str&apos;, {&apos;begin&apos;, &apos;end&apos;})</Line>
+            <Line>    =&gt; &apos;begin abc end  begin xyz end&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Append each operand of an addition formula with a char a</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;Here are 1+2 and 4+5&apos;, &apos;(\d+)\+(\d+)&apos;, ...</Line>
+            <Line>            &apos;t-conv&apos;, @(x) [&apos;a&apos;, x])</Line>
+            <Line>    =&gt; &apos;Here are a1+a2 and a4+a5&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Convert all forms like xxx.yyy to [xxx].(yyy)</MParagraph>
+          <MCodeBlock>
+            <Line>    strsubs(&apos;abc.name1, xyz.field2&apos;, &apos;(\w+)\.(\w+)&apos;, ...</Line>
+            <Line>            &apos;t-conv&apos;, {@(x)[&apos;[&apos;, x, &apos;]&apos;], @(x)[&apos;(&apos;, x, &apos;)&apos;]})</Line>
+            <Line>    =&gt; &apos;[abc].(name1), [xyz].(field2)&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 26, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

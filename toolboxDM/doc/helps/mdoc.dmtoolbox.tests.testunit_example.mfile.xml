@@ -1,0 +1,56 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='testunit_example' filename='testunit_example.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.testunit_example.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.tassert_exc.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='testunit_example'/>
+    <MHeadLine leadword='TESTUNIT_EXAMPLE'>A set of examples showing how to use the unit testing framework.</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>testunit_example</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>testunit_example shows how to use the unit testing framework. It involves the following steps:</MParagraph>
+          <MList listtype='ordered'>
+            <MListItem>
+              <MParagraph>Write test functions with assertions</MParagraph>
+            </MListItem>
+            <MListItem>
+              <MParagraph>Group the test functions into test units (test cases and test suites)</MParagraph>
+            </MListItem>
+            <MListItem>
+              <MParagraph>Run the root unit by</MParagraph>
+              <MFormulaLine>info = run(tunit)</MFormulaLine>
+              <MParagraph>or if you have your own logger to handle the testing events, you can write</MParagraph>
+              <MFormulaLine>info = run(tunit, logger)</MFormulaLine>
+            </MListItem>
+          </MList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>In this example, all test functions are in the same m-file. It is mainly for convenience. In practice, you can distribute the test functions, test cases, and test suites in multiple files.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

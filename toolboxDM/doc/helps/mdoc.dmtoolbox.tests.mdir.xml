@@ -1,0 +1,43 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='tests' dirtype='normal'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.mdir.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.mdir.xml'/>
+    <Next path='mdoc.dmtoolbox.utils.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MDirRef name='@testcase' type='class' path='mdoc.dmtoolbox.tests.@testcase.mdir.xml'>
+      <MFileRef name='getname' path='mdoc.dmtoolbox.tests.@testcase.getname.mfile.xml'/>
+      <MFileRef name='nfuns' path='mdoc.dmtoolbox.tests.@testcase.nfuns.mfile.xml'/>
+      <MFileRef name='run' path='mdoc.dmtoolbox.tests.@testcase.run.mfile.xml'/>
+      <MFileRef name='testcase' path='mdoc.dmtoolbox.tests.@testcase.testcase.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='@testlog' type='class' path='mdoc.dmtoolbox.tests.@testlog.mdir.xml'>
+      <MFileRef name='indent' path='mdoc.dmtoolbox.tests.@testlog.indent.mfile.xml'/>
+      <MFileRef name='on_tevent' path='mdoc.dmtoolbox.tests.@testlog.on_tevent.mfile.xml'/>
+      <MFileRef name='print' path='mdoc.dmtoolbox.tests.@testlog.print.mfile.xml'/>
+      <MFileRef name='testlog' path='mdoc.dmtoolbox.tests.@testlog.testlog.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='@testmon' type='class' path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'>
+      <MFileRef name='addrec' path='mdoc.dmtoolbox.tests.@testmon.addrec.mfile.xml'/>
+      <MFileRef name='get_testinfo' path='mdoc.dmtoolbox.tests.@testmon.get_testinfo.mfile.xml'/>
+      <MFileRef name='nrecs' path='mdoc.dmtoolbox.tests.@testmon.nrecs.mfile.xml'/>
+      <MFileRef name='testmon' path='mdoc.dmtoolbox.tests.@testmon.testmon.mfile.xml'/>
+    </MDirRef>
+    <MDirRef name='@testsuite' type='class' path='mdoc.dmtoolbox.tests.@testsuite.mdir.xml'>
+      <MFileRef name='getname' path='mdoc.dmtoolbox.tests.@testsuite.getname.mfile.xml'/>
+      <MFileRef name='getunits' path='mdoc.dmtoolbox.tests.@testsuite.getunits.mfile.xml'/>
+      <MFileRef name='run' path='mdoc.dmtoolbox.tests.@testsuite.run.mfile.xml'/>
+      <MFileRef name='testsuite' path='mdoc.dmtoolbox.tests.@testsuite.testsuite.mfile.xml'/>
+    </MDirRef>
+    <MFileRef name='tassert' path='mdoc.dmtoolbox.tests.tassert.mfile.xml'/>
+    <MFileRef name='tassert_class' path='mdoc.dmtoolbox.tests.tassert_class.mfile.xml'/>
+    <MFileRef name='tassert_empty' path='mdoc.dmtoolbox.tests.tassert_empty.mfile.xml'/>
+    <MFileRef name='tassert_eq' path='mdoc.dmtoolbox.tests.tassert_eq.mfile.xml'/>
+    <MFileRef name='tassert_exc' path='mdoc.dmtoolbox.tests.tassert_exc.mfile.xml'/>
+    <MFileRef name='testunit_example' path='mdoc.dmtoolbox.tests.testunit_example.mfile.xml'/>
+  </Subs>
+</MDirInfo>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<html>
+  <head>
+    <title>Manpage - setpath</title>
+    <style type="text/css">
+ body {
+  background-color: white;
+ }
+ td.c3 {font-weight: bold}
+ td.c2 {background-color: #A0A0A0}
+ div.c1 {font-weight: bold; margin-left: 2em}
+</style>
+  </head>
+  <body>
+    <table cellspacing="5" border="0">
+      <tr>
+        <td class="c2" colspan="2">
+          <div class="c1">setpath</div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" height="6"> </td>
+      </tr>
+      <tr>
+        <td valign="top">Description</td>
+        <td width="500">
+        <p>setpath(rem)</p>Sets matlabpath to functions in the simulator rune. Removes the path
+        when any argument is present. An advice: Do not edit files in the rune directory. Move a
+        copy to myOwn directory and make desired changes. All new paths are placed on top in order
+        to avoid conflict with other functions with the same name but other functionality</td>
+      </tr>
+      <tr>
+        <td colspan="2" height="6"> </td>
+      </tr>
+      <tr>
+        <td valign="top">Input</td>
+        <td>
+          <table border="0" cellspacing="5" width="500">
+            <tr>
+              <td class="c3" valign="top">rem</td>
+              <td>if present will remove the path instead</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" height="6"> </td>
+      </tr>
+      <tr>
+        <td valign="top">See Also</td>
+        <td>path, addpath, rmpath</td>
+      </tr>
+      <tr>
+        <td colspan="2" height="6"> </td>
+      </tr>
+      <tr>
+        <td valign="top">Source Code</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <pre>
+function setpath(rem)
+
+% by Magnus Almgren 980219 revised 031113
+
+runep = pwd;
+
+str{1} = [runep ''];
+str{2} = [runep '/examples']; 
+str{3} = [runep '/runetdma']; 
+str{4} = [runep '/runecdma']; 
+str{5} = [runep '/runegain']; 
+str{6} = [runep '/runetools'];
+
+for j = fliplr(1:length(str)) % add in reverse order
+  if ~exist('rem','var')
+    addpath(str{j});
+  else
+    rmpath(str{j});
+  end
+end
+
+% $Id: setpath.m,v 1.2 2004/03/11 15:00:34 olav Exp $
+</pre>
+        </td>
+      </tr>
+    </table>
+    <br />
+  </body>
+</html>

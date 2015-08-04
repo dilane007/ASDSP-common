@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - cdfplothigh</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>cdfplothigh<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>cdfplothigh(x,plottype)</P>
+CDF plot of the input matrix for each column separately. By use of a log scale the higher part of the input is highlighted.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>x</B></TD><TD>a real matrix (no Nans or Infs)</TD></TR>
+<TR><TD VALIGN="TOP"><B>plottype</B></TD><TD>String describing the plot, e.g. 'r*' plots red stars.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>cdfplothigh(randn(10000,1))</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="cdfplotmed.html">cdfplotmed</A>, <A HREF="cdfplotlow.html">cdfplotlow</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function cdfplothigh(x, plottype)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 000512 modified by Sofia Mosesson 000711</FONT>
+
+x = sort(x);
+ytemp = linspace(0,1,1+2*size(x,1))';
+y = <A HREF="adjsiza.html">adjsiza</A>(ytemp(2:2:end-1),x);
+<FONT COLOR="DARKGREEN">% reduce the number of points in the plot </FONT>
+nlen = 200; <FONT COLOR="DARKGREEN">% 200 => 1000 elements into 500</FONT>
+vec = []; 
+j = -1;
+while size(vec)< size(x,1) 
+ j = j+1;
+ vec = [vec; 
+ <A HREF="flatten.html">flatten</A>(<A HREF="mprod.html">mprod</A>([1; zeros(2.^j-1,1)],ones(1,nlen)))];
+end
+vec = flipud(logical(vec(1:size(x,1))+1));
+vec(y<0.1)=logical(0); <FONT COLOR="DARKGREEN">% truncate the upper part of distribution</FONT>
+if exist('plottype', 'var')
+ plot(x(vec,:),-<A HREF="lin2db.html">lin2db</A>(1-y(vec,:)), plottype)
+else
+ plot(x(vec,:),-<A HREF="lin2db.html">lin2db</A>(1-y(vec,:)))
+end
+set(gca,'ylim',[0 20]);
+<FONT COLOR="DARKGREEN">% set proper labels</FONT>
+set(gca,'ytick',-<A HREF="lin2db.html">lin2db</A>(1-[0:10:90 91:1:99]/100));
+labels=[
+ '  0';
+ '   ';'   ';' 30';'   ';'   ';'   ';' 70';' 80';' 90';
+ '   ';'   ';' 93';'   ';'   ';'   ';' 97';' 98';' 99';
+];
+set(gca,'yticklabel',labels);
+ylabel('C.D.F.  [<FONT COLOR="DARKGREEN">%]')</FONT>
+grid on;
+
+<FONT COLOR="DARKGREEN">% $Id: cdfplothigh.m,v 1.1 2004/02/19 17:27:42 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

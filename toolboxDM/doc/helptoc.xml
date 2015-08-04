@@ -1,0 +1,84 @@
+<?xml version='1.0'?>
+<toc version='1.0'>
+  <tocitem target='helps/mdoc.dmtoolbox.mdir.xml'>dmtoolbox<tocitem target='helps/mdoc.dmtoolbox.cells.mdir.xml'>cells<tocitem target='helps/mdoc.dmtoolbox.cells.celall.mfile.xml'>celall</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celany.mfile.xml'>celany</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celcount.mfile.xml'>celcount</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celcount_if.mfile.xml'>celcount_if</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celinclude.mfile.xml'>celinclude</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celmerge.mfile.xml'>celmerge</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celremove.mfile.xml'>celremove</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celremove_if.mfile.xml'>celremove_if</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celselect.mfile.xml'>celselect</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.cells.celsplit.mfile.xml'>celsplit</tocitem>
+    </tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.maps.mdir.xml'>maps<tocitem target='helps/mdoc.dmtoolbox.maps.pairs2map.mfile.xml'>pairs2map</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.maps.scalarmap.mfile.xml'>scalarmap</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.maps.stringmap.mfile.xml'>stringmap</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.maps.stringmap_a.mfile.xml'>stringmap_a</tocitem>
+    </tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.strings.mdir.xml'>strings<tocitem target='helps/mdoc.dmtoolbox.strings.strend.mfile.xml'>strend</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strformat.mfile.xml'>strformat</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strindex.mfile.xml'>strindex</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strjoin.mfile.xml'>strjoin</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strranges.mfile.xml'>strranges</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strrangesubs.mfile.xml'>strrangesubs</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strscan.mfile.xml'>strscan</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strscant.mfile.xml'>strscant</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strsplit.mfile.xml'>strsplit</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strstart.mfile.xml'>strstart</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strsubs.mfile.xml'>strsubs</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.strings.strsubsfmt.mfile.xml'>strsubsfmt</tocitem>
+    </tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.structs.mdir.xml'>structs<tocitem target='helps/mdoc.dmtoolbox.structs.celosf.mfile.xml'>celosf</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.structs.dealfields.mfile.xml'>dealfields</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.structs.fields2cell.mfile.xml'>fields2cell</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.structs.fields2mat.mfile.xml'>fields2mat</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.structs.setopts.mfile.xml'>setopts</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.structs.sortstructs.mfile.xml'>sortstructs</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.structs.struct2tuples.mfile.xml'>struct2tuples</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.structs.tuples2struct.mfile.xml'>tuples2struct</tocitem>
+    </tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.tests.mdir.xml'>tests<tocitem target='helps/mdoc.dmtoolbox.tests.@testcase.mdir.xml'>@testcase<tocitem target='helps/mdoc.dmtoolbox.tests.@testcase.getname.mfile.xml'>getname</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testcase.nfuns.mfile.xml'>nfuns</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testcase.run.mfile.xml'>run</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testcase.testcase.mfile.xml'>testcase</tocitem>
+      </tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.@testlog.mdir.xml'>@testlog<tocitem target='helps/mdoc.dmtoolbox.tests.@testlog.indent.mfile.xml'>indent</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testlog.on_tevent.mfile.xml'>on_tevent</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testlog.print.mfile.xml'>print</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testlog.testlog.mfile.xml'>testlog</tocitem>
+      </tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.@testmon.mdir.xml'>@testmon<tocitem target='helps/mdoc.dmtoolbox.tests.@testmon.addrec.mfile.xml'>addrec</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testmon.get_testinfo.mfile.xml'>get_testinfo</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testmon.nrecs.mfile.xml'>nrecs</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testmon.testmon.mfile.xml'>testmon</tocitem>
+      </tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.@testsuite.mdir.xml'>@testsuite<tocitem target='helps/mdoc.dmtoolbox.tests.@testsuite.getname.mfile.xml'>getname</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testsuite.getunits.mfile.xml'>getunits</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testsuite.run.mfile.xml'>run</tocitem>
+        <tocitem target='helps/mdoc.dmtoolbox.tests.@testsuite.testsuite.mfile.xml'>testsuite</tocitem>
+      </tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.tassert.mfile.xml'>tassert</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.tassert_class.mfile.xml'>tassert_class</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.tassert_empty.mfile.xml'>tassert_empty</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.tassert_eq.mfile.xml'>tassert_eq</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.tassert_exc.mfile.xml'>tassert_exc</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.tests.testunit_example.mfile.xml'>testunit_example</tocitem>
+    </tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.utils.mdir.xml'>utils<tocitem target='helps/mdoc.dmtoolbox.utils.alltrue.mfile.xml'>alltrue</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.anytrue.mfile.xml'>anytrue</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.arrselect.mfile.xml'>arrselect</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.cartproduct.mfile.xml'>cartproduct</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.cartproduct_s.mfile.xml'>cartproduct_s</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.combfun.mfile.xml'>combfun</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.count_if.mfile.xml'>count_if</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.countfalse.mfile.xml'>countfalse</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.counttrue.mfile.xml'>counttrue</tocitem>
+      <tocitem target='helps/mdoc.dmtoolbox.utils.typecheck.mfile.xml'>typecheck</tocitem>
+    </tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.dmdoc.mfile.xml'>dmdoc</tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.dmtoolbox_info.mfile.xml'>dmtoolbox_info</tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.dmtoolbox_install.mfile.xml'>dmtoolbox_install</tocitem>
+    <tocitem target='helps/mdoc.dmtoolbox.dmtoolbox_test.mfile.xml'>dmtoolbox_test</tocitem>
+  </tocitem>
+</toc>

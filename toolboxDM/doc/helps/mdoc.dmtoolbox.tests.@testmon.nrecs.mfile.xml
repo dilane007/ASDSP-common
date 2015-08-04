@@ -1,0 +1,43 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='nrecs' filename='nrecs.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testmon.nrecs.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testmon.get_testinfo.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testmon.testmon.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='nrecs'>
+      <Inputs>
+        <Var name='tmon'/>
+      </Inputs>
+      <Outputs>
+        <Var name='n'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='NRECS'>Gets the number of records in the testing monitor</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = nrecs(tmon)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = nrecs(tmon) gets the number of records in the testing monitor</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

@@ -1,0 +1,71 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celosf' filename='celosf.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.celosf.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.dealfields.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celosf'>
+      <Inputs>
+        <Var name='S'/>
+        <Var name='fieldname'/>
+      </Inputs>
+      <Outputs>
+        <Var name='C'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELOSF'>Takes all values of a specified field of struct S to form a cell array</MHeadLine>
+    <MSection name='syntax'>
+      <MParagraph>C = celosf(S, fieldname)</MParagraph>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='S'>
+          <MParagraph>the struct array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='fieldname'>
+          <MParagraph>the name of the field to be extracted</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='C'>
+          <MParagraph>the cell of struct field values</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = celosf(S, fieldname) creates a cell array of struct field. It takes the field specified by fieldname of all elements in S and forms the cell array C with the same size as S.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Create a cell array of struct field</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;a&apos;, {1, 2, 3; 4, 5, 6}, ...</Line>
+            <Line>               &apos;b&apos;, {&apos;a&apos;, &apos;b&apos;, &apos;c&apos;; &apos;x&apos;, &apos;y&apos;, &apos;z&apos;})</Line>
+            <Line></Line>
+            <Line>    celosf(S, &apos;a&apos;)</Line>
+            <Line>    =&gt; { [1], [2], [3];</Line>
+            <Line>         [4], [5], [6] }</Line>
+            <Line></Line>
+            <Line>    celosf(S, &apos;b&apos;)</Line>
+            <Line>    =&gt; {&apos;a&apos;, &apos;b&apos;, &apos;c&apos;;</Line>
+            <Line>        &apos;x&apos;, &apos;y&apos;, &apos;z&apos;  }</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

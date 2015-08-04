@@ -1,0 +1,73 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='cartproduct' filename='cartproduct.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.cartproduct.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.utils.arrselect.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.utils.cartproduct_s.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.utils.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='cartproduct'>
+      <Inputs>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='P'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CARTPRODUCT'>Computes the Cartesian products between cell arrays</MHeadLine>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>P = cartproduct(C1, C2, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='Ci'>
+          <MParagraph>the i-th set of elements</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='P'>
+          <MParagraph>the cartesian product in form of cell array of tuples</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>P = cartproduct(C1, C2, ...) computes the cartesian product of C1, C2, ..., which are expressed as cell arrays.</MParagraph>
+          <MParagraph>Suppose C1, C2, ... respectively has n1, n2, ... elements. Then P is an n1 x n2 x ... cell array of tuples, such that</MParagraph>
+          <MFormulaLine>P{i1, i2, ...} = {C1{i1}, C2{i2}, ...}</MFormulaLine>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Compute Cartesian product of cell arrays</MParagraph>
+          <MCodeBlock>
+            <Line>   cartproduct({1, 2}, {&apos;a&apos;, &apos;b&apos;, &apos;c&apos;})</Line>
+            <Line>   =&gt; { {[1], &apos;a&apos;}, {[1], &apos;b&apos;}, {[1], &apos;c&apos;};</Line>
+            <Line>        {[2], &apos;a&apos;}, {[2], &apos;b&apos;}, {[2], &apos;c&apos;} }</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Compute Cartesian product of multiple sets</MParagraph>
+          <MCodeBlock>
+            <Line>    cartproduct({100, 200}, {10, 20, 30}, {1, 2})</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

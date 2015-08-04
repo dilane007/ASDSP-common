@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - transul</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>transul<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>[cdb,idb,cidb]=transul(pdb,gdb,noisedb)</P>
+Calculate the uplink carrier, interference and C/I. All matrices are assumed to be of the same size and in dB. Singleton dimensions will be expanded to fit the other arguments if necessary. Dimensions: connections by bases</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>pdb</B></TD><TD>Transmit power in dBm with users along the first dimension and bases along the second dimension. Set to -inf where links are not used (zero power in dBm)</TD></TR>
+<TR><TD VALIGN="TOP"><B>gdb</B></TD><TD>Gain values in dB.</TD></TR>
+<TR><TD VALIGN="TOP"><B>noisedb</B></TD><TD>Noisefloor in dBm that the receiver cannot escape</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>cdb</B></TD><TD>Carrier power for the uplink in dBm</TD></TR>
+<TR><TD VALIGN="TOP"><B>idb</B></TD><TD>Interference power for the uplink in dBm</TD></TR>
+<TR><TD VALIGN="TOP"><B>cidb</B></TD><TD>C/I for the uplink in dB</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>transul(zeros(3,2),0,-103)</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="transdl.html">transdl</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function [cdb, idb, cidb] = transul(pdb, gdb, noisedb)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 010515</FONT>
+
+if isempty(pdb) <FONT COLOR="DARKGREEN">% nothing in nothing out</FONT>
+ cdb  = pdb;
+ idb  = pdb;
+ cidb = pdb;
+ return
+end 
+
+<FONT COLOR="DARKGREEN">% into the linear domain with adjusted sizes  </FONT>
+[p, ptot, g] = <A HREF="../runetools/adjsiza.html">adjsiza</A>(<A HREF="../runetools/db2lin.html">db2lin</A>(pdb), <A HREF="../runetools/db2lin.html">db2lin</A>(max(pdb,[],2)), <A HREF="../runetools/db2lin.html">db2lin</A>(gdb));
+
+<FONT COLOR="DARKGREEN">% Mobile power through the gain matrix  </FONT>
+ss  = ptot .* g;
+
+<FONT COLOR="DARKGREEN">% The total power received by the base station</FONT>
+tss = <A HREF="../runetools/adjsiza.html">adjsiza</A>(sum(ss,1),ss);
+
+<FONT COLOR="DARKGREEN">% User transmit power through the gain matrix</FONT>
+c  = p .* g;
+
+<FONT COLOR="DARKGREEN">% The received interference </FONT>
+i = tss - c + <A HREF="../runetools/db2lin.html">db2lin</A>(noisedb);
+
+<FONT COLOR="DARKGREEN">% back to the log domain</FONT>
+cdb  = <A HREF="../runetools/lin2db.html">lin2db</A>(c);
+idb  = <A HREF="../runetools/lin2db.html">lin2db</A>(i);
+cidb = <A HREF="../runetools/lin2db.html">lin2db</A>(<A HREF="../runetools/mdiv.html">mdiv</A>(c,i)); <FONT COLOR="DARKGREEN">% avoid some problems for small i</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: transul.m,v 1.5 2004/03/15 14:23:39 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

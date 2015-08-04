@@ -1,0 +1,46 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='testmon' filename='testmon.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testmon.testmon.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testmon.nrecs.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='testmon'>
+      <Outputs>
+        <Var name='tmon'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TESTMON'>Constructs a testing monitor</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tmon = testmon();</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tmon = testmon() constructs a testing monitor. It can be used to monitor the running of testing functions, checking the assertions and capturing the exceptions, and making records.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The monitor keeps the recorded information in a single linked list, in order to facilitate dynamic appending.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

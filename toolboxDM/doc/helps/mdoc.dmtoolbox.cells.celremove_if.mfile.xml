@@ -1,0 +1,72 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celremove_if' filename='celremove_if.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celremove_if.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celremove.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celselect.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celremove_if'>
+      <Inputs>
+        <Var name='C'/>
+        <Var name='f'/>
+      </Inputs>
+      <Outputs>
+        <Var name='C'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELREMOVE_IF'>Removes the elements satisfying some conditions</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = celremove_if(C, f)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='C'>
+          <MParagraph>the cell array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='f'>
+          <MParagraph>the predicate function handle</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>C = celremove_if(C, f) removes the elements from C for which f returns true.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Remove the negative elements</MParagraph>
+          <MCodeBlock>
+            <Line>    celremove_if({-1 -2, 1, 0, 2, 3}, @(x) x &lt; 0)</Line>
+            <Line>    =&gt; {[1], [0], [2], [3]}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Remove the strings whose lengths are less than 3</MParagraph>
+          <MCodeBlock>
+            <Line>    celremove_if({&apos;abcd&apos;, &apos;a&apos;, &apos;matlab&apos;, &apos;b&apos;}, @(x) length(x) &lt; 3)</Line>
+            <Line>    =&gt; {&apos;abcd&apos;, &apos;matlab&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

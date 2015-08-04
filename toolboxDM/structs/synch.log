@@ -1,0 +1,10 @@
+Synchronize It! v3.1 LOG file
+        6161   19-09-2009 20:35:49  0  0  0   setopts.m
+        2353   19-09-2009 20:35:49  0  0  0   fields2mat.m
+        2033   19-09-2009 20:35:49  0  0  0   struct2tuples.m
+         586   19-09-2009 20:35:49  0  0  0   Contents.m
+        1789   19-09-2009 20:35:49  0  0  0   celosf.m
+        4662   19-09-2009 20:35:49  0  0  0   sortstructs.m
+        1475   19-09-2009 20:35:50  0  0  0   tuples2struct.m
+        1370   19-09-2009 20:35:49  0  0  0   dealfields.m
+        1930   19-09-2009 20:35:49  0  0  0   fields2cell.m

@@ -1,0 +1,140 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strformat' filename='strformat.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strformat.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strend.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strindex.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strformat'>
+      <Inputs>
+        <Var name='fmt'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='s'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRFORMAT'>Formats a string using an ordered/named formatter</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>s = strformat(fmt, param1, param2, ...)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strformat(fmt, {param1, param2, ... })</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strformat(fmt, param_struct)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='fmt'>
+          <MParagraph>the string giving the format specification</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='parami'>
+          <MParagraph>the i-th parameter</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='param_struct'>
+          <MParagraph>the struct of the parameters</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='s'>
+          <MParagraph>the formatted string</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>s = strformat(fmt, param1, param2, ...) using an ordered formatter to format a string.</MParagraph>
+          <MParagraph>It is a modification to the sprintf formatter to allow the flexible arrangement and reusing of parameters. For example, in sprintf, the format specification may be written as</MParagraph>
+          <MFormulaLine>&apos;I like %s, whose value is %d&apos;</MFormulaLine>
+          <MParagraph>Then in strformat it should be in the following form</MParagraph>
+          <MFormulaLine>&apos;I like #{1:%s}, whose value is #{2:%d}&apos;</MFormulaLine>
+          <MParagraph>Here, it uses the order 1 and 2 to specify which parameter to be used to fill the hole.</MParagraph>
+          <MParagraph>The index can be in any order and reused, like</MParagraph>
+          <MFormulaLine>&apos;begin #{1:%s}  value = #{2:%d} end #{1:%s}&apos;</MFormulaLine>
+          <MParagraph>Here, the first parameter is used twice.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strformat(fmt, {param1, param2, ...}) formats a string using the parameters grouped in a cell array.</MParagraph>
+          <MParagraph>Hence, strformat can be applied to the parameters no matter whether they are encapsulated in a cell array.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>s = strformat(fmt, param_struct) formats a struct using a named formatter. For example, we can write the fmt as</MParagraph>
+          <MFormulaLine>&apos;I like #{name:%s}, whose value is #{value:%d}&apos;</MFormulaLine>
+          <MParagraph>then the field param_struct.name will be used to fill the first hole, while the field param_struct.value will be used to fill the other.</MParagraph>
+          <MParagraph>PLease note that param_struct must be a scalar struct.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>If no extra parameters, it simple returns the formatter string.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Using ordered formatter</MParagraph>
+          <MCodeBlock>
+            <Line>    strformat(&apos;#{1:%s} of version #{2:%g} is good.&apos;, &apos;MATLAB&apos;, 7.4)</Line>
+            <Line>    =&gt; &apos;MATLAB of version 7.4 is good.&apos;</Line>
+            <Line></Line>
+            <Line>    strformat(&apos;#{1:%.1f}, #{1:%.2f}, #{1:%.3f}.&apos;, pi)</Line>
+            <Line>    =&gt; &apos;3.1, 3.14, 3.142.&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Format tuples</MParagraph>
+          <MCodeBlock>
+            <Line>    tuple = {&apos;MATLAB&apos;, 7.4}</Line>
+            <Line></Line>
+            <Line>    strformat(&apos;#{1:%s} of version #{2:%g}&apos;, tuple)</Line>
+            <Line>    =&gt; &apos;MATLAB of version 7.4&apos;</Line>
+            <Line></Line>
+            <Line>    tools = {{&apos;MATLAB&apos;, 7.4}, {&apos;Java&apos;, 1.6}, {&apos;C#&apos;, 2.0}}</Line>
+            <Line></Line>
+            <Line>    cellfun(@(c) strformat(&apos;#{1:%s} [v #{2:%g}]&apos;, c), tools, ...</Line>
+            <Line>            &apos;UniformOutput&apos;, false);</Line>
+            <Line>    =&gt; {&apos;MATLAB [v 7.4]&apos;, &apos;Java [v 1.6]&apos;, &apos;C# [v 2]&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Format the same thing with different formatter</MParagraph>
+          <MCodeBlock>
+            <Line>    fmts = {&apos;#{1:%s} of version #{2:%g}&apos;, &apos;#{1:%s} #{2:%g}&apos;, &apos;#{1:%s} (v#{2:%g})&apos;}</Line>
+            <Line>    tuple = {&apos;MATLAB&apos;, 7.4}</Line>
+            <Line></Line>
+            <Line>    cellfun(@(fmt) strformat(fmt, tuple), fmts, &apos;UniformOutput&apos;, false)</Line>
+            <Line>    =&gt; {&apos;MATLAB of version 7.4&apos;, &apos;MATLAB 7.4&apos;, &apos;MATLAB (v7.4)&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Format a struct</MParagraph>
+          <MCodeBlock>
+            <Line>    tool.name = &apos;MATLAB&apos;</Line>
+            <Line>    tool.ver = 7.4</Line>
+            <Line></Line>
+            <Line>    strformat(&apos;#{name:%s} of version #{ver:%g}&apos;, tool)</Line>
+            <Line>    =&gt; &apos;MATLAB of version 7.4&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

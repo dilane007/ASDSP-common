@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - crelognmap</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>crelognmap<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>[lognmap,mapvec]=crelognmap(xyb,rhombvec,corrdist,nlayer)</P>
+Generates a lognormal map used to generate lognormal fading during a simulation. The upper border of the map has the same values as the lower border of the map. It is the same for the left and right borders Within rhombvec a certain number of maps are fitted to avoid resonace with base station placement. The code is closely related to uselognmap.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>xyb</B></TD><TD>Used to determine the size of the map. If empty rhombvec =&gt; mapvec.</TD></TR>
+<TR><TD VALIGN="TOP"><B>rhombvec</B></TD><TD>Used to determine the size of the map.</TD></TR>
+<TR><TD VALIGN="TOP"><B>corrdist</B></TD><TD>The distance until the correlation in the map has decreased to 1/e.</TD></TR>
+<TR><TD VALIGN="TOP"><B>nlayer</B></TD><TD>The number of maps to be created ( Layered in 3rd dimension.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>lognmap</B></TD><TD>A square matrix of real values. The mean of all values are 0 and the standard deviation is 1. The map spans atleast two dimensions and possbly also the 3rd to store nlayer independent map</TD></TR>
+<TR><TD VALIGN="TOP"><B>mapvec</B></TD><TD>Two comlex vector elements that are used to move the map to one mapsize.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>mesh(crelognmap([],[1 i],0.1))</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="uselognmap.html">uselognmap</A>, <A HREF="nmap.html">nmap</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function [lognmap, mapvec] = crelognmap(xyb, rhombvec, corrdist, nlayer)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 000515 revised 010713 added nlayer</FONT>
+
+if ~exist('nlayer','var')
+ nlayer = 1; <FONT COLOR="DARKGREEN">% default only one map</FONT>
+end
+
+border = 1; <FONT COLOR="DARKGREEN">% repeated border from the other side of map</FONT>
+siz = 2^8;  <FONT COLOR="DARKGREEN">% size of side of map</FONT>
+
+mapvec = rhombvec;
+if ~isempty(xyb)
+ mapvec = rhombvec ./ <A HREF="nmap.html">nmap</A>(rhombvec, xyb, corrdist);
+end
+
+v1=linspace(-mapvec(1)/2, mapvec(1)/2, siz+1);
+v2=linspace(-mapvec(2)/2, mapvec(2)/2, siz+1);
+
+r = abs(<A HREF="../runetools/mplus.html">mplus</A>(fftshift(v2(1:siz)),fftshift(v1(1:siz)).'));
+hf = sqrt(real(fft2(exp(-r/corrdist))));
+
+for j = nlayer:-1:1 <FONT COLOR="DARKGREEN">% reserve space at first iteration</FONT>
+ <FONT COLOR="DARKGREEN">% calculate the map from white noise </FONT>
+ z = real(ifft2(fft2(randn(size(hf))).*hf)); 
+ rm = z([1:end 1:border],[1:end 1:border]) ./std(z(:));  <FONT COLOR="DARKGREEN">% normalize the map </FONT>
+ lognmap(1:size(rm,1),1:size(rm,2),j) = rm;  
+end
+
+<FONT COLOR="DARKGREEN">% $Id: crelognmap.m,v 1.2 2004/03/11 15:01:31 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

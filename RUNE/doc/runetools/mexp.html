@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - mexp</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>mexp<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>s=mexp(varargin)</P>
+raises a (.^) to b although different sizes. Arguments are expanded to fit each other and then rasied Expansion is made on singleton dimensions to fit the size of other argument.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>s</B></TD><TD>a.^b</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>mexp(2,1:8), mexp((0:4)',0:5), size(mexp(ones(2,1),ones(2,3,4)))</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="mprod.html">mprod</A>, <A HREF="mplus.html">mplus</A>, <A HREF="mdiv.html">mdiv</A>, <A HREF="adjsiz.html">adjsiz</A>, <A HREF="adjsiza.html">adjsiza</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function s = mexp(varargin) <FONT COLOR="DARKGREEN">% generaliized .^</FONT>
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 010930 revised 031012</FONT>
+
+<FONT COLOR="DARKGREEN">% If one of the arguments is an empty matrix that argument is returned</FONT>
+<FONT COLOR="DARKGREEN">% If they both are empty they must be of the same size though</FONT>
+<FONT COLOR="DARKGREEN">% This is inline with the odd syntax of matlab</FONT>
+if isempty(varargin{1}) | isempty(varargin{1})
+ v = varargin{1} + varargin{1};
+ return
+end
+ 
+v = <A HREF="adjsiz.html">adjsiz</A>(varargin{:});
+s = v{1}.^v{2};
+ 
+<FONT COLOR="DARKGREEN">% $Id: mexp.m,v 1.1 2004/02/19 17:27:44 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

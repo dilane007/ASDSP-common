@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='structs' dirtype='normal'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.mdir.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.mdir.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MFileRef name='celosf' path='mdoc.dmtoolbox.structs.celosf.mfile.xml'/>
+    <MFileRef name='dealfields' path='mdoc.dmtoolbox.structs.dealfields.mfile.xml'/>
+    <MFileRef name='fields2cell' path='mdoc.dmtoolbox.structs.fields2cell.mfile.xml'/>
+    <MFileRef name='fields2mat' path='mdoc.dmtoolbox.structs.fields2mat.mfile.xml'/>
+    <MFileRef name='setopts' path='mdoc.dmtoolbox.structs.setopts.mfile.xml'/>
+    <MFileRef name='sortstructs' path='mdoc.dmtoolbox.structs.sortstructs.mfile.xml'/>
+    <MFileRef name='struct2tuples' path='mdoc.dmtoolbox.structs.struct2tuples.mfile.xml'/>
+    <MFileRef name='tuples2struct' path='mdoc.dmtoolbox.structs.tuples2struct.mfile.xml'/>
+  </Subs>
+</MDirInfo>

@@ -1,0 +1,168 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='setopts' filename='setopts.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.structs.setopts.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.structs.fields2mat.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.sortstructs.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.structs.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='setopts'>
+      <Inputs>
+        <Var name='opts0'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='opts'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='SETOPTS'>Sets the options and makes the option-struct</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>opts = setopts([], name1, value1, name2, value2, ...)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>opts = setopts([], {name1, value1, name2, value2, ...})</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>opts = setopts([], newopts)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>opts = setopts(opts0, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='opts0'>
+          <MParagraph>the original options</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='namei'>
+          <MParagraph>the i-th option name</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='valuei'>
+          <MParagraph>the value of the i-th option</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='opts'>
+          <MParagraph>the updated options</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>opts = setopts([], name1, value1, name2, value2, ...) makes an option structure using the name-value pairs. The names should be all strings.</MParagraph>
+          <MParagraph>The constructed structure will be like the following:</MParagraph>
+          <MCodeBlock>
+            <Line>    opts.name1 = value1</Line>
+            <Line>    opts.name2 = value2</Line>
+            <Line>      ...</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>opts = setopts([], {name1, value1, name2, value2, ...}) makes an option structure using the name-value pairs encapsulated in a cell array. It is equivalent to the un-encapsulated form.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>opts = setopts([], newopts) makes an option structure by copying the fields in newopts.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>opts = setopts(opts0, ...) updates the original structure opts0. Suppose there is a name-value pair with name abc, then</MParagraph>
+          <MList listtype='unordered'>
+            <MListItem>
+              <MParagraph>if opts0 has a field named abc, then opts.abc will be set to the supplied value;</MParagraph>
+            </MListItem>
+            <MListItem>
+              <MParagraph>if opts0 does not has a field named abc, then a new field will be added to opts</MParagraph>
+            </MListItem>
+            <MListItem>
+              <MParagraph>The remaining fields of opts0 that are not in the name-value pairs will be copied to the opts using original values.</MParagraph>
+            </MListItem>
+          </MList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The MATLAB builtin function struct can also make struct with name value pairs. However, there are two significant differences:</MParagraph>
+          <MList listtype='ordered'>
+            <MListItem>
+              <MParagraph>when the values are cell arrays, the function struct will build a struct array and deal the values in the cell arrays to multiple structs. While the function setopts will always make a scalar struct, the value in cell form will be directly set as the value of the corresponding field as a whole.</MParagraph>
+            </MListItem>
+            <MListItem>
+              <MParagraph>The function setopts can make a new option structure by updating an existing one. It is suitable to the cases that there is a set of default options, and the user only wants to change some of them without changing the other. The setopts function offers a convenient way to tune a subset of options in the multi-option applications.</MParagraph>
+            </MListItem>
+          </MList>
+        </MListItem>
+        <MListItem>
+          <MParagraph>In the name-value list, multiple items with the same name is allowed. Under the circumstances, only the rightmost value takes effect. This design facilitates the use of a chain of option-setters. Each setter can simply make its changes by appending some name-value pairs, thereby the last changes will finally take effect.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Construct default options and then update it</MParagraph>
+          <MCodeBlock>
+            <Line>     default_opts = setopts([], ...</Line>
+            <Line>          &apos;timeout&apos;, 30, ...</Line>
+            <Line>          &apos;method&apos;, &apos;auto&apos;, ...</Line>
+            <Line>          &apos;acts&apos;, {&apos;open&apos;, &apos;edit&apos;, &apos;close&apos;} );</Line>
+            <Line></Line>
+            <Line>     &gt;&gt;  default_opts.timeout = 30</Line>
+            <Line>         default_opts.method = &apos;auto&apos;</Line>
+            <Line>         default_opts.acts = {&apos;open&apos;, &apos;edit&apos;, &apos;close&apos;}</Line>
+            <Line></Line>
+            <Line>     user_opts = setopts(default_opts, ...</Line>
+            <Line>          &apos;timeout&apos;, 50, ...</Line>
+            <Line>          &apos;acts&apos;, {&apos;open&apos;, &apos;edit&apos;, &apos;submit&apos;, &apos;close&apos;}, ...</Line>
+            <Line>          &apos;info&apos;, &apos;something&apos;);</Line>
+            <Line></Line>
+            <Line>     &gt;&gt;  user_opts.timeout = 50</Line>
+            <Line>         user_opts.method = &apos;auto&apos;</Line>
+            <Line>         user_opts.acts = {&apos;open&apos;, &apos;edit&apos;, &apos;submit&apos;, &apos;close&apos;}</Line>
+            <Line>         user_opts.info = &apos;something&apos;</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Set options with a chain of name-value pairs</MParagraph>
+          <MCodeBlock>
+            <Line>      p1 = {&apos;timeout&apos;, 30, &apos;method&apos;, &apos;auto&apos;}</Line>
+            <Line>      p2 = {&apos;info&apos;, [1 2], &apos;timeout&apos;, 50}</Line>
+            <Line>      p3 = {&apos;keys&apos;, {&apos;a&apos;, &apos;b&apos;}, &apos;info&apos;, [10 20]}</Line>
+            <Line></Line>
+            <Line>      opts = setopts([], [p1, p2, p3])</Line>
+            <Line></Line>
+            <Line>      &gt;&gt; opts.timeout = 50</Line>
+            <Line>         opts.method = &apos;auto&apos;</Line>
+            <Line>         opts.info = [10 20]</Line>
+            <Line>         opts.keys = {&apos;a&apos;, &apos;b&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Update a struct with another one</MParagraph>
+          <MCodeBlock>
+            <Line>      s0 = struct(&apos;handle&apos;, 1, &apos;width&apos;, 10, &apos;height&apos;, 20)</Line>
+            <Line>      su = struct(&apos;width&apos;, 15, &apos;height&apos;, 25)</Line>
+            <Line></Line>
+            <Line>      s1 = setopts(s0, su)</Line>
+            <Line></Line>
+            <Line>      &gt;&gt; s1.handle = 1</Line>
+            <Line>         s1.width = 15</Line>
+            <Line>         s2.height = 25</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 28, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

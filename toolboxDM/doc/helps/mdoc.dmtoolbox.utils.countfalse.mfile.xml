@@ -1,0 +1,74 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='countfalse' filename='countfalse.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.countfalse.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.utils.count_if.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.utils.counttrue.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.utils.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='countfalse'>
+      <Inputs>
+        <Var name='V'/>
+      </Inputs>
+      <Outputs>
+        <Var name='c'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='COUNTFALSE'>Counts the number of false values in a logical array</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>c = countfalse(V)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='V'>
+          <MParagraph>the logical array to be tested</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='c'>
+          <MParagraph>the number of false values</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>c = countfalse(V) counts the number of false values in the logical array V.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>It is functionally equivalent to sum(1 - V(:)). However, it is much more efficient to deal with large arrays and multi-dimensional arrays.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>The addition to the counter only takes place when a false value is encountered. Thus it is generally more faster when the false value is less. Hence, when the majority are true, using countfalse is faster, otherwise, using counttrue is faster.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Count how many values that are not positive</MParagraph>
+          <MCodeBlock>
+            <Line>    X = [-2 1 0; 3 -4 -5];</Line>
+            <Line>    countfalse(X &gt; 0) =&gt; 4</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

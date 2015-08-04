@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - flatten</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>flatten<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>res=flatten(m,dim)</P>
+Align all elements of m along dimension dim. The elements are taken columnwise from m. If dim is not present along rows is assumed. m can be any matrix and dim can be any scalar integer from 1 and up.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>m</B></TD><TD>any matrix</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>any integer greater than 0</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>res</B></TD><TD>A matrix only spanning dimesion dim.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>flatten([1 2; 3 4],3)</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function res = flatten(m, dim)  
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 970527</FONT>
+
+if nargin > 1 
+  <FONT COLOR="DARKGREEN">% Note the extra 1 at the end, since reshape needs </FONT>
+  <FONT COLOR="DARKGREEN">% a dimension vector of at least 2 element.</FONT>
+  res = reshape(m,[ones(1, dim-1), prod(size(m)) 1]);
+else
+  res = m(:); <FONT COLOR="DARKGREEN">% in the old matlab4 style</FONT>
+end
+
+<FONT COLOR="DARKGREEN">% $Id: flatten.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

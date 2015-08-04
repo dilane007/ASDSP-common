@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - plothex</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>plothex<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>plothex(xyb,fib,chgroup)</P>
+Plots the homogeneous hexagon cell pattern with BS identities.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>xyb</B></TD><TD>Base station coordinates, given as a complex row vector.</TD></TR>
+<TR><TD VALIGN="TOP"><B>fib</B></TD><TD>The base station antenna vector, given as a complex row vector pointing from base to middle of cell.</TD></TR>
+<TR><TD VALIGN="TOP"><B>chgroup</B></TD><TD>Row vector. Contains the channel group number of the cell. This number is used to set the color of the cell.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>plothex(0,0)
+plothex([0 1],[0 0])
+plothex([0 1 2],[0 0 0],[1 2 3])</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="crecells.html">crecells</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function plothex(xyb, fib, chgroup)
+
+<FONT COLOR="DARKGREEN">% By Magnus Almgren 010129 revised 040202 MA</FONT>
+
+<FONT COLOR="DARKGREEN">% Calculate cell radius</FONT>
+if all(fib==0)       
+ <FONT COLOR="DARKGREEN">% omni cell (fib==0)</FONT>
+ xybu = unique(xyb);
+ if length(xybu)>1
+  xyb2b = xybu(<A HREF="../runetools/minind.html">minind</A>(abs(xybu(2:end)-xybu(1)))+1)-xybu(1);
+  cellradius = <A HREF="../runetools/mplus.html">mplus</A>(fib,xyb2b/sqrt(-3));
+ else
+  cellradius = 1000i; <FONT COLOR="DARKGREEN">% the case with one omnibase only</FONT>
+ end
+ tpos = cellradius(1)/4; <FONT COLOR="DARKGREEN">% Place text slightly off the cell center</FONT>
+else
+ <FONT COLOR="DARKGREEN">% Directional antennas</FONT>
+ cellradius = fib;
+ tpos = 0; <FONT COLOR="DARKGREEN">% Place text in the middle of the cell.</FONT>
+end
+
+<FONT COLOR="DARKGREEN">% Plot the hexagonal pattern</FONT>
+<FONT COLOR="DARKGREEN">% Each column of 'points' contain the corner points of each cell</FONT>
+points=<A HREF="../runetools/mplus.html">mplus</A>(xyb,fib,exp(i*pi*(0:6)/3).'*cellradius);
+
+if ~exist('chgroup','var')
+ <A HREF="../runetools/plotnh.html">plotnh</A>(real(points),imag(points),'k');
+else
+ patch(real(points),imag(points),<A HREF="../runetools/mprod.html">mprod</A>(ones(7,1),0.3+0.7*chgroup/max(chgroup)));
+ caxis([0 1]);
+end
+
+<FONT COLOR="DARKGREEN">% Plot base positions</FONT>
+<A HREF="../runetools/ploth.html">ploth</A>(real(xyb),imag(xyb),'ro') 
+axis('equal')
+
+<FONT COLOR="DARKGREEN">% Plot BS id</FONT>
+ts=get(gcf,'DefaultTextFontSize'); <FONT COLOR="DARKGREEN">% Preserve font size</FONT>
+set(gcf,'DefaultTextFontSize',7);  <FONT COLOR="DARKGREEN">% Set font size to 7</FONT>
+pos = xyb + fib + tpos;            <FONT COLOR="DARKGREEN">% BS text pos</FONT>
+for s=1:length(xyb)
+ text(real(pos(s)),imag(pos(s)),num2str(s),'HorizontalAlignment','center')
+end
+set(gcf,'DefaultTextFontSize',ts); <FONT COLOR="DARKGREEN">% Restore old font size</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: plothex.m,v 1.2 2004/03/11 15:01:31 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

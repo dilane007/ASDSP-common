@@ -1,0 +1,104 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='addrec' filename='addrec.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testmon.addrec.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testmon.get_testinfo.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='addrec'>
+      <Inputs>
+        <Var name='tmon'/>
+        <Var name='type'/>
+        <Var name='info'/>
+      </Inputs>
+      <Outputs>
+        <Var name='tmon'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='ADDREC'>Adds a record to the monitor</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tmon = addrec(tmon, type, info)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tmon = addrec(tmon, type, info) appends a new record with the specified information to the monitor.</MParagraph>
+          <MTable title='The supported types of records'>
+            <MTableRow>
+              <MTableCell celltype='head'>
+                <MParagraph>type</MParagraph>
+              </MTableCell>
+              <MTableCell celltype='head'>
+                <MParagraph>description</MParagraph>
+              </MTableCell>
+            </MTableRow>
+            <MTableRow>
+              <MTableCell celltype='normal'>
+                <MParagraph>pass</MParagraph>
+              </MTableCell>
+              <MTableCell celltype='normal'>
+                <MParagraph>An assertion is passed.</MParagraph>
+              </MTableCell>
+            </MTableRow>
+            <MTableRow>
+              <MTableCell celltype='normal'>
+                <MParagraph>fail</MParagraph>
+              </MTableCell>
+              <MTableCell celltype='normal'>
+                <MParagraph>An assertion is failed.</MParagraph>
+              </MTableCell>
+            </MTableRow>
+            <MTableRow>
+              <MTableCell celltype='normal'>
+                <MParagraph>fatal</MParagraph>
+              </MTableCell>
+              <MTableCell celltype='normal'>
+                <MParagraph>A fatal assertion failure.</MParagraph>
+              </MTableCell>
+            </MTableRow>
+            <MTableRow>
+              <MTableCell celltype='normal'>
+                <MParagraph>exc</MParagraph>
+              </MTableCell>
+              <MTableCell celltype='normal'>
+                <MParagraph>An unexpected exception.</MParagraph>
+              </MTableCell>
+            </MTableRow>
+          </MTable>
+          <MParagraph>The info should be a struct scalar with the following fields:</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='file'>
+              <MParagraph>the source m-file in which the event occurs</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='fname'>
+              <MParagraph>the function name in which the event occurs</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='line'>
+              <MParagraph>the line number</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='errmsg'>
+              <MParagraph>the error message of the exception</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='errid'>
+              <MParagraph>the error identifier of the exception</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

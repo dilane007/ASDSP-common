@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - hextest</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>hextest<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>hextest(sps,km,lm,nmob)</P>
+This function essentially plots a system by first defining the cells and then creating the mobiles. Then the whole thing is plotted.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>sps</B></TD><TD>The number of sectors per site. Useful values are 1,3 and 6 although other values work.</TD></TR>
+<TR><TD VALIGN="TOP"><B>km</B></TD><TD>Used to define the number of cells according to km^2 + lm^2 + km*lm</TD></TR>
+<TR><TD VALIGN="TOP"><B>lm</B></TD><TD>Used to define the number of cells</TD></TR>
+<TR><TD VALIGN="TOP"><B>nmob</B></TD><TD>The number of mobiles that should be created</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B></B></TD><TD>A plot</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>hexcell hexcell(1,1,0,0) hexcell(3,1,0,0) hexcell(1,1,1,0) hexcell(3,1,1,0)</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function hextest(sps, km, lm, nmob)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 010215 </FONT>
+if nargin ==0
+ sps = 1; <FONT COLOR="DARKGREEN">% omni cells</FONT>
+ km = 2;  <FONT COLOR="DARKGREEN">% 7 cells within the system</FONT>
+ lm = 1;
+ nmob = 100; <FONT COLOR="DARKGREEN">% number of mobiles created</FONT>
+end
+
+<FONT COLOR="DARKGREEN">% create cells positions</FONT>
+cellradius = 100; <FONT COLOR="DARKGREEN">% a complex vector from cell center to one of the corners</FONT>
+[xyb, fib, rhombvec] = <A HREF="../runegain/crecells.html">crecells</A>(cellradius,sps,km,lm);
+
+<FONT COLOR="DARKGREEN">% Create new mobiles</FONT>
+par.amean = 5;         <FONT COLOR="DARKGREEN">% mean acceleration [m/s/s]</FONT>
+par.vmean = 10;        <FONT COLOR="DARKGREEN">% mean speed  [m/s]</FONT>
+par.dt = 1;            <FONT COLOR="DARKGREEN">% time interval in the simulation loop</FONT>
+
+
+xym=<A HREF="../runetools/nans.html">nans</A>(nmob,1); <FONT COLOR="DARKGREEN">% template for mobile positions</FONT>
+xyv=<A HREF="../runetools/nans.html">nans</A>(nmob,1); <FONT COLOR="DARKGREEN">% template for mobile speeds</FONT>
+m = (1:nmob).';   <FONT COLOR="DARKGREEN">% mobile identities (in this case not used)</FONT>
+
+[xym,xyv]=<A HREF="../runegain/mobmove.html">mobmove</A>(xym,xyv,par.vmean,par.amean,par.dt,rhombvec);
+
+figure(1);
+clf
+<A HREF="../runegain/plothex.html">plothex</A>(xyb,fib) <FONT COLOR="DARKGREEN">% plot hexagonal cells </FONT>
+<A HREF="../runetools/ploth.html">ploth</A>(xym,'b*') <FONT COLOR="DARKGREEN">% plot user position</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: hextest.m,v 1.2 2004/03/11 15:00:54 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

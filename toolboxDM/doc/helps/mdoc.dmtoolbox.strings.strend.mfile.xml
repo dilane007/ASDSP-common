@@ -1,0 +1,66 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strend' filename='strend.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strend.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strformat.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strend'>
+      <Inputs>
+        <Var name='str'/>
+        <Var name='endstr'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STREND'>Tests whether a string ends with a specified substring</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = strend(str, endstr)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = strend(str, endstr) returns whether the string str ends with the substring endstr.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>if endstr is empty, it always return true.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Testing string end</MParagraph>
+          <MCodeBlock>
+            <Line>    strend(&apos;abc.m&apos;, &apos;.m&apos;) =&gt; true</Line>
+            <Line></Line>
+            <Line>    strend(&apos;abc&apos;, &apos;xabc&apos;) =&gt; false</Line>
+            <Line></Line>
+            <Line>    strend(&apos;abcd--&apos;, &apos;-+&apos;) =&gt; false</Line>
+            <Line></Line>
+            <Line>    strend(&apos;abc&apos;, []) =&gt; true</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

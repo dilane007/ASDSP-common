@@ -1,0 +1,68 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='dmtoolbox_install' filename='dmtoolbox_install.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.dmtoolbox_install.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.dmtoolbox_info.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.dmtoolbox_test.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='dmtoolbox_install'>
+      <Inputs>
+        <Var name='varargin'/>
+      </Inputs>
+    </MFuncDecl>
+    <MHeadLine leadword='DMTOOLBOX_INSTALL'>Installs the toolbox into MATLAB</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>dmtoolbox_install</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>dmtoolbox_install ...</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>dmtoolbox_install install the toolbox using default options. It adds the paths to the MATLAB without re-compiling the mex files.</MParagraph>
+          <MParagraph>It is equivalent to</MParagraph>
+          <MFormulaLine>dmtoolbox_install -path</MFormulaLine>
+        </MListItem>
+        <MListItem>
+          <MParagraph>dmtoolbox_install ... install the toolbox with user-specified options. Here are the supported options</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='-path'>
+              <MParagraph>add paths to MATLAB</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='-mex'>
+              <MParagraph>re-compiling all mex files</MParagraph>
+            </MTermEntry>
+          </MTermList>
+          <MList listtype='unordered'>
+            <MListItem>
+              <MParagraph>If you want to only add paths, you can write</MParagraph>
+              <MFormulaLine>dmtoolbox_install -path</MFormulaLine>
+              <MParagraph>or just write</MParagraph>
+              <MFormulaLine>dmtoolbox_install</MFormulaLine>
+            </MListItem>
+            <MListItem>
+              <MParagraph>If you want to only re-compile all mex files, you can write</MParagraph>
+              <MFormulaLine>dmtoolbox_install -path -mex</MFormulaLine>
+            </MListItem>
+          </MList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

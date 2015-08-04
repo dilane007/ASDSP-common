@@ -1,0 +1,36 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='indent' filename='indent.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testlog.indent.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testlog.on_tevent.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testlog.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='indent'>
+      <Inputs>
+        <Var name='logger'/>
+        <Var name='d'/>
+      </Inputs>
+      <Outputs>
+        <Var name='logger'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='Change'>the indent of the printing by some levels</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>logger = indent(logger, d)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

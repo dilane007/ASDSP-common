@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - ex_crecells</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>ex_crecells<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>ex_crecells(par)</P>
+generates a cell plot over the system</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>par</B></TD><TD>BASIC SIMULATION PARAMETERS</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.cellradius</B></TD><TD>cell radius [m]</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.km</B></TD><TD>km^2+lm^2+km*lm =&gt; number of sites per sector</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.lm</B></TD><TD>related to km above</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.kn</B></TD><TD>kn^2+lm^2+kn*ln =&gt; the number of clusters</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.ln</B></TD><TD>related to kn above</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.sps</B></TD><TD>number of sectors per site</TD></TR>
+<TR><TD VALIGN="TOP"><B>par.ncluster</B></TD><TD>number of clusters equals ncluster^2</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>ex_crecells</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="ex_crecell.html">ex_crecell</A>, ex_reuse, ex_wraparound</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function ex_crecells(par)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 040206</FONT>
+
+<FONT COLOR="DARKGREEN">% Default setiing of parameters</FONT>
+<FONT COLOR="DARKGREEN">% seven three sector sites in one cluster</FONT>
+if ~exist('par','var')
+ par.cellradius=1000; 
+ par.km = 1; <FONT COLOR="DARKGREEN">% km^2+lm^2+km*lm sites per cluster</FONT>
+ par.lm = 2;
+ par.kn = 1; <FONT COLOR="DARKGREEN">% kn^2+ln^2+kn*ln cluster in the system</FONT>
+ par.ln = 0;
+ par.sps = 3; <FONT COLOR="DARKGREEN">% sectors per site </FONT>
+end
+
+<FONT COLOR="DARKGREEN">% Create the base stations</FONT>
+[xyb,fib,rhombvec]=<A HREF="../runegain/crecells.html">crecells</A>(par.cellradius,par.sps,par.km,par.lm,par.kn,par.ln);
+
+<FONT COLOR="DARKGREEN">% Plot the system</FONT>
+figure(1);
+clf
+<A HREF="../runegain/plothex.html">plothex</A>(xyb,fib);
+
+<FONT COLOR="DARKGREEN">% $Id: ex_crecells.m,v 1.2 2004/03/11 15:00:54 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

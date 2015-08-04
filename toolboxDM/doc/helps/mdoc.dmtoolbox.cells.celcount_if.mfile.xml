@@ -1,0 +1,68 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celcount_if' filename='celcount_if.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celcount_if.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celcount.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celinclude.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celcount_if'>
+      <Inputs>
+        <Var name='C'/>
+        <Var name='f'/>
+      </Inputs>
+      <Outputs>
+        <Var name='n'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELCOUNT'>Counts the number of elements satisfying some conditions</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = celcount_if(C, f)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='C'>
+          <MParagraph>the source cell array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='f'>
+          <MParagraph>the predicate function handle</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='n'>
+          <MParagraph>the number of the elements satisfying the condition</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>n = celcount_if(C, f) gets the number of elements in C for which the predicate f returns true.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Counts the number of strings with length smaller than 3</MParagraph>
+          <MCodeBlock>
+            <Line>    celcount_if({&apos;a&apos;, &apos;matlab&apos;, &apos;b&apos;, &apos;c1&apos;}, @(x) length(x) &lt; 3)</Line>
+            <Line>    =&gt; 3</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

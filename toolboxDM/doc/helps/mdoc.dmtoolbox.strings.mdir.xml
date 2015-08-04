@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='strings' dirtype='normal'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.mdir.xml'/>
+    <Prev path='mdoc.dmtoolbox.maps.mdir.xml'/>
+    <Next path='mdoc.dmtoolbox.structs.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MFileRef name='strend' path='mdoc.dmtoolbox.strings.strend.mfile.xml'/>
+    <MFileRef name='strformat' path='mdoc.dmtoolbox.strings.strformat.mfile.xml'/>
+    <MFileRef name='strindex' path='mdoc.dmtoolbox.strings.strindex.mfile.xml'/>
+    <MFileRef name='strjoin' path='mdoc.dmtoolbox.strings.strjoin.mfile.xml'/>
+    <MFileRef name='strranges' path='mdoc.dmtoolbox.strings.strranges.mfile.xml'/>
+    <MFileRef name='strrangesubs' path='mdoc.dmtoolbox.strings.strrangesubs.mfile.xml'/>
+    <MFileRef name='strscan' path='mdoc.dmtoolbox.strings.strscan.mfile.xml'/>
+    <MFileRef name='strscant' path='mdoc.dmtoolbox.strings.strscant.mfile.xml'/>
+    <MFileRef name='strsplit' path='mdoc.dmtoolbox.strings.strsplit.mfile.xml'/>
+    <MFileRef name='strstart' path='mdoc.dmtoolbox.strings.strstart.mfile.xml'/>
+    <MFileRef name='strsubs' path='mdoc.dmtoolbox.strings.strsubs.mfile.xml'/>
+    <MFileRef name='strsubsfmt' path='mdoc.dmtoolbox.strings.strsubsfmt.mfile.xml'/>
+  </Subs>
+</MDirInfo>

@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - rotate</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>rotate<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>y=rotate(x,rot,dim)</P>
+according to rot in dimension dim. If dim is not present then first dimension is assumed</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>x</B></TD><TD>the matrix to be shifted</TD></TR>
+<TR><TD VALIGN="TOP"><B>rot</B></TD><TD>a matrix containing the shift</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>the dimension along which shift will take place</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>y</B></TD><TD>the shifted result</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>rotate(1:10,(0:3)',2) rotate(magic(2),[0 1])</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function y = rotate(x, rot, dim) <FONT COLOR="DARKGREEN">% shifts first argument </FONT>
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 981114 heavily revised 040202</FONT>
+
+<A HREF="setifnotexist.html">setifnotexist</A>('dim',<A HREF="firstnonsing.html">firstnonsing</A>(x))
+[x, rot] = <A HREF="adjsiza.html">adjsiza</A>(x, rot);
+siz = size(x);
+d = <A HREF="wrapind.html">wrapind</A>(<A HREF="mplus.html">mplus</A>(<A HREF="flatten.html">flatten</A>(1:size(x,dim),dim),-rot),size(x,dim));
+ind = <A HREF="index1.html">index1</A>(d,dim,siz);
+y = x(ind);
+
+<FONT COLOR="DARKGREEN">% $Id: rotate.m,v 1.1 2004/02/19 17:27:45 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

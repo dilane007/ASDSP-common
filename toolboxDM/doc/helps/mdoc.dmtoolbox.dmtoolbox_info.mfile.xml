@@ -1,0 +1,57 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='dmtoolbox_info' filename='dmtoolbox_info.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.dmtoolbox_info.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.dmdoc.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.dmtoolbox_install.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='dmtoolbox_info'>
+      <Outputs>
+        <Var name='info'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='DMTOOLBOX_INFO'>Gets the information of the dmtoolbox</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>info = dmtoolbox_info()</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>info = dmtoolbox_info() returns a struct containing the basic information of the toolbox. info has the following fields</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='name'>
+              <MParagraph>the toolbox name</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='ver'>
+              <MParagraph>the version of the toolbox</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='release_date'>
+              <MParagraph>when the current version is released (in yyyy-mm-dd format)</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='root'>
+              <MParagraph>the root path of the toolbox</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='docpath'>
+              <MParagraph>the document path of the toolbox</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

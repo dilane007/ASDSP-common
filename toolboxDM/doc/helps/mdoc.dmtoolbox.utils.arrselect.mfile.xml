@@ -1,0 +1,85 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='arrselect' filename='arrselect.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.arrselect.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.utils.anytrue.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.utils.cartproduct.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.utils.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='arrselect'>
+      <Inputs>
+        <Var name='A'/>
+        <Var name='f'/>
+      </Inputs>
+      <Outputs>
+        <Var name='As'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='ARRSELECT'>Selects the elements in an array satisfying some conditions</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>As = arrselect(A, f)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='A'>
+          <MParagraph>the source array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='f'>
+          <MParagraph>the predicate function handle</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='As'>
+          <MParagraph>the array of selected elements</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>As = arrselect(A, f) selects a subset of elements in A which satisfy the condition specified by the predicate function handle f. f returns true for the elements that meet the condition and false otherwise.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>It can be applied to arrays of any types including numeric, logical, struct array, cell array, and others.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>However, for numeric and logical arrays, it is not recommended to use arrselect, directly using logical indexing will be much more efficient. For example, to select all positive values in a numeric matrix A, you may write as A(A &gt; 0).</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>For cell arrays, using celselect is preferrable.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>This function is typically used for struct arrays.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Select the struct elements with the field a &gt; 0</MParagraph>
+          <MCodeBlock>
+            <Line>    S = struct(&apos;a&apos;, {-3, -2, 1, 3, 2}, &apos;b&apos;, {3, 5, 6, 7, 9});</Line>
+            <Line></Line>
+            <Line>    arrselect(S, @(s) s.a &gt; 0)</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

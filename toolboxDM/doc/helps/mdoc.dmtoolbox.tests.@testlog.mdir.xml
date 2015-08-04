@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mdir_doc.xsl'?>
+<MDirInfo dirname='@testlog' dirtype='class'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testlog.mdir.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testcase.mdir.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testmon.mdir.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.mdir.xml'/>
+  </Context>
+  <Subs>
+    <MFileRef name='indent' path='mdoc.dmtoolbox.tests.@testlog.indent.mfile.xml'/>
+    <MFileRef name='on_tevent' path='mdoc.dmtoolbox.tests.@testlog.on_tevent.mfile.xml'/>
+    <MFileRef name='print' path='mdoc.dmtoolbox.tests.@testlog.print.mfile.xml'/>
+    <MFileRef name='testlog' path='mdoc.dmtoolbox.tests.@testlog.testlog.mfile.xml'/>
+  </Subs>
+</MDirInfo>

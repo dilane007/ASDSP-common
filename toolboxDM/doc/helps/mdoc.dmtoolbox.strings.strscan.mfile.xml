@@ -1,0 +1,85 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strscan' filename='strscan.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strscan.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strrangesubs.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strscant.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strscan'>
+      <Inputs>
+        <Var name='str'/>
+        <Var name='pattern'/>
+      </Inputs>
+      <Outputs>
+        <Var name='matches'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRSCAN'>Scans the sub strings that match the specified regular pattern</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>matches = strscan(str, pattern)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='str'>
+          <MParagraph>the source string to be scanned</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='pattern'>
+          <MParagraph>the regular expression pattern</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='matches'>
+          <MParagraph>the cell array of the matched sub strings</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>matches = strscan(str, pattern) finds all occurrences of the sub strings that match the specified regular expression pattern and outputs them by the cell array matches.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Finds all words in a sentence (the pattern for a word is /\w+/):</MParagraph>
+          <MCodeBlock>
+            <Line>    strscan(&apos;I am writing code in MATLAB&apos;, &apos;\w+&apos;)</Line>
+            <Line>    =&gt; {&apos;I&apos;  &apos;am&apos;  &apos;writing&apos;  &apos;code&apos;  &apos;in&apos;  &apos;MATLAB&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Finds all integer numbers in a string (with pattern /\d+/):</MParagraph>
+          <MCodeBlock>
+            <Line>    strscan(&apos;34 + 52 = 86&apos;, &apos;\d+&apos;)</Line>
+            <Line>    =&gt; {&apos;34&apos;  &apos;52&apos;  &apos;86&apos;}</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>If str is empty or no matched sub strings are found, then the output matches will be an empty array.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>The function simply wraps the regexp function to offer a more concise interface.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 24, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

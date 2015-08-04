@@ -1,0 +1,67 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='dmtoolbox_test' filename='dmtoolbox_test.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.dmtoolbox_test.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.dmtoolbox_install.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='dmtoolbox_test'>
+      <Inputs>
+        <Var name='varargin'/>
+      </Inputs>
+    </MFuncDecl>
+    <MHeadLine leadword='DMTOOLBOX_TEST'>Performs testing on the functionality of the toolbox</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>dmtoolbox_test</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>dmtoolbox_test module1 module2</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>dmtoolbox_test performs the testing of all modules in the toolbox. and prints the testing information.</MParagraph>
+          <MParagraph>The testing is conducted with the unit-test framework offered by the toolbox itself. The unit-test framework is in the tests sub-directory. It is a general test framework like JUnit in Java.</MParagraph>
+          <MParagraph>This function is mainly for testing whether the functions in the toolbox work correctly after deployment. However, the function in itself is a good example to show how to use the unit test framework.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>dmtoolbox_test module1 module2 ... performs the testing of specified modules and prints the corresponding testing information.</MParagraph>
+          <MParagraph>You can also write it in a function form as</MParagraph>
+          <MFormulaLine>dmtoolbox_test(module1, module2, ...)</MFormulaLine>
+          <MParagraph>The testable module list</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='utils'>
+              <MParagraph>the common utilities to process arrays</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='strings'>
+              <MParagraph>the functions to manipulate, format strings and extract information from strings</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='cells'>
+              <MParagraph>the functions to manipulate cell arrays</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='structs'>
+              <MParagraph>the functions to manipulate struct arrays and convert between struct arrays and other data forms</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='maps'>
+              <MParagraph>the functions to help mapping a value to another, and dictionary (like hash table) query</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 30, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

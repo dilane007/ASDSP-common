@@ -1,0 +1,67 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='strstart' filename='strstart.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.strings.strstart.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.strings.strsplit.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.strings.strsubs.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.strings.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='strstart'>
+      <Inputs>
+        <Var name='str'/>
+        <Var name='startstr'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='STRSTART'>Tests whether a string starts with a specified substring</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = strstart(str, startstr)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = strstart(str, startstr) returns whether the string str starts with the substring startstr.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>if startstr is empty, it always return true.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Testing string start</MParagraph>
+          <MCodeBlock>
+            <Line>    strstart(&apos;strstart&apos;, &apos;str&apos;) =&gt; true</Line>
+            <Line></Line>
+            <Line>    strstart(&apos;abc&apos;, &apos;abcd&apos;) =&gt; false</Line>
+            <Line></Line>
+            <Line>    strstart(&apos;--abcd&apos;, &apos;-+&apos;) =&gt; false</Line>
+            <Line></Line>
+            <Line>    strstart(&apos;abc&apos;, []) =&gt; true</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

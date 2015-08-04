@@ -1,0 +1,59 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='alltrue' filename='alltrue.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.alltrue.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.utils.anytrue.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.utils.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='alltrue'>
+      <Inputs>
+        <Var name='V'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='ALLTRUE'>Judges whether all elements are true</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = alltrue(V)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='V'>
+          <MParagraph>the logical array to be tested</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='b'>
+          <MParagraph>whether all values in V are true</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = alltrue(V) gets whether all values in the logical array V are true.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Compared to the built-in all function. alltrue returns one logical scalar despite the size and dimensions of the array V. It is sometimes more convient to use alltrue to manipulate arrays with multiple dimensions or unknown number of dimensions.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

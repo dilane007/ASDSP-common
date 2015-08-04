@@ -1,0 +1,84 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='tassert' filename='tassert.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.tassert.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.tassert_class.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='tassert'>
+      <Inputs>
+        <Var name='expr'/>
+        <Var name='level'/>
+        <Var name='rstack'/>
+      </Inputs>
+      <Outputs>
+        <Var name='r'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TASSERT'>Testing an assertion</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert(expr)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert(expr, level)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = tassert(...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='expr'>
+          <MParagraph>the logical expression to test</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='level'>
+          <MParagraph>the level of the assertion</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='normal'>
+              <MParagraph>the failure will not stop the execution of the remaining part of the testing function</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='fatal'>
+              <MParagraph>the failure will stop the execution of the current testing function</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MTermEntry>
+        <MTermEntry term='r'>
+          <MParagraph>the value returned by expr</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert(expr) tests the assertion in normal level, and records the the testing result in the current test monitor.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert(expr, level) tests the assertion in the specified level and records the testing result.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = tassert(...) returns the value of the testing expression.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The expression is allowed to be a non-scalar array, then if and only if all elements are true or non-zeros, the assertion is passed. This strategy is conformal to the MATLAB builtin if-statement.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

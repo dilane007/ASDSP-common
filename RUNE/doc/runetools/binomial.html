@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - binomial</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>binomial<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>pr=binomial(m,n,p)</P>
+binomial probabilty function the probability of m out of n samples each with probability p</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>m</B></TD><TD>integer matrix with vaules 0&lt;=m&lt;=n</TD></TR>
+<TR><TD VALIGN="TOP"><B>n</B></TD><TD>integer matrix with values 0&lt;n</TD></TR>
+<TR><TD VALIGN="TOP"><B>p</B></TD><TD>sample probability 0&lt;=p&lt;=1 Sizes on all inputs are expanded to fit each other</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>pr</B></TD><TD>probability values. Size is as the combined size of all inputs.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE> binomial(1,2,0.5), binomial(ones(2,2),2,0.5), binomial(0:3,3*ones(10,1),0.5)
+
+by Magnus ALmgren 031111</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="poisson.html">poisson</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function pr = binomial(m,n,p)
+[m,n,p] = <A HREF="adjsiza.html">adjsiza</A>(m,n,p);
+
+<FONT COLOR="DARKGREEN">% a problem with N-D arrays and the gamma function</FONT>
+siz = size(m);
+m = <A HREF="flatten.html">flatten</A>(m);
+n = <A HREF="flatten.html">flatten</A>(n);
+p = <A HREF="flatten.html">flatten</A>(p);
+
+m = max(-1,min(n+1,m)); 
+
+<FONT COLOR="DARKGREEN">% Do the computaion in the log domain to keep within the</FONT>
+<FONT COLOR="DARKGREEN">% doubble floating range</FONT>
+warning off
+pr = exp(gammaln(n+1)-gammaln(m+1)-gammaln(n-m+1)...
+ +log(p).*m+log(1-p).*(n-m));
+warning on
+
+<FONT COLOR="DARKGREEN">% adjust some problems with nans</FONT>
+pr(p==0& m==0) = 1;
+pr(p==1& m==n) = 1;
+
+pr = reshape(pr,siz); <FONT COLOR="DARKGREEN">% related to the N-D problem</FONT>
+<FONT COLOR="DARKGREEN">% $Id: binomial.m,v 1.1 2004/02/19 17:27:42 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

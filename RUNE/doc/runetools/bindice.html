@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - bindice</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>bindice<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>res=bindice(prob,dim)</P>
+Creates a binary matirx of the same size as prob. One of the element is set according to the probabilities along dim.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>prob</B></TD><TD>Matrix of any size with probabilities.</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>Dimension along which the realisation is made</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>res</B></TD><TD>A binary matrix of the same size as prob.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>bindice(ones(6,5)), bindice(10*rand(4,3,2),2)</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD>binmin, binmax, <A HREF="ncumsum.html">ncumsum</A>, <A HREF="ismin.html">ismin</A>, <A HREF="mplus.html">mplus</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function res = bindice(prob,dim)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 000321 revised 030321 MA</FONT>
+if ~exist('dim','var')
+ dim = <A HREF="firstnonsing.html">firstnonsing</A>(prob);
+end
+siz = size(prob);
+siz(dim) = 1;
+res = <A HREF="ismin.html">ismin</A>(<A HREF="mplus.html">mplus</A>(<A HREF="ncumsum.html">ncumsum</A>(prob,dim),-rand(siz))<0,dim);
+
+
+<FONT COLOR="DARKGREEN">% $Id: bindice.m,v 1.1 2004/02/19 17:27:42 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

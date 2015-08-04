@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - poisson</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>poisson<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>pr=poisson(n,lambda)</P>
+poisson probabilty function the probability of x with lam. Assume an callintensity lambda. The function does calculate The probablity of n calls for a given second</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>n</B></TD><TD>Number of events</TD></TR>
+<TR><TD VALIGN="TOP"><B>lambda</B></TD><TD>Average number of events Sizes on all inputs are expanded to fit each other</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>pr</B></TD><TD>probability values. Size is as the combined size of all inputs.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>plot(poisson(1:10,3),'*')</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="binomial.html">binomial</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function pr = poisson(n,lambda)
+
+<FONT COLOR="DARKGREEN">% by Magnus ALmgren 040202</FONT>
+
+<FONT COLOR="DARKGREEN">% due to a bug in matlab when more than 2 dimensions of x</FONT>
+loggam = inline('reshape(gammaln(x),size(x))');
+
+[x,lam] = <A HREF="adjsiza.html">adjsiza</A>(n,lambda);
+
+<FONT COLOR="DARKGREEN">% Do the computaion in the log domain to keep within the</FONT>
+<FONT COLOR="DARKGREEN">% doubble floating range</FONT>
+warning off
+pr = exp(-lam +x.*log(lam) - loggam(x+1));
+warning on
+
+<FONT COLOR="DARKGREEN">% Clean up</FONT>
+pr(lam==0) = 0;  
+pr(isnan(lam) | isnan(x)) = NaN;
+
+<FONT COLOR="DARKGREEN">% $Id: poisson.m,v 1.1 2004/02/19 17:27:45 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - setp</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>setp<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P></P>
+Sets matlabpath to functions in the simulator rune. All new paths are placed on top in order to avoid conflict with other functions with the same name but other functionality. This is essentially a script wrapper for the setpath function. But since MATLAB does not allow calling a function that is outside the path (or the current directory) it ha to be done this way. How long will Comsol continue to not get the programming language right, ARGH!!! Essentially this script should be calles as 'run ..../setp'</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="setpath.html">setpath</A>, run</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>
+<A HREF="setpath.html">setpath</A>;
+
+
+<FONT COLOR="DARKGREEN">% $Id: setp.m,v 1.2 2004/03/11 22:58:02 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

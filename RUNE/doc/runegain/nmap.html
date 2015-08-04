@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - nmap</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>nmap<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>nfold=nmap(rhombvec,xyb,R_corrdist)</P>
+Decides what mapvector to use in crelogmap.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>rhombvec</B></TD><TD>rhombic vector</TD></TR>
+<TR><TD VALIGN="TOP"><B>xyb</B></TD><TD>base stations positions</TD></TR>
+<TR><TD VALIGN="TOP"><B>R_corrdist</B></TD><TD>number of lognmap folding in rhombvec</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>nfold</B></TD><TD>The number of times that the map should fit into rhombvec.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="crelognmap.html">crelognmap</A>, <A HREF="uselognmap.html">uselognmap</A>, gcd</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function nfold = nmap(rhombvec, xyb, R_corrdist)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 970310 revised 040202</FONT>
+
+<FONT COLOR="DARKGREEN">% Find the minimum length vectors from site to site. </FONT>
+xybb = xyb.' - xyb(round(size(xyb,2)/2));  
+ind1 = find(xybb==0);
+if length(ind1) > 0
+ <FONT COLOR="DARKGREEN">%Set all zero elements to max.</FONT>
+ xybb(ind1) = max(abs(xybb))*ones(size(ind1))+1;
+end
+ind2 = <A HREF="../runetools/minind.html">minind</A>(abs(xybb),[],1); <FONT COLOR="DARKGREEN">% This is now an index to a non zero difference.</FONT>
+if length(ind2) & max(xyb)>min(xyb)
+ v = xybb(ind2)*[1; exp(i*pi/3)];  <FONT COLOR="DARKGREEN">% A base pointing from site to site.</FONT>
+else
+ nfold = 1; <FONT COLOR="DARKGREEN">% Since there are only one site we do not have to fold the map.</FONT>
+ return
+end
+  
+<FONT COLOR="DARKGREEN">% ntimes is the number of v into rhombvec</FONT>
+ntimes = [real(rhombvec(1)).' imag(rhombvec(1)).'] * inv([real(v) imag(v)]);
+ntimes = round(ntimes);
+
+<FONT COLOR="DARKGREEN">% Split into rational numbers for nfold proposals between 1 and 100.</FONT>
+[a, b] = rat((1./(1:100))'*ntimes);  
+ind3 = [1; find(max(b',[],1)'~=1)]; <FONT COLOR="DARKGREEN">% the set of possible nfolds</FONT>
+
+<FONT COLOR="DARKGREEN">% Select the one possible that is closest to the ratio between rhombvec</FONT>
+<FONT COLOR="DARKGREEN">% and number of hill * corrdist. </FONT>
+nhill = 100;
+ratio = abs(<A HREF="../runetools/lin2db.html">lin2db</A>(min(abs(rhombvec))./(ind3*sqrt(nhill)*R_corrdist)));
+
+if all(ntimes)
+ ntexp = repmat(abs(ntimes)', [1 length(ratio)]); <FONT COLOR="DARKGREEN">% no 0</FONT>
+else
+ ntexp = abs(ntimes(ntimes~=0)) * ones(1,length(ratio));
+end
+
+<FONT COLOR="DARKGREEN">% Greatest divisors between ntimes and still possible nfolds.</FONT>
+divisor = gcd1([1:length(ratio); ntexp]);
+possible = (divisor==1);
+<FONT COLOR="DARKGREEN">% We exclude the impossible cases by replacing values by Inf.</FONT>
+ratio(~possible) = ones(sum(~possible),1) * Inf;
+
+<FONT COLOR="DARKGREEN">% Minimum ratio of possible nfolds.</FONT>
+nfold = <A HREF="../runetools/minind.html">minind</A>(ratio,[],1);
+
+function res = gcd1(a)
+<FONT COLOR="DARKGREEN">% DESCRIPTION res = gcd1(a)</FONT>
+<FONT COLOR="DARKGREEN">%  Greatest common divisor for each column of any non empty matrix</FONT>
+<FONT COLOR="DARKGREEN">%  with integer values. </FONT>
+<FONT COLOR="DARKGREEN">% INPUT</FONT>
+<FONT COLOR="DARKGREEN">%  a --    Any non integer matrix.</FONT>
+<FONT COLOR="DARKGREEN">% OUTPUT</FONT>
+<FONT COLOR="DARKGREEN">%  res --  A vector with one element for each column,</FONT>
+<FONT COLOR="DARKGREEN">%          containing the greatest common divisor for that column.</FONT>
+<FONT COLOR="DARKGREEN">% TRY</FONT>
+<FONT COLOR="DARKGREEN">%  gcd1([5; 30]) or gcd1([2*3*4 3*5 2*3]')</FONT>
+<FONT COLOR="DARKGREEN">% SEE ALSO</FONT>
+<FONT COLOR="DARKGREEN">%  gcd</FONT>
+ 
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 991101</FONT>
+
+if isempty(a)
+ res = a;
+ return
+end
+r = a(1,:); 
+for i = 1:size(a,1);
+ r = gcd(r,a(i,:));
+end
+res = reshape(r,size(a(1,:)));  
+<FONT COLOR="DARKGREEN">% $Id: nmap.m,v 1.2 2004/03/11 15:01:31 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

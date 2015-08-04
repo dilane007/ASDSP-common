@@ -1,0 +1,43 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='getunits' filename='getunits.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testsuite.getunits.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.@testsuite.getname.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testsuite.run.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testsuite.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='getunits'>
+      <Inputs>
+        <Var name='tsuite'/>
+      </Inputs>
+      <Outputs>
+        <Var name='units'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='GETUNITS'>Gets the cell array of units of the test suite</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>units = getunits(tsuite)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>units = getunits(tsuite) gets the cell array of the units contained in this test suite.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

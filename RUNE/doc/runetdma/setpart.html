@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - setpart</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>setpart<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>par=setpart</P>
+Sets the structured parameter par that is the input to runeft. This file is intended to use as a template.</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>par</B></TD><TD>input parameter to rune</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>setpart</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="runeft.html">runeft</A></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function par = setpart
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 040213</FONT>
+
+<FONT COLOR="DARKGREEN">% Set up the default values for the runegain part</FONT>
+par=<A HREF="../runegain/setparg.html">setparg</A>;
+
+<FONT COLOR="DARKGREEN">% Simulation specific paramters</FONT>
+par.frametime = 1;     <FONT COLOR="DARKGREEN">% time interval between simulated frames. Could be nslots*sltottime </FONT>
+par.nframes = 5;       <FONT COLOR="DARKGREEN">% number of iterations in the main loop </FONT>
+par.slottime = 1/8;    <FONT COLOR="DARKGREEN">% time per slot </FONT>
+par.nslots  = 8;       <FONT COLOR="DARKGREEN">% nomber of slots per frame</FONT>
+par.seed = 1;          <FONT COLOR="DARKGREEN">% seed to all random sequencies in the simulation</FONT>
+
+<FONT COLOR="DARKGREEN">% Propagation specific paramters</FONT>
+par.gainconst = -28;   <FONT COLOR="DARKGREEN">% gain at 1 meter distance </FONT>
+par.noise = -118;      <FONT COLOR="DARKGREEN">% thermal noise floor -118 dBm</FONT>
+par.alpha = 3.5;       <FONT COLOR="DARKGREEN">% distance attenuation coefficient</FONT>
+par.sigma = 6;         <FONT COLOR="DARKGREEN">% standard deviation for the log-normal fading in dB</FONT>
+par.raa = 0.5;         <FONT COLOR="DARKGREEN">% lognormal correlation down link (typical 0.5)</FONT>
+par.corrdist = 110;    <FONT COLOR="DARKGREEN">% lognormal fading correlation distance [m]</FONT>
+
+<FONT COLOR="DARKGREEN">% Transmission specific parameters </FONT>
+par.homargin = 3;      <FONT COLOR="DARKGREEN">% gain margin between two bases used at Hand Off</FONT>
+par.pinit = 20;        <FONT COLOR="DARKGREEN">% init power set to each new link</FONT>
+par.pmax  =  33;       <FONT COLOR="DARKGREEN">% max transmit link power [dBm]</FONT>
+par.rbermax = 1;       <FONT COLOR="DARKGREEN">% raw bit error level over which a frame is lost</FONT>
+par.usefastf = 1;      <FONT COLOR="DARKGREEN">% make use of fast fading</FONT>
+
+<FONT COLOR="DARKGREEN">% specifics for TDMA</FONT>
+par.kn = 1;            <FONT COLOR="DARKGREEN">% kn^2+ln^2+kn*ln => the number of cluster per system</FONT>
+par.ln = 1;            <FONT COLOR="DARKGREEN">% related to kn above</FONT>
+par.kpc = 2;           <FONT COLOR="DARKGREEN">% channnels per cell</FONT>
+par.usefh = 0;         <FONT COLOR="DARKGREEN">% reselection of frequency every slot if 1</FONT>
+
+<FONT COLOR="DARKGREEN">% $Id: setpart.m,v 1.3 2004/03/15 14:59:54 olav Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

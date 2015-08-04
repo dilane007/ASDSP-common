@@ -1,0 +1,77 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='tassert_empty' filename='tassert_empty.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.tassert_empty.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.tests.tassert_class.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.tassert_eq.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='tassert_empty'>
+      <Inputs>
+        <Var name='x'/>
+        <Var name='level'/>
+        <Var name='rstack'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TASSERT_EMPTY'>Test an assertion that a variable is empty</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert_empty(x)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert_empty(x, level)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>b = tassert_empty(...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='x'>
+          <MParagraph>the value to be tested</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='level'>
+          <MParagraph>the level of the assertion (&apos;normal&apos; or &apos;fatal&apos;)</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='b'>
+          <MParagraph>whether x is empty</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>tassert_empty(x) tests whether x is empty in normal level, and records the the testing result in the current test monitor.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>tassert_empty(x, y, level) tests the assertion in the specified level and records the testing result.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>r = tassert_empty(...) returns the whether x is empty.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='remarks'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>The MATLAB function isempty is used to do the testing.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

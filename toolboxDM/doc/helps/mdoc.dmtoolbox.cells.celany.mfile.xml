@@ -1,0 +1,71 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='celany' filename='celany.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.cells.celany.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.cells.celall.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.cells.celcount.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.cells.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='celany'>
+      <Inputs>
+        <Var name='C'/>
+        <Var name='f'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='CELANY'>whether there are elements in the cell array satisfying some conditions</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = celany(C, f)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='C'>
+          <MParagraph>the source cell array</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='f'>
+          <MParagraph>the predicate function handle</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='b'>
+          <MParagraph>the judgment</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>b = celany(C, f) tests whether there exist elements in the cell array C that satisfies the condition given by f. f is a predicate function handle applied on each element.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Test whether the lengths of some strings are larger than 3</MParagraph>
+          <MCodeBlock>
+            <Line>    celany({&apos;ab&apos;, &apos;m&apos;, &apos;tig&apos;}, @(x) length(x) &gt; 3)</Line>
+            <Line>    =&gt; false</Line>
+            <Line></Line>
+            <Line>    celany({&apos;ab&apos;, &apos;mat&apos;, &apos;tiger&apos;}, @(x) length(x) &gt; 3)</Line>
+            <Line>    =&gt; true</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 27, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

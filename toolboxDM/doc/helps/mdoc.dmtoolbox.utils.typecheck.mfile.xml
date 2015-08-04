@@ -1,0 +1,136 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='typecheck' filename='typecheck.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.utils.typecheck.mfile.xml'/>
+    <Prev path='mdoc.dmtoolbox.utils.counttrue.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.utils.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='typecheck'>
+      <Inputs>
+        <Var name='x'/>
+        <Var name='varargin'/>
+      </Inputs>
+      <Outputs>
+        <Var name='b'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='TYPECHECK'>Checks whether the variable x is of the specified types</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>typecheck(x, msg, type)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>typecheck(x, msg, type1, type2, ...)</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>b = typecheck(x, type1, ...)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='arguments'>
+      <MTermList listtype='unordered'>
+        <MTermEntry term='x'>
+          <MParagraph>the variable to be checked</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='msg'>
+          <MParagraph>the error message to be shown when x is not of valid type</MParagraph>
+        </MTermEntry>
+        <MTermEntry term='type'>
+          <MParagraph>the string indicating the expected type for x. type can be a type name such as &apos;double&apos;, &apos;int8&apos;, &apos;struct&apos;, etc, or can be a class name, or either of the following</MParagraph>
+          <MTermList listtype='unordered'>
+            <MTermEntry term='numeric'>
+              <MParagraph>all numeric types</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='float'>
+              <MParagraph>&apos;single&apos; or &apos;double&apos;</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='string'>
+              <MParagraph>a row vector of chars</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='integer'>
+              <MParagraph>numeric type with actual values being integers</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='vector'>
+              <MParagraph>a 1 x n row vector or n x 1 column vector</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='row'>
+              <MParagraph>a 1 x n row vector</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='column'>
+              <MParagraph>a n x 1 column vector</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='scalar'>
+              <MParagraph>a 1 x 1 array</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='matrix'>
+              <MParagraph>a two-dimensional matrix</MParagraph>
+            </MTermEntry>
+            <MTermEntry term='empty'>
+              <MParagraph>can be empty</MParagraph>
+            </MTermEntry>
+          </MTermList>
+        </MTermEntry>
+        <MTermEntry term='b'>
+          <MParagraph>the logical value indicating whether the x passes the checking</MParagraph>
+        </MTermEntry>
+      </MTermList>
+    </MSection>
+    <MSection name='description'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>typecheck(x, msg, type) checks whether the variable x is of the specified type. If not, an error will be raised.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>typecheck(x, msg, type1, type2, ...) checks whether the variable x is of either one of the specified types. If not, an error will be raised.</MParagraph>
+        </MListItem>
+        <MListItem>
+          <MParagraph>b = typecheck(x, type1, ...) determines whether the variable x meets the type constraint and returns the logical result.</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='examples'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Checks a variable with a specified type</MParagraph>
+          <MCodeBlock>
+            <Line>   typecheck(x, &apos;x should be a double array&apos;, &apos;double&apos;)</Line>
+            <Line>   % checks whether x is a double-precision value/array</Line>
+            <Line></Line>
+            <Line>   typecheck(x, &apos;x should be of floating-point type&apos;, &apos;float&apos;)</Line>
+            <Line>   % checks whether x is a floating-point value/array,</Line>
+            <Line>   % either double or single</Line>
+            <Line></Line>
+            <Line>   typecheck(x, &apos;x should be a vector&apos;, &apos;vector&apos;)</Line>
+            <Line>   % checks whether x is a vector</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Checks a variable with multiple types</MParagraph>
+          <MCodeBlock>
+            <Line>   typecheck(x, &apos;numeric&apos;, &apos;logical&apos;)</Line>
+            <Line>   % checks whether x is either a numerical or a logical value/array</Line>
+          </MCodeBlock>
+        </MListItem>
+        <MListItem>
+          <MParagraph>Gets a type-checking judgment</MParagraph>
+          <MCodeBlock>
+            <Line>   b = typecheck(1.2, &apos;double&apos;) =&gt; true</Line>
+            <Line>   b = typecheck(&apos;abc&apos;, &apos;numeric&apos;) =&gt; false</Line>
+            <Line>   b = typecheck({1, 2}, &apos;logical&apos;, &apos;cell&apos;) =&gt; true</Line>
+          </MCodeBlock>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 24, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

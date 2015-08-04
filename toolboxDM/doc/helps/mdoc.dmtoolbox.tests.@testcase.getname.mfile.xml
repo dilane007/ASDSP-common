@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='../mfile_doc.xsl'?>
+<MFileInfo mname='getname' filename='getname.m'>
+  <Context is_root='true'>
+    <Self path='mdoc.dmtoolbox.tests.@testcase.getname.mfile.xml'/>
+    <Next path='mdoc.dmtoolbox.tests.@testcase.nfuns.mfile.xml'/>
+    <Root path='mdoc.dmtoolbox.mdir.xml'/>
+    <Parent path='mdoc.dmtoolbox.tests.@testcase.mdir.xml'/>
+  </Context>
+  <MDoc mtype='function'>
+    <MFuncDecl funcname='getname'>
+      <Inputs>
+        <Var name='tcase'/>
+      </Inputs>
+      <Outputs>
+        <Var name='name'/>
+      </Outputs>
+    </MFuncDecl>
+    <MHeadLine leadword='GETNAME'>Gets the name of the test case</MHeadLine>
+    <MSection name='syntax'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>name = getname(tcase)</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+    <MSection name='history'>
+      <MList listtype='unordered'>
+        <MListItem>
+          <MParagraph>Created by Dahua Lin, on Jun 29, 2007</MParagraph>
+        </MListItem>
+      </MList>
+    </MSection>
+  </MDoc>
+</MFileInfo>

@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>Manpage - index1</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="WHITE">
+
+<CENTER><TABLE CELLSPACING=5 BORDER=0><TR><TD BGCOLOR="#A0A0A0" COLSPAN=2><UL>
+<FONT SIZE=6 FACE="sans-serif"><B>index1<B></FONT>
+</UL></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Description</FONT></TD>
+<TD WIDTH=500><P>flind=index1(ind,dim,siz)</P>
+Calculates flat index into a matrix with reordering in one specific dimension</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Input</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>ind</B></TD><TD>any matrix with indices in dimension dim.</TD></TR>
+<TR><TD VALIGN="TOP"><B>dim</B></TD><TD>the dimension along which the operation will be performed.</TD></TR>
+<TR><TD VALIGN="TOP"><B>siz</B></TD><TD>size of the matrix to which the index willbe applied.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Output</FONT></TD>
+<TD><TABLE BORDER=0 CELLSPACING=5 WIDTH=500><TR><TD VALIGN="TOP"><B>flind</B></TD><TD>index into a matrix of size siz.</TD></TR>
+</TABLE>
+</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">Try</FONT></TD>
+<TD><PRE>index1([1 2],1,[2 2])
+index1([1 2 3]',1,[2 2])</PRE></TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2">See Also</FONT></TD>
+<TD><A HREF="index.html">index</A>, sub2ind, ind2sub</TD></TR>
+<TR><TD COLSPAN=2 HEIGHT=6><FONT SIZE="-7">&nbsp;</FONT></TD></TR>
+
+<TR><TD VALIGN="TOP"><FONT SIZE="+2" COLSPAN=2>Source Code</TD></TR>
+<TR><TD COLSPAN=2><PRE>function flind = index1(ind,dim,siz)
+
+<FONT COLOR="DARKGREEN">% by Magnus Almgren 011023</FONT>
+for i = 1:length(siz)
+ v{i} = <A HREF="flatten.html">flatten</A>((1:siz(i)),i);
+end
+v{dim} = ind;
+v{length(siz)+1} = siz;
+flind = <A HREF="index.html">index</A>(v{:});
+
+<FONT COLOR="DARKGREEN">% $Id: index1.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $</FONT>
+</PRE></TD></TR>
+</TABLE></CENTER>
+</BODY>
+</HTML>
