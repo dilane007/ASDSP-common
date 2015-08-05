@@ -1,4 +1,3 @@
-function bind = ismax(x,dim)
 % DESCRIPTION bind = ismax(x,dim)
 %  Calculates a binary matrix pointing to the maximum element 
 %  in that dimension. Default dim is set to the first non singleton dimension
@@ -12,12 +11,18 @@ function bind = ismax(x,dim)
 %  ismax([2.3; 3.2]),ismax(rand(5,6),2)
 % SEE ALSO 
 %  ismin, max, maxind
-
 % by Magnus Almgren 011023 revised 040202
-if ~exist('dim','var') % defauld dimension dim
- dim = firstnonsing(x); % first non singleton dimension
+%-------------------------------------------------dfm was here
+% [FREEM]false() fails on dimensions; %bind = false(size(x)); found a kludge
+%-------------------------------------------------dfm was here
+function bind = ismax(x,dim)
+    if ~exist('dim','var') % defauld dimension dim
+        dim = firstnonsing(x); % first non singleton dimension
+    end
+    [dummy, ind] = max(x,[],dim);  % get index to max values
+    %[FREEM] 
+    a=size(x);
+    bind = (ones(a)==zeros(a)); % create a logical matrix with filled with "false" 
+    %
+    bind(index1(ind,dim,size(x))) = true; % set true on positions with max values
 end
-[dummy, ind] = max(x,[],dim);  % get index to max values
-bind = false(size(x));  % create a logical matrix with filled with "false"
-bind(index1(ind,dim,size(x))) = true; % set true on positions with max values
-% $Id: ismax.m,v 1.1 2004/02/19 17:27:43 bogdant Exp $
