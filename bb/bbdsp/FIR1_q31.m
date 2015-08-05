@@ -1,4 +1,4 @@
-function zout= FIR1_q31(x,k,nstate)
+function zout= fir1_q31(x,k,nstate)
  zout = zeros(1,1);
  for n= 1:nstate,
       p = mul21s_q31(x(n),k(n));
