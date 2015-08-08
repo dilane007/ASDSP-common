@@ -1,6 +1,6 @@
 % z= FWRECTI(x)   returns a fully rectified wave 
-% SHAPE= scalar,vector; if input is an array the function returns a column
 % TYPE=unc
+% SHAPE= scalar,vector; if input is an array the function returns a column
 % RANGE=unc
 function z=fwrecti(x);
         y= -x; 
