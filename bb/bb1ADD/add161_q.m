@@ -1,9 +1,9 @@
-% z=ADD161_Q(x(1:16),qpoint)
+% z= ADD161_Q(x(1:16),qpoint)
 %=======================================================
 % TYPE= unc (input)  qtype (output)
-% SHAPE= vector 1 x 16; row,cln tested
+% SHAPE= vector 1 x 16; row,cln tested; output:scalar
 % RANGE= unc (input) given by qtype (output) 
-% modal= internally promoted (allow growth)
+% modal= internally promoted (allows growth of 4 bits)
 %        output: saturated to qformat 
 %--------------------------------------------    
 function  z = add161_q(x,qpoint)
@@ -24,7 +24,8 @@ if IMPLM == 1
        c6 = b6 + b7;
        e0 = c0 + c2; 
        e4 = c4 + c6;
-       z = e0+e4;
+       s = e0+e4;
+       z = qformat(s,qpoint)
 end;
 
 end

@@ -7,10 +7,11 @@ function z = qformat(x,qpoint)
 % <071809> addition flexible qformat
 % <082209> addition 53.53 as possible parameter
 % <090109> addition 16.0, 32.0, 50.0 as possible parameter; 
-% <091409> addition 28.22 to 32.18 
-% <170415> addition 24bits -- not tested 
-% <230515> addition 40bits -- not tested; 24bits are now partly tested 
-% <240515> addition 48bits -- not tested;
+% <091409> addition 28.22:32.18 
+% <170415> addition 24bits -- used not tested 
+% <230515> addition 40bits -- used not tested; 24bits are now partially tested 
+% <240515> addition 48bits -- used not tested;
+% <120815> error corrected 4.04 i.o 4.05(sic!)
 %KLUDGE
 if (eq(qpoint,5353)) ||(eq(qpoint,53.53)), z=x; return; end; %keep double FP precision
 if (eq(qpoint,800)),   z=qbformat(x,0); return;end;   
@@ -30,7 +31,7 @@ switch(qpoint)
     case{16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31},  z=qlformat(x,qpoint);
     case{32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49},    z=qeformat(x,qpoint);
     %fractionals have 7 width(8,16,24,32,40,48,50); more could be developped    
-    case{0.08,1.07,2.06,3.05,4.05,5.03,6.02,7.01},    
+    case{0.08,1.07,2.06,3.05,4.04,5.03,6.02,7.01},    
          qp=(qpoint-fix(qpoint));   
          z=qbformat(x,round(100*qp));   
     case{0.16,1.15,2.14,3.13,4.12,5.11,6.10,7.09,8.08,...

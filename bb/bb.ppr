@@ -1,0 +1,440 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.HideOutput=0
+Compilator.LogType=0
+DefaultDir=C:\Users\dilane\workspace\freemat\Common\bb
+DefaultCPIndex=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+Extensions=*.*
+[Project tree]
+bb
+	+bb
+		-bb1ADD
+			bb\bb1ADD\_list.txt
+			bb\bb1ADD\add161.m
+			bb\bb1ADD\add161_q.m
+			bb\bb1ADD\add21.m
+			bb\bb1ADD\add21_q.m
+			bb\bb1ADD\add21m_b.m
+			bb\bb1ADD\add21m_b4.m
+			bb\bb1ADD\add21m_bN.m
+			bb\bb1ADD\add21m_l.m
+			bb\bb1ADD\add21m_s.m
+			bb\bb1ADD\add21m_ub.m
+			bb\bb1ADD\add21m_ub4.m
+			bb\bb1ADD\add21m_ubN.m
+			bb\bb1ADD\add21m_ul.m
+			bb\bb1ADD\add21m_us.m
+			bb\bb1ADD\add21p_b.m
+			bb\bb1ADD\add21p_l.m
+			bb\bb1ADD\add21p_q.m
+			bb\bb1ADD\add21p_s.m
+			bb\bb1ADD\add21p_ub.m
+			bb\bb1ADD\add21p_ul.m
+			bb\bb1ADD\add21p_us.m
+			bb\bb1ADD\add21s_b.m
+			bb\bb1ADD\add21s_l.m
+			bb\bb1ADD\add21s_s.m
+			bb\bb1ADD\add21s_ub.m
+			bb\bb1ADD\add21s_ul.m
+			bb\bb1ADD\add21s_us.m
+			bb\bb1ADD\add31.m
+			bb\bb1ADD\add41.m
+			bb\bb1ADD\add81.m
+			bb\bb1ADD\addc21m_b4.m
+			bb\bb1ADD\addc21m_bN.m
+			bb\bb1ADD\addc21m_ub4.m
+			bb\bb1ADD\addc21m_ubN.m
+			bb\bb1ADD\addV1_q.m
+			bb\bb1ADD\rsub21.m
+			bb\bb1ADD\rsub21_q.m
+			bb\bb1ADD\sub21.m
+			bb\bb1ADD\sub21_q.m
+			bb\bb1ADD\sub21m_b.m
+			bb\bb1ADD\sub21m_l.m
+			bb\bb1ADD\sub21m_s.m
+			bb\bb1ADD\sub21m_ub.m
+			bb\bb1ADD\sub21m_ul.m
+			bb\bb1ADD\sub21m_us.m
+			bb\bb1ADD\sub21p_b.m
+			bb\bb1ADD\sub21p_l.m
+			bb\bb1ADD\sub21p_q.m
+			bb\bb1ADD\sub21p_s.m
+			bb\bb1ADD\sub21p_ub.m
+			bb\bb1ADD\sub21p_ul.m
+			bb\bb1ADD\sub21p_us.m
+			bb\bb1ADD\sub21s_b.m
+			bb\bb1ADD\sub21s_l.m
+			bb\bb1ADD\sub21s_s.m
+			bb\bb1ADD\sub21s_ub.m
+			bb\bb1ADD\sub21s_ul.m
+			bb\bb1ADD\sub21s_us.m
+		-bb1MUL
+			bb\bb1MUL\_list.txt
+			bb\bb1MUL\mul21.m
+			bb\bb1MUL\mul21_q.m
+			bb\bb1MUL\mul21al_8q24.m
+			bb\bb1MUL\mul21m_b.m
+			bb\bb1MUL\mul21m_l.m
+			bb\bb1MUL\mul21m_s.m
+			bb\bb1MUL\mul21m_ub.m
+			bb\bb1MUL\mul21m_ul.m
+			bb\bb1MUL\mul21m_us.m
+			bb\bb1MUL\mul21n_8q24.m
+			bb\bb1MUL\mul21n_q.m
+			bb\bb1MUL\mul21n_q15.m
+			bb\bb1MUL\mul21p_b.m
+			bb\bb1MUL\mul21p_l.m
+			bb\bb1MUL\mul21p_q15.m
+			bb\bb1MUL\mul21p_s.m
+			bb\bb1MUL\mul21p_ub.m
+			bb\bb1MUL\mul21p_ul.m
+			bb\bb1MUL\mul21p_us.m
+			bb\bb1MUL\mul21ps_q15.m
+			bb\bb1MUL\mul21s_b.m
+			bb\bb1MUL\mul21s_l.m
+			bb\bb1MUL\mul21s_q.m
+			bb\bb1MUL\mul21s_q15.m
+			bb\bb1MUL\mul21s_q31.m
+			bb\bb1MUL\mul21s_s.m
+			bb\bb1MUL\mul21s_ub.m
+			bb\bb1MUL\mul21s_ul.m
+			bb\bb1MUL\mul21s_us.m
+			bb\bb1MUL\mul31.m
+			bb\bb1MUL\mul31_q.m
+			bb\bb1MUL\mul42.m
+			bb\bb1MUL\mul42_q.m
+			bb\bb1MUL\mulr21s_s.m
+			bb\bb1MUL\mulsS.m
+		-bb1Muladd
+			bb\bb1Muladd\macc21.m
+			bb\bb1Muladd\macc21_q.m
+			bb\bb1Muladd\macc41.m
+			bb\bb1Muladd\macc41_q.m
+			bb\bb1Muladd\madd31.m
+			bb\bb1Muladd\madd31_q.m
+			bb\bb1Muladd\madd41.m
+			bb\bb1Muladd\madd41_q.m
+		-bb2ARITH
+			bb\bb2ARITH\abs11.m
+			bb\bb2ARITH\abs11s_6q18.m
+			bb\bb2ARITH\abs11s_q.m
+			bb\bb2ARITH\absdif21.m
+			bb\bb2ARITH\absdif21s_6q18.m
+			bb\bb2ARITH\absdif21s_q.m
+			bb\bb2ARITH\acs41.m
+			bb\bb2ARITH\addcx.m
+			bb\bb2ARITH\addd21.m
+			bb\bb2ARITH\addsub22.m
+			bb\bb2ARITH\addsub22s_q.m
+			bb\bb2ARITH\avg21.m
+			bb\bb2ARITH\avg41.m
+			bb\bb2ARITH\butterDIF32_q.m
+			bb\bb2ARITH\butterDIF32s_q.m
+			bb\bb2ARITH\butterDIT32.m
+			bb\bb2ARITH\butterDIT32s_q.m
+			bb\bb2ARITH\cxmul42.m
+			bb\bb2ARITH\cxmul42_q.m
+			bb\bb2ARITH\cxmul42p_q15.m
+			bb\bb2ARITH\cxmul42pn_q15.m
+			bb\bb2ARITH\cxmul42ps_q15.m
+			bb\bb2ARITH\cxmul42s_q15.m
+			bb\bb2ARITH\intmax.m
+			bb\bb2ARITH\intmin.m
+			bb\bb2ARITH\max161.m
+			bb\bb2ARITH\max168.m
+			bb\bb2ARITH\max1u1.m
+			bb\bb2ARITH\max21.m
+			bb\bb2ARITH\max21s_q.m
+			bb\bb2ARITH\max8u1.m
+			bb\bb2ARITH\min1u1.m
+			bb\bb2ARITH\min21.m
+			bb\bb2ARITH\min21s_q.m
+			bb\bb2ARITH\mod21.m
+			bb\bb2ARITH\sad2U1.m
+			bb\bb2ARITH\synch.log
+		-bb2CMP
+			bb\bb2CMP\all11.m
+			bb\bb2CMP\any11.m
+			bb\bb2CMP\cmpz11.m
+			bb\bb2CMP\eq21.m
+			bb\bb2CMP\eq21_q.m
+			bb\bb2CMP\eq31.m
+			bb\bb2CMP\eqall21.m
+			bb\bb2CMP\eqall21_q.m
+			bb\bb2CMP\eqany21.m
+			bb\bb2CMP\eqany21_q.m
+			bb\bb2CMP\ge21.m
+			bb\bb2CMP\ge21_q.m
+			bb\bb2CMP\gt21.m
+			bb\bb2CMP\gt21_q.m
+			bb\bb2CMP\le21.m
+			bb\bb2CMP\le21_q.m
+			bb\bb2CMP\lt21.m
+			bb\bb2CMP\lt21_q.m
+			bb\bb2CMP\ne21.m
+			bb\bb2CMP\ne21_q.m
+			bb\bb2CMP\sign11.m
+			bb\bb2CMP\signbit11.m
+		-bb2condi
+			bb\bb2condi\cadd21.m
+			bb\bb2condi\demux12.m
+			bb\bb2condi\demux13.m
+			bb\bb2condi\demux14.m
+			bb\bb2condi\mux161.m
+			bb\bb2condi\mux21.m
+			bb\bb2condi\mux31.m
+			bb\bb2condi\mux41.m
+			bb\bb2condi\mux81.m
+			bb\bb2condi\muxa21.m
+			bb\bb2condi\muxcc21.m
+			bb\bb2condi\muxKK1.m
+			bb\bb2condi\omux21.m
+			bb\bb2condi\triop31.m
+		-bb2degen
+			bb\bb2degen\dec11.m
+			bb\bb2degen\inc11.m
+			bb\bb2degen\multwoti21.m
+			bb\bb2degen\multwoti21s_q15.m
+			bb\bb2degen\multwoti21s_q31.m
+			bb\bb2degen\neg11.m
+			bb\bb2degen\neg11_b.m
+			bb\bb2degen\neg11s_b.m
+			bb\bb2degen\neg11s_s.m
+			bb\bb2degen\negs_s.m
+			bb\bb2degen\swapinv11.m
+		-bb3BIT
+			bb\bb3BIT\_list.txt
+			bb\bb3BIT\bitget21.m
+			bb\bb3BIT\bitshift.m
+			bb\bb3BIT\bitshifta.m
+			bb\bb3BIT\bitshifta_ub.m
+			bb\bb3BIT\bitshifta_ub4.m
+			bb\bb3BIT\bitshifta_ul.m
+			bb\bb3BIT\bitshifta_us.m
+			bb\bb3BIT\clo.m
+			bb\bb3BIT\cls.m
+			bb\bb3BIT\cls11.m
+			bb\bb3BIT\clz.m
+			bb\bb3BIT\ishift1.m
+			bb\bb3BIT\qshift.m
+			bb\bb3BIT\qshift11.m
+			bb\bb3BIT\shift1.m
+			bb\bb3BIT\shift21.m
+			bb\bb3BIT\shiftone11.m
+			bb\bb3BIT\synch.log
+		-bb3BITF
+			bb\bb3BITF\bitrev11.m
+			bb\bb3BITF\cat21.m
+			bb\bb3BITF\concat21.m
+			bb\bb3BITF\deinter.m
+			bb\bb3BITF\deinter88.m
+			bb\bb3BITF\dup21.m
+			bb\bb3BITF\extend.m
+			bb\bb3BITF\extlsb.m
+			bb\bb3BITF\extmsb.m
+			bb\bb3BITF\extract11.m
+			bb\bb3BITF\lsb2msb.m
+			bb\bb3BITF\rowise11.m
+			bb\bb3BITF\sex.m
+			bb\bb3BITF\split12.m
+			bb\bb3BITF\splitoe.m
+			bb\bb3BITF\splitoe12.m
+			bb\bb3BITF\zext.m
+		-bb3BYTE
+			bb\bb3BYTE\concabyte41.m
+			bb\bb3BYTE\concahilo21.m
+			bb\bb3BYTE\hi11.m
+			bb\bb3BYTE\hihi11.m
+			bb\bb3BYTE\hilo11.m
+			bb\bb3BYTE\lo11.m
+			bb\bb3BYTE\lohi11.m
+			bb\bb3BYTE\lolo11.m
+			bb\bb3BYTE\swap11_us.m
+			bb\bb3BYTE\unpack12_s2b.m
+			bb\bb3BYTE\unpack13_sl2b.m
+			bb\bb3BYTE\unpack14_l2b.m
+		-bb3VEC
+			bb\bb3VEC\_list.txt
+			bb\bb3VEC\accumar1.m
+			bb\bb3VEC\accumar16.m
+			bb\bb3VEC\accumar2.m
+			bb\bb3VEC\accumar4.m
+			bb\bb3VEC\padeven.m
+			bb\bb3VEC\synch.log
+			bb\bb3VEC\vmax.m
+		+bbdsp
+			bb\bbdsp\fir1_q.m
+			bb\bbdsp\fir1_q31.m
+			bb\bbdsp\fir161_q.m
+			bb\bbdsp\firsb_q.m
+			bb\bbdsp\fwrecti_q.m
+			bb\bbdsp\gellis3_q.m
+			bb\bbdsp\iir1_q.m
+			bb\bbdsp\pmavf_q.m
+			bb\bbdsp\pmavfsec_q.m
+			bb\bbdsp\slicer_q.m
+			bb\bbdsp\synch.log
+		-bbmath
+			bb\bbmath\cart2pold.m
+			bb\bbmath\div21.m
+			bb\bbmath\div2k11.m
+			bb\bbmath\div4k11.m
+			bb\bbmath\divkk11.m
+			bb\bbmath\idivide.m
+			bb\bbmath\modulo21.m
+			bb\bbmath\norma12.m
+			bb\bbmath\normexpo12_fp.m
+			bb\bbmath\pold2cart.m
+			bb\bbmath\synch.log
+		-octavin
+			bb\octavin\bitget.m
+			bb\octavin\bitset.m
+			bb\octavin\imshow.m
+		-trayin
+			bb\trayin\_list.txt
+			bb\trayin\ceil11.m
+			bb\trayin\corrcoef.m
+			bb\trayin\findpeak.m
+			bb\trayin\limit.m
+			bb\trayin\limitlo.m
+			bb\trayin\limitup.m
+			bb\trayin\logo11.m
+			bb\trayin\LU_decomp.m
+			bb\trayin\Mldivide.m
+			bb\trayin\normc2.m
+			bb\trayin\psnr.m
+			bb\trayin\SeqDn.m
+			bb\trayin\SeqUp.m
+			bb\trayin\snr.m
+			bb\trayin\strmatch.m
+			bb\trayin\synch.log
+			bb\trayin\truncate11.m
+		bb\_list.txt
+		bb\aaatemplate.m
+		bb\synch.log
+[Open project files]
+0=bb\bb1ADD\add161_q.m
+1=bb\bb1ADD\add21_q.m
+2=bb\bb1ADD\add21p_q.m
+3=bb\bb1ADD\addV1_q.m
+4=bb\bb1ADD\rsub21_q.m
+5=bb\bb1ADD\sub21_q.m
+6=bb\bb1ADD\sub21p_q.m
+7=bb\bb1MUL\mul21_q.m
+8=bb\bb1MUL\mul21n_q.m
+9=bb\bb1MUL\mul21s_q.m
+10=bb\bb1MUL\mul31_q.m
+11=bb\bb1MUL\mul42_q.m
+12=bb\bb1Muladd\macc21_q.m
+13=bb\bb1Muladd\macc41_q.m
+14=bb\bb1Muladd\madd31_q.m
+15=bb\bb2ARITH\abs11s_6q18.m
+16=bb\bb2ARITH\abs11s_q.m
+17=bb\bb2ARITH\cxmul42_q.m
+18=bb\bb2ARITH\cxmul42p_q15.m
+19=bb\bb2ARITH\cxmul42pn_q15.m
+20=bb\bb2ARITH\max21s_q.m
+21=bb\bb2ARITH\min21s_q.m
+22=bb\bb2CMP\eq21_q.m
+23=bb\bb2CMP\ge21_q.m
+24=bb\bb2CMP\le21_q.m
+25=bb\bb2degen\multwoti21s_q15.m
+26=bb\bb2degen\multwoti21s_q31.m
+27=bb\bbdsp\fwrecti_q.m
+28=bb\bbdsp\synch.log
+[Selected Project Files]
+Main=
+Selected=bb\bbdsp\synch.log
+[bb\bb1ADD\add161_q.m]
+TopLine=21
+Caret=1,28
+[bb\bb1ADD\add21_q.m]
+TopLine=1
+Caret=1,3
+[bb\bb1ADD\add21p_q.m]
+TopLine=1
+Caret=1,8
+[bb\bb1ADD\addV1_q.m]
+TopLine=7
+Caret=1,14
+[bb\bb1ADD\rsub21_q.m]
+TopLine=1
+Caret=1,3
+[bb\bb1ADD\sub21_q.m]
+TopLine=1
+Caret=1,3
+[bb\bb1ADD\sub21p_q.m]
+TopLine=2
+Caret=1,9
+[bb\bb1MUL\mul21_q.m]
+TopLine=2
+Caret=1,9
+[bb\bb1MUL\mul21n_q.m]
+TopLine=9
+Caret=1,16
+[bb\bb1MUL\mul21s_q.m]
+TopLine=1
+Caret=1,4
+[bb\bb1MUL\mul31_q.m]
+TopLine=1
+Caret=1,5
+[bb\bb1MUL\mul42_q.m]
+TopLine=1
+Caret=1,6
+[bb\bb1Muladd\macc21_q.m]
+TopLine=1
+Caret=1,6
+[bb\bb1Muladd\macc41_q.m]
+TopLine=1
+Caret=1,8
+[bb\bb1Muladd\madd31_q.m]
+TopLine=1
+Caret=1,5
+[bb\bb2ARITH\abs11s_6q18.m]
+TopLine=26
+Caret=1,16
+[bb\bb2ARITH\abs11s_q.m]
+TopLine=9
+Caret=1,16
+[bb\bb2ARITH\cxmul42_q.m]
+TopLine=7
+Caret=1,14
+[bb\bb2ARITH\cxmul42p_q15.m]
+TopLine=30
+Caret=1,43
+[bb\bb2ARITH\cxmul42pn_q15.m]
+TopLine=10
+Caret=1,17
+[bb\bb2ARITH\max21s_q.m]
+TopLine=1
+Caret=1,3
+[bb\bb2ARITH\min21s_q.m]
+TopLine=1
+Caret=1,3
+[bb\bb2CMP\eq21_q.m]
+TopLine=1
+Caret=1,2
+[bb\bb2CMP\ge21_q.m]
+TopLine=1
+Caret=1,2
+[bb\bb2CMP\le21_q.m]
+TopLine=1
+Caret=1,2
+[bb\bb2degen\multwoti21s_q15.m]
+TopLine=1
+Caret=1,14
+[bb\bb2degen\multwoti21s_q31.m]
+TopLine=7
+Caret=1,22
+[bb\bbdsp\fwrecti_q.m]
+TopLine=1
+Caret=17,1
+[bb\bbdsp\synch.log]
+TopLine=1
+Caret=13,8
