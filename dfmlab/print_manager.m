@@ -9,26 +9,27 @@
 %2.1 <05May2009> add message for constants
 %3.1 <05Aug2015> [freem] cosmetics and better style 
 %3.2 <08Aug2015> pxz4: a better plotter  
+%3.3 <12Aug2015> small improv.  
 %=====================================
 %--CONSTANTS
-formw      = 'WRONG expected result \n';
-formok     = 'no error \n';
-formalldo  = 'all tests passed \n';
 asep    = '==================================================\n';
 ablock  = '############################################################\n';
 
 %--CODE
 cc = isempty(verbose);
 if (cc) , verbose=0; end;
-if (verbose >=2), fprintf(1,'printactor is %s \n',printactor);end;
+if (verbose >=2), fprintf(OFP,'[PRINTMAN]printactor is %s \n',printactor);end;
+cc = isempty(verbo);
+if (cc) , verbo.printman=0; end;
+if (verbo.printman >=1), fprintf(OFP,'[PRINTMAN]printactor is %s \n',printactor);end;
 switch(printactor)
 %============== FPRINTF =======================
    case{'nill'}
    case {'eol'}  ,  fprintf(OFP,'\n');
    case {'CR'}    , fprintf(OFP,'\n');
-   case {'ok'}    , fprintf(OFP,formok);
-   case {'alldone'} , fprintf(OFP,formalldo);
-   case {'wrong'}   , fprintf(OFP,formw);
+   case {'ok'}    , fprintf(OFP,'no error \n');
+   case {'alldone'} , fprintf(OFP,'all tests passed \n');
+   case {'wrong'}   , fprintf(OFP,'WRONG expected result \n');
    case {'separe'}  , fprintf(OFP,asep);
    case {'tesep'}  ,  for ii=1:3, fprintf(OFP,ablock);end;
    case {'alldot'}  , fprintf(OFP,'.\n');
@@ -153,5 +154,5 @@ switch(printactor)
         subplot(2,1,2); plot(frqsingle,zsingle);
         title('Spectrum of single-sideband signal');
     otherwise
-    fprintf(1,'### THIS printactor %s is UNKNOWN ### \n',printactor)
+    fprintf(OFP,'[PRINTMAN] printactor %s is UNKNOWN ### \n',printactor)
 end;

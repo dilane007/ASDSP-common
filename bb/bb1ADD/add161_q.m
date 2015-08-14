@@ -25,7 +25,7 @@ if IMPLM == 1
        e0 = c0 + c2; 
        e4 = c4 + c6;
        s = e0+e4;
-       z = qformat(s,qpoint)
+       z = qformat(s,qpoint);
 end;
 
 end

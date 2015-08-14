@@ -7,7 +7,7 @@ function z = qsformat(x,qpoint,IMPLM)
  end;
  if IMPLM==2
     t =int16(round(x*power(2,qpoint)));
-    z= soq(t,qpoint)); 
+    z= soq(t,qpoint); 
  end;
  
 end
