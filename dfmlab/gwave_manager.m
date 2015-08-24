@@ -1,13 +1,12 @@
-% ariti\max168\gene_manager.m
+%GWAVE_MANAGER
 
 % wave= sum of out of phase harmonics; outter wave = hat shape (genactor= 'hat1')
 % outshaped wave = harmonics not in phase  (genactor= 'outshaped')
 % triangular wave  (genactor='triwave')
-% 3rd harmonics wave(genactor= 'confitest1')
 % plot a wave (genactor= 'confitest0')
 %-----------------------------------------------------------------
-function gene= gene_manager(genactor,genemess)
-global verbose
+function gene= gwave_manager(genactor,genemess)
+global verbo
 global OFP
 global NULL  
    
@@ -17,7 +16,7 @@ global NULL
 if (nargin <2 ) genemess=0;end; 
 if (nargin <1 ) genactor='confitest0';end;
     
-fprintf(OFP,'[GENE] entering gene=%s ---------------------\n',genactor);
+if exist('verbo.gene') && verbo.gene >=1 , fprintf(OFP,'[GENE WAVE]=%s\n',genactor);end;
 
 %% ================================================================
 %% IMPLEMENTATION

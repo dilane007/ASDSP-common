@@ -1,12 +1,13 @@
-%== common\gene_manager
+%dfmlab\gene_manager.m
 %1.3 <06feb2007> massive infusion of real gene 
-%1.5 <04Mar2007> addition seqfunpi (row then cln)
-%1.6 <27Jul2015> changed geneactor to genactor
-                 added verbo.gene  
+%1.5 <04mar2007> addition seqfunpi (row then cln)
+%1.6 <27jul2015> changed geneactor to genactor,    added verbo.gene  
+%1.7 <22aug2015> added if exist
 %=====================================
 global Fs time T L Nsamp 
 
-if verbo.gene==1, fprintf(OFP,'[GENE] genactor= %s \n',genactor);end;
+if exist('verbo.gene') &&  verbo.gene >= 1,  fprintf(OFP,'[GENE] genactor= %s \n',genactor);end;
+ 
 
 sequp= -11:10;
 seqdwn=10:-1:-10;
