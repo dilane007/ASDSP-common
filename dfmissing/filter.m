@@ -2,8 +2,8 @@
 % x= input vector.
 % num= numerator coefficients 
 % deno= denominator coefficients 
-% If deno(1) is not equal to 1, filter normalizes the filter coefficients by deno(1). 
-% If deno(1) equals 0, filter returns an error.
+%  If deno(1) is not equal to 1, filter normalizes the filter coefficients by deno(1). 
+%  If deno(1) equals 0, filter returns an error.
 %
 % This is a subset of the functionality of the MATLAB filter. 
 %----------------------------------------------

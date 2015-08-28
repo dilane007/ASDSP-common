@@ -6,7 +6,7 @@
 % modal= internally promoted (allow growth)
 %        output: saturated to qformat 
 %--------------------------------------------    
-function  z = addV1_q(x,qpoint)
+function  z= addV1_q(x,qpoint)
 IMPLM=1;
     
     if IMPLM == 1    
