@@ -1,9 +1,10 @@
 %% dfmlab\gene_managerF.m
+% <01sep2015> modified: exist('verbo') instead of ('verbo.gene')
 function gene=gene_managerF(genactor,genemess,loadcoefs);
 global verbo
 global OFP
 
-if exist('verbo.gene') && verbo.gene >= 1,    fprintf(OFP,'[GENE F]actor=%s\n',genactor); end;
+if exist('verbo') && verbo.gene >= 1,    fprintf(OFP,'[GENE F]actor=%s\n',genactor); end;
 
     
 %default%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

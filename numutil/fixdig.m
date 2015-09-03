@@ -68,4 +68,4 @@ TOOL= 'FMAT';
          z(k) = z(k) + i*fix(ximag .* f) ./ f;
       end
    end
-ens
+end

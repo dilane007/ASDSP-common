@@ -33,18 +33,24 @@ function z = l2ul(x)
 %implement3
    x = x(:);
    x = int32(x);
-   k = x < 0;
+   cc = x < 0;
    x = double(x);
-   x(k) = x(k) + 4294967296;
-   s = sprintf('%.8x', x);
-   s = reshape(s, [8, length(x)]).';
+   x(cc) = x(cc) + 4294967296
+   ss = sprintf('%.8x', x)
+   len=length(x);
+   s = reshape(ss, [8 len]).'
 
    % Convert to the output data type.
-   n = uint32(reshape(sscanf(s, '%1x'), size(s)));
+   sizee=size(s)
+   nn= sscanf(s, '%1x')
+   nh= reshape(nn, sizee)
+   n = uint32(nh)
    z = uint32(n(:,1));
    for i = 2:8
       z = bitor(bitshift(z, 4), n(:,i));
-   end
+   end;
+   
+end   
 
 
 

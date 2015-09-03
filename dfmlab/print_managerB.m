@@ -1,8 +1,8 @@
-%ARITI\ROUNDER\print_managerF.m
+% A print_manager where the printactor is the format 
 %=====================================================
-function print_managerF(printactor,bufsize,buf1,buf2,buf3,buf4,buf5,buf6)
+function print_managerB(printactor,bufsize,buf1,buf2,buf3,buf4,buf5,buf6)
 
-global verbose 
+global verbo 
 global OFP
 %--CONSTANTS
 form1 ='%8d \n';
@@ -19,8 +19,7 @@ form11L ='%16.10f %16.10f \n';
 form32L ='%16.10f %16.10f %16.10f \n';
 form42L ='%16.10f %16.10f %16.10f %16.10f \n';
 
-if (verbose ==1 || verbose ==10) 
- disp(['[PRINTMAN]........' printactor] );end; 
+if (verbo.printman ==1 ), disp(['[PRINTMAN B]........' printactor] );end; 
 
 %----------------------
 if strcmp(printactor,'print11L'),    printactor='print11'; form11=form11L; end;
@@ -72,7 +71,7 @@ switch printactor
             buf1(j,13),buf1(j,14),buf1(j,15),buf1(j,16));
       end;
     otherwise
-        disp('print actor unknown')
+        disp('[PRINTMAN B] printactor unknown')
 end
 
 
