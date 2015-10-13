@@ -21,14 +21,16 @@ MLABIDX=1;
 if nargin < 3, qpoint=53.53; end;
 
 persistent z1;
+
  %on reset,clear state 
- if (isempty(z1)),z1=0;end;
+ if (isempty(z1)),z1=0;return;end;
  %local storage 
  bufx(0+MLABIDX)=x0;
  bufx(1+MLABIDX)=z1;
- %kernel 
+ % enforce the q format  
  xq= qformat(bufx,qpoint);
  kq= qformat(bufk);
+ %kernel  
  s = sub21_q(xq(1),xq(2),qpoint);
  t = mul21_q(s,kq(1),qpoint);
  z = add21_q(xq(2),t,qpoint);
